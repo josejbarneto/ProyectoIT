@@ -16,6 +16,10 @@
     </package>
     -->
     
+    <package name="default" namespace="/" extends="struts-default">
+
+    </package>
+    
     <package name="accionesLogin" extends="struts-default">
         <action name="comprobarLogin" class="acciones.accionLogin">
             <result name="success">/vistas/inicio.jsp</result>
@@ -26,5 +30,19 @@
         <action name="salir" class="acciones.accionLogin" method="logout">
             <result name="success">/vistas/index.jsp</result>
         </action>
+        
+        <action name="redirigirARegistrar" class="acciones.redirigirARegistrar">
+            <result name="success">/vistas/registro.jsp</result>
+        </action>   
     </package>
+    
+    <package name="accionesRegistro" extends="struts-default">
+ 
+        <action name="registrar" class="acciones.accionRegistrar">
+            <result name="success">/vistas/inicio.jsp</result>
+            <result name="error">/vistas/registro.jsp</result>
+        </action>
+    </package>
+    
+    
 </struts>

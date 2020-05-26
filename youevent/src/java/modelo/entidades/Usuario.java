@@ -15,6 +15,7 @@ public class Usuario  implements java.io.Serializable {
      private Evento evento;
      private int idConfiguracion;
      private String usuario;
+     private String password;
      private String rol;
      private String nombre;
      private String email;
@@ -26,18 +27,20 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(Evento evento, int idConfiguracion, String usuario, String rol, String nombre, String email) {
+    public Usuario(Evento evento, int idConfiguracion, String usuario, String password, String rol, String nombre, String email) {
         this.evento = evento;
         this.idConfiguracion = idConfiguracion;
         this.usuario = usuario;
+        this.password = password;
         this.rol = rol;
         this.nombre = nombre;
         this.email = email;
     }
-    public Usuario(Evento evento, int idConfiguracion, String usuario, String rol, String nombre, String email, Set configuracionsForIdUsuario, Configuracion configuracionByIdConfiguracion, Set entradas) {
+    public Usuario(Evento evento, int idConfiguracion, String usuario, String rol, String nombre, String password, String email, Set configuracionsForIdUsuario, Configuracion configuracionByIdConfiguracion, Set entradas) {
        this.evento = evento;
        this.idConfiguracion = idConfiguracion;
        this.usuario = usuario;
+       this.password = password;
        this.rol = rol;
        this.nombre = nombre;
        this.email = email;
@@ -74,6 +77,15 @@ public class Usuario  implements java.io.Serializable {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     public String getRol() {
         return this.rol;
     }

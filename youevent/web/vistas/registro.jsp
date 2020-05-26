@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : 25-may-2020, 0:41:03
+    Document   : registro
+    Created on : 26-may-2020, 18:27:48
     Author     : Carlos
 --%>
 
@@ -10,16 +10,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>login</title>
+        <title>Registro</title>
     </head>
     <body>
-        <s:form action="comprobarLogin">
+        <s:form action="registrar" method="post">
+            <s:textfield name="nombre" label="Nombre"></s:textfield>
             <s:textfield name="usuario" label="Nombre de usuario"></s:textfield>
             <s:password name="password" label="Contraseña"></s:password>
+            <s:textfield name="email" label="Email"></s:textfield>
             <s:submit name="btnEnviar" value="Enviar"></s:submit>
-        </s:form>
-        <s:form action="redirigirARegistrar">
-            <s:submit name="btnRegistrar" value="Registrar"></s:submit>
         </s:form>
     </body>
 </html>
