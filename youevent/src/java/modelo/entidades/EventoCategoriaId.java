@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 27-may-2020 20:52:56 by Hibernate Tools 4.3.1
+// Generated 27-may-2020 21:22:55 by Hibernate Tools 4.3.1
 
 
 

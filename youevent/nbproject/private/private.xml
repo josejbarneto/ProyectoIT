@@ -15,9 +15,9 @@
             <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/src/java/hibernate.cfg.xml</file>
             <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/src/java/struts.xml</file>
             <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/src/java/acciones/redirigirARegistrar.java</file>
-            <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/src/java/modelo/entidades/Usuario.hbm.xml</file>
             <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/web/vistas/registro.jsp</file>
             <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/src/java/modelo/dao/configuracionDAO.java</file>
+            <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/src/java/modelo/entidades/Configuracion.java</file>
             <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/web/vistas/footer.html</file>
             <file>file:/C:/Users/eugen/Desktop/ProyectoIT/youevent/web/vistas/header.jsp</file>
         </group>

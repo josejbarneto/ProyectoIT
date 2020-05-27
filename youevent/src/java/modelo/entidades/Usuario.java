@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 27-may-2020 20:52:56 by Hibernate Tools 4.3.1
+// Generated 27-may-2020 21:22:55 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,9 +13,10 @@ public class Usuario  implements java.io.Serializable {
 
      private Integer id;
      private String usuario;
-     private String rol;
+     private int rol;
      private String nombre;
      private String email;
+     private String contrasenya;
      private Set configuracions = new HashSet(0);
      private Set entradas = new HashSet(0);
 
@@ -23,17 +24,19 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(String usuario, String rol, String nombre, String email) {
+    public Usuario(String usuario, int rol, String nombre, String email, String contrasenya) {
         this.usuario = usuario;
         this.rol = rol;
         this.nombre = nombre;
         this.email = email;
+        this.contrasenya = contrasenya;
     }
-    public Usuario(String usuario, String rol, String nombre, String email, Set configuracions, Set entradas) {
+    public Usuario(String usuario, int rol, String nombre, String email, String contrasenya, Set configuracions, Set entradas) {
        this.usuario = usuario;
        this.rol = rol;
        this.nombre = nombre;
        this.email = email;
+       this.contrasenya = contrasenya;
        this.configuracions = configuracions;
        this.entradas = entradas;
     }
@@ -52,11 +55,11 @@ public class Usuario  implements java.io.Serializable {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    public String getRol() {
+    public int getRol() {
         return this.rol;
     }
     
-    public void setRol(String rol) {
+    public void setRol(int rol) {
         this.rol = rol;
     }
     public String getNombre() {
@@ -72,6 +75,13 @@ public class Usuario  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getContrasenya() {
+        return this.contrasenya;
+    }
+    
+    public void setContrasenya(String contrasenya) {
+        this.contrasenya = contrasenya;
     }
     public Set getConfiguracions() {
         return this.configuracions;

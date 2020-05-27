@@ -5,6 +5,7 @@ package modelo.dao;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.io.Serializable;
 import modelo.entidades.Usuario;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -21,7 +22,7 @@ public class usuarioDAO {
     public Usuario comprobarLogin(String username, String password) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = sesion.beginTransaction();
-        Query q = sesion.createQuery("From Usuario where usuario='" + username + "' and password='" + password + "'");
+        Query q = sesion.createQuery("From Usuario where usuario='" + username + "' and contrasenya='" + password + "'");
         Usuario u = (Usuario) q.uniqueResult();
         tx.commit();
         return u;
@@ -33,18 +34,21 @@ public class usuarioDAO {
         Query q = sesion.createQuery("From Usuario where usuario='" + usuario + "'");
         Usuario u = (Usuario) q.uniqueResult();
         tx.commit();
+        
         if (u != null) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
+        
     }
 
-    public void insertUsuario(Usuario usuario) {
+    public int insertUsuario(Usuario usuario) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = sesion.beginTransaction();
-        sesion.save(usuario);
+        int res = (int)sesion.save(usuario);
         tx.commit();
+        return res;
     }
 
 }

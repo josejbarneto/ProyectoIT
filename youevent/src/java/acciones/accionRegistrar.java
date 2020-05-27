@@ -6,7 +6,9 @@
 package acciones;
 
 import com.opensymphony.xwork2.ActionSupport;
+import modelo.dao.configuracionDAO;
 import modelo.dao.usuarioDAO;
+import modelo.entidades.Configuracion;
 import modelo.entidades.Usuario;
 
 /**
@@ -57,13 +59,19 @@ public class accionRegistrar extends ActionSupport {
 
     public String execute() throws Exception {
         usuarioDAO usuarioDAO = new usuarioDAO();
-        Usuario usuario = new Usuario();
+        configuracionDAO configuracionDAO = new configuracionDAO();
+        Usuario us = new Usuario(usuario, 0, nombre, email, password);
 
-        if (usuarioDAO.existeUsuario(usuario.getUsuario())) {
+        Configuracion conf = new Configuracion();
+       
+
+        if (usuarioDAO.existeUsuario(us.getUsuario())) {
             return ERROR;
         } else {
+            us.setId(usuarioDAO.insertUsuario(us));
+            conf.setUsuario(us);
+            configuracionDAO.insertConfiguracion(conf);
             
-            usuarioDAO.insertUsuario(usuario);
             return SUCCESS;
         }
     }
