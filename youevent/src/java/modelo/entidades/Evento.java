@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 24-may-2020 23:42:29 by Hibernate Tools 4.3.1
+// Generated 27-may-2020 20:52:56 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,34 +12,31 @@ public class Evento  implements java.io.Serializable {
 
 
      private Integer id;
-     private Oferta oferta;
      private int idUsuario;
      private String nombre;
      private String descripcion;
      private String lugar;
      private Set ofertas = new HashSet(0);
-     private Usuario usuario;
+     private Set eventoCategorias = new HashSet(0);
      private Set entradas = new HashSet(0);
 
     public Evento() {
     }
 
 	
-    public Evento(Oferta oferta, int idUsuario, String nombre, String descripcion, String lugar) {
-        this.oferta = oferta;
+    public Evento(int idUsuario, String nombre, String descripcion, String lugar) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.lugar = lugar;
     }
-    public Evento(Oferta oferta, int idUsuario, String nombre, String descripcion, String lugar, Set ofertas, Usuario usuario, Set entradas) {
-       this.oferta = oferta;
+    public Evento(int idUsuario, String nombre, String descripcion, String lugar, Set ofertas, Set eventoCategorias, Set entradas) {
        this.idUsuario = idUsuario;
        this.nombre = nombre;
        this.descripcion = descripcion;
        this.lugar = lugar;
        this.ofertas = ofertas;
-       this.usuario = usuario;
+       this.eventoCategorias = eventoCategorias;
        this.entradas = entradas;
     }
    
@@ -49,13 +46,6 @@ public class Evento  implements java.io.Serializable {
     
     public void setId(Integer id) {
         this.id = id;
-    }
-    public Oferta getOferta() {
-        return this.oferta;
-    }
-    
-    public void setOferta(Oferta oferta) {
-        this.oferta = oferta;
     }
     public int getIdUsuario() {
         return this.idUsuario;
@@ -92,12 +82,12 @@ public class Evento  implements java.io.Serializable {
     public void setOfertas(Set ofertas) {
         this.ofertas = ofertas;
     }
-    public Usuario getUsuario() {
-        return this.usuario;
+    public Set getEventoCategorias() {
+        return this.eventoCategorias;
     }
     
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setEventoCategorias(Set eventoCategorias) {
+        this.eventoCategorias = eventoCategorias;
     }
     public Set getEntradas() {
         return this.entradas;

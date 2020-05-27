@@ -1,29 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 24-may-2020 23:42:29 by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-may-2020 20:52:56 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="youevent" name="modelo.entidades.Oferta" optimistic-lock="version" table="oferta">
-    <id name="id" type="java.lang.Integer">
-      <column name="id"/>
-      <generator class="identity"/>
-    </id>
-    <many-to-one class="modelo.entidades.Evento" fetch="select" name="evento">
-      <column name="id_evento" not-null="true"/>
-    </many-to-one>
-    <property name="descuento" type="float">
-      <column name="descuento" not-null="true" precision="12" scale="0"/>
-    </property>
-    <property name="TInicio" type="timestamp">
-      <column length="26" name="t_inicio" not-null="true"/>
-    </property>
-    <property name="TFin" type="timestamp">
-      <column length="26" name="t_fin" not-null="true"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="eventos" table="evento">
-      <key>
-        <column name="id_oferta" not-null="true"/>
-      </key>
-      <one-to-many class="modelo.entidades.Evento"/>
-    </set>
-  </class>
+    <class name="modelo.entidades.Oferta" table="oferta" catalog="youevent" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="evento" class="modelo.entidades.Evento" fetch="select">
+            <column name="id_evento" not-null="true" />
+        </many-to-one>
+        <property name="descuento" type="float">
+            <column name="descuento" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="TInicio" type="timestamp">
+            <column name="t_inicio" length="26" not-null="true" />
+        </property>
+        <property name="TFin" type="timestamp">
+            <column name="t_fin" length="26" not-null="true" />
+        </property>
+    </class>
 </hibernate-mapping>

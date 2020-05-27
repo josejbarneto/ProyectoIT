@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 24-may-2020 23:42:29 by Hibernate Tools 4.3.1
+// Generated 27-may-2020 20:52:56 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,40 +12,29 @@ public class Usuario  implements java.io.Serializable {
 
 
      private Integer id;
-     private Evento evento;
-     private int idConfiguracion;
      private String usuario;
-     private String password;
      private String rol;
      private String nombre;
      private String email;
-     private Set configuracionsForIdUsuario = new HashSet(0);
-     private Configuracion configuracionByIdConfiguracion;
+     private Set configuracions = new HashSet(0);
      private Set entradas = new HashSet(0);
 
     public Usuario() {
     }
 
 	
-    public Usuario(Evento evento, int idConfiguracion, String usuario, String password, String rol, String nombre, String email) {
-        this.evento = evento;
-        this.idConfiguracion = idConfiguracion;
+    public Usuario(String usuario, String rol, String nombre, String email) {
         this.usuario = usuario;
-        this.password = password;
         this.rol = rol;
         this.nombre = nombre;
         this.email = email;
     }
-    public Usuario(Evento evento, int idConfiguracion, String usuario, String rol, String nombre, String password, String email, Set configuracionsForIdUsuario, Configuracion configuracionByIdConfiguracion, Set entradas) {
-       this.evento = evento;
-       this.idConfiguracion = idConfiguracion;
+    public Usuario(String usuario, String rol, String nombre, String email, Set configuracions, Set entradas) {
        this.usuario = usuario;
-       this.password = password;
        this.rol = rol;
        this.nombre = nombre;
        this.email = email;
-       this.configuracionsForIdUsuario = configuracionsForIdUsuario;
-       this.configuracionByIdConfiguracion = configuracionByIdConfiguracion;
+       this.configuracions = configuracions;
        this.entradas = entradas;
     }
    
@@ -56,20 +45,6 @@ public class Usuario  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Evento getEvento() {
-        return this.evento;
-    }
-    
-    public void setEvento(Evento evento) {
-        this.evento = evento;
-    }
-    public int getIdConfiguracion() {
-        return this.idConfiguracion;
-    }
-    
-    public void setIdConfiguracion(int idConfiguracion) {
-        this.idConfiguracion = idConfiguracion;
-    }
     public String getUsuario() {
         return this.usuario;
     }
@@ -77,15 +52,6 @@ public class Usuario  implements java.io.Serializable {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
     public String getRol() {
         return this.rol;
     }
@@ -107,19 +73,12 @@ public class Usuario  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Set getConfiguracionsForIdUsuario() {
-        return this.configuracionsForIdUsuario;
+    public Set getConfiguracions() {
+        return this.configuracions;
     }
     
-    public void setConfiguracionsForIdUsuario(Set configuracionsForIdUsuario) {
-        this.configuracionsForIdUsuario = configuracionsForIdUsuario;
-    }
-    public Configuracion getConfiguracionByIdConfiguracion() {
-        return this.configuracionByIdConfiguracion;
-    }
-    
-    public void setConfiguracionByIdConfiguracion(Configuracion configuracionByIdConfiguracion) {
-        this.configuracionByIdConfiguracion = configuracionByIdConfiguracion;
+    public void setConfiguracions(Set configuracions) {
+        this.configuracions = configuracions;
     }
     public Set getEntradas() {
         return this.entradas;

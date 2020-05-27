@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 24-may-2020 23:42:29 by Hibernate Tools 4.3.1
+// Generated 27-may-2020 20:52:56 by Hibernate Tools 4.3.1
 
 
 
@@ -10,15 +10,13 @@ public class Configuracion  implements java.io.Serializable {
 
 
      private Integer id;
-     private Usuario usuarioByIdUsuario;
-     private Usuario usuarioByIdConfiguracion;
+     private Usuario usuario;
 
     public Configuracion() {
     }
 
-    public Configuracion(Usuario usuarioByIdUsuario, Usuario usuarioByIdConfiguracion) {
-       this.usuarioByIdUsuario = usuarioByIdUsuario;
-       this.usuarioByIdConfiguracion = usuarioByIdConfiguracion;
+    public Configuracion(Usuario usuario) {
+       this.usuario = usuario;
     }
    
     public Integer getId() {
@@ -28,19 +26,12 @@ public class Configuracion  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Usuario getUsuarioByIdUsuario() {
-        return this.usuarioByIdUsuario;
+    public Usuario getUsuario() {
+        return this.usuario;
     }
     
-    public void setUsuarioByIdUsuario(Usuario usuarioByIdUsuario) {
-        this.usuarioByIdUsuario = usuarioByIdUsuario;
-    }
-    public Usuario getUsuarioByIdConfiguracion() {
-        return this.usuarioByIdConfiguracion;
-    }
-    
-    public void setUsuarioByIdConfiguracion(Usuario usuarioByIdConfiguracion) {
-        this.usuarioByIdConfiguracion = usuarioByIdConfiguracion;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 

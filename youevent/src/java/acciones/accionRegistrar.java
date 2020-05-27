@@ -62,6 +62,7 @@ public class accionRegistrar extends ActionSupport {
         if (usuarioDAO.existeUsuario(usuario.getUsuario())) {
             return ERROR;
         } else {
+            
             usuarioDAO.insertUsuario(usuario);
             return SUCCESS;
         }

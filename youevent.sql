@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2020 a las 18:02:56
+-- Tiempo de generación: 27-05-2020 a las 21:00:25
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -93,7 +93,6 @@ CREATE TABLE `entrada` (
 CREATE TABLE `evento` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `id_oferta` int(11) NOT NULL,
   `nombre` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
   `descripcion` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `lugar` varchar(30) COLLATE latin1_spanish_ci NOT NULL
@@ -132,7 +131,6 @@ CREATE TABLE `oferta` (
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `id_configuracion` int(11) NOT NULL,
   `usuario` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
   `rol` varchar(3) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
@@ -182,8 +180,7 @@ ALTER TABLE `entrada`
 --
 ALTER TABLE `evento`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_oferta` (`id_oferta`);
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `evento_categoria`
@@ -203,8 +200,7 @@ ALTER TABLE `oferta`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_configuracion` (`id_configuracion`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -266,7 +262,6 @@ ALTER TABLE `anunciante`
 -- Filtros para la tabla `configuracion`
 --
 ALTER TABLE `configuracion`
-  ADD CONSTRAINT `configuracion_ibfk_1` FOREIGN KEY (`id`) REFERENCES `usuario` (`id_configuracion`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `configuracion_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -275,12 +270,6 @@ ALTER TABLE `configuracion`
 ALTER TABLE `entrada`
   ADD CONSTRAINT `entrada_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `entrada_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `evento`
---
-ALTER TABLE `evento`
-  ADD CONSTRAINT `evento_ibfk_3` FOREIGN KEY (`id_oferta`) REFERENCES `oferta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `evento_categoria`
@@ -294,12 +283,6 @@ ALTER TABLE `evento_categoria`
 --
 ALTER TABLE `oferta`
   ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id`) REFERENCES `evento` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
