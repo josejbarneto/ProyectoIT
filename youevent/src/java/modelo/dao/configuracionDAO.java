@@ -8,8 +8,6 @@ package modelo.dao;
 
 
 import modelo.entidades.Configuracion;
-import modelo.entidades.Usuario;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

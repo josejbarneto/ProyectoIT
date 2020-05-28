@@ -42,6 +42,17 @@
             <result name="success">/vistas/inicio.jsp</result>
             <result name="error">/vistas/registro.jsp</result>
         </action>
+        
+        <action name="redirigirARecuperarClave" class="acciones.redirigirARecuperarClave">
+            <result name="success">/vistas/recuperarClave.jsp</result>
+        </action>  
+    </package>
+    
+    <package name="accionesRecuperarClave" extends="struts-default">
+        <action name="recuperarClave" class="acciones.accionRecuperarClave">
+            <result name="success">/vistas/inicio.jsp</result>
+            <result name="error">/vistas/recuperarClave.jsp</result>
+        </action>
     </package>
     
     

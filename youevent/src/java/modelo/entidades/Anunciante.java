@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 27-may-2020 21:22:55 by Hibernate Tools 4.3.1
+// Generated 28-may-2020 22:53:01 by Hibernate Tools 4.3.1
 
 
 
@@ -10,7 +10,8 @@ public class Anunciante  implements java.io.Serializable {
 
 
      private Integer id;
-     private Anuncio anuncio;
+     private Anuncio anuncioById;
+     private Anuncio anuncioByIdAnunciante;
      private String nombre;
      private String direccion;
      private String email;
@@ -18,8 +19,9 @@ public class Anunciante  implements java.io.Serializable {
     public Anunciante() {
     }
 
-    public Anunciante(Anuncio anuncio, String nombre, String direccion, String email) {
-       this.anuncio = anuncio;
+    public Anunciante(Anuncio anuncioById, Anuncio anuncioByIdAnunciante, String nombre, String direccion, String email) {
+       this.anuncioById = anuncioById;
+       this.anuncioByIdAnunciante = anuncioByIdAnunciante;
        this.nombre = nombre;
        this.direccion = direccion;
        this.email = email;
@@ -32,12 +34,19 @@ public class Anunciante  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Anuncio getAnuncio() {
-        return this.anuncio;
+    public Anuncio getAnuncioById() {
+        return this.anuncioById;
     }
     
-    public void setAnuncio(Anuncio anuncio) {
-        this.anuncio = anuncio;
+    public void setAnuncioById(Anuncio anuncioById) {
+        this.anuncioById = anuncioById;
+    }
+    public Anuncio getAnuncioByIdAnunciante() {
+        return this.anuncioByIdAnunciante;
+    }
+    
+    public void setAnuncioByIdAnunciante(Anuncio anuncioByIdAnunciante) {
+        this.anuncioByIdAnunciante = anuncioByIdAnunciante;
     }
     public String getNombre() {
         return this.nombre;

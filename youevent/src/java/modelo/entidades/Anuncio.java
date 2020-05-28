@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 27-may-2020 21:22:55 by Hibernate Tools 4.3.1
+// Generated 28-may-2020 22:53:01 by Hibernate Tools 4.3.1
 
 
 
@@ -13,7 +13,8 @@ public class Anuncio  implements java.io.Serializable {
      private int idAnunciante;
      private String contenido;
      private float precio;
-     private Anunciante anunciante;
+     private Anunciante anuncianteById;
+     private Anunciante anuncianteByIdAnunciante;
 
     public Anuncio() {
     }
@@ -24,11 +25,12 @@ public class Anuncio  implements java.io.Serializable {
         this.contenido = contenido;
         this.precio = precio;
     }
-    public Anuncio(int idAnunciante, String contenido, float precio, Anunciante anunciante) {
+    public Anuncio(int idAnunciante, String contenido, float precio, Anunciante anuncianteById, Anunciante anuncianteByIdAnunciante) {
        this.idAnunciante = idAnunciante;
        this.contenido = contenido;
        this.precio = precio;
-       this.anunciante = anunciante;
+       this.anuncianteById = anuncianteById;
+       this.anuncianteByIdAnunciante = anuncianteByIdAnunciante;
     }
    
     public Integer getId() {
@@ -59,12 +61,19 @@ public class Anuncio  implements java.io.Serializable {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
-    public Anunciante getAnunciante() {
-        return this.anunciante;
+    public Anunciante getAnuncianteById() {
+        return this.anuncianteById;
     }
     
-    public void setAnunciante(Anunciante anunciante) {
-        this.anunciante = anunciante;
+    public void setAnuncianteById(Anunciante anuncianteById) {
+        this.anuncianteById = anuncianteById;
+    }
+    public Anunciante getAnuncianteByIdAnunciante() {
+        return this.anuncianteByIdAnunciante;
+    }
+    
+    public void setAnuncianteByIdAnunciante(Anunciante anuncianteByIdAnunciante) {
+        this.anuncianteByIdAnunciante = anuncianteByIdAnunciante;
     }
 
 

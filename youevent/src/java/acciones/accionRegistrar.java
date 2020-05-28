@@ -10,6 +10,9 @@ import modelo.dao.configuracionDAO;
 import modelo.dao.usuarioDAO;
 import modelo.entidades.Configuracion;
 import modelo.entidades.Usuario;
+import org.mindrot.jbcrypt.BCrypt;
+
+
 
 /**
  *
@@ -60,7 +63,7 @@ public class accionRegistrar extends ActionSupport {
     public String execute() throws Exception {
         usuarioDAO usuarioDAO = new usuarioDAO();
         configuracionDAO configuracionDAO = new configuracionDAO();
-        Usuario us = new Usuario(usuario, 0, nombre, email, password);
+        Usuario us = new Usuario(usuario, 0, nombre, email, hashPassword(password));
 
         Configuracion conf = new Configuracion();
        
@@ -68,6 +71,7 @@ public class accionRegistrar extends ActionSupport {
         if (usuarioDAO.existeUsuario(us.getUsuario())) {
             return ERROR;
         } else {
+            
             us.setId(usuarioDAO.insertUsuario(us));
             conf.setUsuario(us);
             configuracionDAO.insertConfiguracion(conf);
@@ -75,5 +79,12 @@ public class accionRegistrar extends ActionSupport {
             return SUCCESS;
         }
     }
+    
+    
+    public String hashPassword(String pass){
+        return BCrypt.hashpw(pass, BCrypt.gensalt(10));
+    }
+    
+    
 
 }

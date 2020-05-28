@@ -8,9 +8,8 @@ package acciones;
 import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
-import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
+import modelo.dao.claveTemporalDAO;
 import modelo.dao.usuarioDAO;
 import modelo.entidades.Usuario;
 import org.apache.struts2.interceptor.SessionAware;
@@ -50,6 +49,13 @@ public class accionLogin extends ActionSupport implements SessionAware {
         if (usuario != null) {
             return SUCCESS;
         } else {
+            claveTemporalDAO ctDAO = new claveTemporalDAO();
+            Usuario usuario2 = ctDAO.compruebaClaveTemporal(this.usuario, this.password);
+            
+            if(usuario2 != null){
+                return SUCCESS;
+            }
+            
             return ERROR;
         }
     }

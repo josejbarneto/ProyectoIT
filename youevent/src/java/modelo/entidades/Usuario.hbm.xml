@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 27-may-2020 21:22:56 by Hibernate Tools 4.3.1 -->
+<!-- Generated 28-may-2020 22:53:01 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.entidades.Usuario" table="usuario" catalog="youevent" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -21,8 +21,14 @@
             <column name="email" length="30" not-null="true" />
         </property>
         <property name="contrasenya" type="string">
-            <column name="contrasenya" length="30" not-null="true" />
+            <column name="contrasenya" not-null="true" />
         </property>
+        <set name="claveTemporals" table="clave_temporal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.entidades.ClaveTemporal" />
+        </set>
         <set name="configuracions" table="configuracion" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_usuario" not-null="true" />

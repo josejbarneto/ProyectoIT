@@ -58,5 +58,6 @@ Contributor(s):
     <mapping resource="modelo/entidades/EventoCategoria.hbm.xml"/>
     <mapping resource="modelo/entidades/Categoria.hbm.xml"/>
     <mapping resource="modelo/entidades/Oferta.hbm.xml"/>
+    <mapping resource="modelo/entidades/ClaveTemporal.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

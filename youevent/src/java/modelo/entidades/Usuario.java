@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 27-may-2020 21:22:55 by Hibernate Tools 4.3.1
+// Generated 28-may-2020 22:53:01 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,6 +17,7 @@ public class Usuario  implements java.io.Serializable {
      private String nombre;
      private String email;
      private String contrasenya;
+     private Set claveTemporals = new HashSet(0);
      private Set configuracions = new HashSet(0);
      private Set entradas = new HashSet(0);
 
@@ -31,12 +32,13 @@ public class Usuario  implements java.io.Serializable {
         this.email = email;
         this.contrasenya = contrasenya;
     }
-    public Usuario(String usuario, int rol, String nombre, String email, String contrasenya, Set configuracions, Set entradas) {
+    public Usuario(String usuario, int rol, String nombre, String email, String contrasenya, Set claveTemporals, Set configuracions, Set entradas) {
        this.usuario = usuario;
        this.rol = rol;
        this.nombre = nombre;
        this.email = email;
        this.contrasenya = contrasenya;
+       this.claveTemporals = claveTemporals;
        this.configuracions = configuracions;
        this.entradas = entradas;
     }
@@ -82,6 +84,13 @@ public class Usuario  implements java.io.Serializable {
     
     public void setContrasenya(String contrasenya) {
         this.contrasenya = contrasenya;
+    }
+    public Set getClaveTemporals() {
+        return this.claveTemporals;
+    }
+    
+    public void setClaveTemporals(Set claveTemporals) {
+        this.claveTemporals = claveTemporals;
     }
     public Set getConfiguracions() {
         return this.configuracions;

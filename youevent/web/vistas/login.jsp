@@ -21,5 +21,8 @@
         <s:form action="redirigirARegistrar">
             <s:submit name="btnRegistrar" value="Registrar"></s:submit>
         </s:form>
+        <s:form action="redirigirARecuperarClave">
+            <s:submit name="btnRecuperarClave" value="Recuperar contraseña"></s:submit>
+        </s:form>
     </body>
 </html>

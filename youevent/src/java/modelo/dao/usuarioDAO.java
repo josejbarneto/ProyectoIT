@@ -5,11 +5,11 @@ package modelo.dao;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.io.Serializable;
 import modelo.entidades.Usuario;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -22,10 +22,16 @@ public class usuarioDAO {
     public Usuario comprobarLogin(String username, String password) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = sesion.beginTransaction();
-        Query q = sesion.createQuery("From Usuario where usuario='" + username + "' and contrasenya='" + password + "'");
+        Query q = sesion.createQuery("From Usuario where usuario='" + username+"'");
         Usuario u = (Usuario) q.uniqueResult();
         tx.commit();
-        return u;
+        
+        if(u!=null){
+            if(BCrypt.checkpw(password, u.getContrasenya())){
+                return u;
+            }
+        }
+        return null;
     }
 
     public boolean existeUsuario(String usuario) {
@@ -42,6 +48,16 @@ public class usuarioDAO {
         }
         
     }
+    
+    public void updatePass(Usuario usuario, String pass){
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("Update Usuario set contrasenya = '" + pass + "' where id = '" + usuario.getId() + "'");
+        q.executeUpdate();
+        tx.commit();
+        
+    }
+    
 
     public int insertUsuario(Usuario usuario) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -50,5 +66,15 @@ public class usuarioDAO {
         tx.commit();
         return res;
     }
+    
+    public Usuario comprobarCorreo(String email) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("From Usuario where email='" + email+"'");
+        Usuario u = (Usuario) q.uniqueResult();
+        tx.commit();
+        
+        return u;
+    } 
 
 }
