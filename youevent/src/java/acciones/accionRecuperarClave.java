@@ -8,14 +8,9 @@ package acciones;
 import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javaMail.Mail;
 import modelo.dao.claveTemporalDAO;
 import modelo.dao.usuarioDAO;
 import modelo.entidades.Usuario;
@@ -42,59 +37,28 @@ public class accionRecuperarClave extends ActionSupport {
     
     public String execute() throws Exception {
         usuarioDAO usuarioDAO = new usuarioDAO();
-        claveTemporalDAO ctDAO = new claveTemporalDAO();
         Usuario usuario = usuarioDAO.comprobarCorreo(this.correo);
         
         
         if (usuario != null) {
-            
+            claveTemporalDAO ctDAO = new claveTemporalDAO();
             String nuevaPass = generateRandomString(12);
             ctDAO.insertaClaveTemporal(usuario, nuevaPass);
             
-            /*Envio de correo con javamail*/
-            Properties propiedad = new Properties();
-            propiedad.setProperty("mail.smtp.host", "smtp.gmail.com");          //HOST
-            propiedad.setProperty("mail.smtp.starttls.enable", "true");         //TLS
-            propiedad.setProperty("mail.smtp.port", "465");                     //PUERTO / Secure (TLS) = 587
-            propiedad.setProperty("mail.smtp.auth", "true");                    //METODO DE AUTENTICACION
-            propiedad.put("mail.smtp.socketFactory.port", "465");
-            propiedad.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-            propiedad.put("mail.smtp.socketFactory.fallback", "false");
-
-            String correoDeEnvio = "youeventupo@gmail.com";
-            String pass = "youevent1";
-            
             String destinatario = usuario.getEmail();
             String asunto = "Recuperación de contraseña - YouEvent";
-            
-
             String mensaje = "Su nueva contraseña es: " + nuevaPass;
             
+            Mail envia = new Mail();
             
-            Session sesion = Session.getInstance(propiedad,
-            new javax.mail.Authenticator() {
-               protected PasswordAuthentication getPasswordAuthentication() {
-                  return new PasswordAuthentication(correoDeEnvio, pass);
-              }
-            });
-
-            
-            try{
-                Message message = new MimeMessage(sesion);
-                message.setFrom(new InternetAddress(correoDeEnvio));
-                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
-                
-                message.setSubject(asunto);
-                message.setText(mensaje);
-                Transport.send(message);
-                
-            }catch(MessagingException ex){
-                System.out.println("ERROR AL ENVIAR");
+            if(!envia.sendMail(asunto, mensaje, destinatario)){
+                addFieldError("correo", "El correo no se ha podido enviar");
                 return ERROR;
             }
             
             return SUCCESS;
         } else {
+            addFieldError("correo", "El correo solicitado no existe");
             return ERROR;
         }
     }
@@ -109,5 +73,24 @@ public class accionRecuperarClave extends ActionSupport {
         }
         
         return builder.toString();
+    }
+    
+    @Override
+    public void validate(){
+        if (this.correo.equals("")) {
+            addFieldError("correo", "Introduzca un correo");
+        }
+        else{
+            Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+            Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(this.correo);
+            if(!matcher.find()){
+                addFieldError("correo", "Introduzca un correo válido");
+            }
+        }
+        
+        if(this.correo.length() > 30){
+            addFieldError("correo", "El correo no puede contener más de 30 caracteres.");
+        }
+    
     }
 }

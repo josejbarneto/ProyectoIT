@@ -41,6 +41,7 @@
         <action name="registrar" class="acciones.accionRegistrar">
             <result name="success">/vistas/inicio.jsp</result>
             <result name="error">/vistas/registro.jsp</result>
+            <result name="input">/vistas/registro.jsp</result>
         </action>
         
         <action name="redirigirARecuperarClave" class="acciones.redirigirARecuperarClave">
@@ -52,6 +53,7 @@
         <action name="recuperarClave" class="acciones.accionRecuperarClave">
             <result name="success">/vistas/inicio.jsp</result>
             <result name="error">/vistas/recuperarClave.jsp</result>
+            <result name="input">/vistas/recuperarClave.jsp</result>
         </action>
     </package>
     

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2020 a las 21:00:25
+-- Tiempo de generación: 29-05-2020 a las 12:46:52
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -63,6 +63,26 @@ CREATE TABLE `categoria` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `clave_temporal`
+--
+
+CREATE TABLE `clave_temporal` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `contrasenya` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_de_creacion` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `clave_temporal`
+--
+
+INSERT INTO `clave_temporal` (`id`, `id_usuario`, `contrasenya`, `fecha_de_creacion`) VALUES
+(5, 9, '1ZFDVGGS90D3', '2020-05-29 10:44:23');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `configuracion`
 --
 
@@ -70,6 +90,13 @@ CREATE TABLE `configuracion` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `configuracion`
+--
+
+INSERT INTO `configuracion` (`id`, `id_usuario`) VALUES
+(9, 9);
 
 -- --------------------------------------------------------
 
@@ -132,10 +159,18 @@ CREATE TABLE `oferta` (
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `usuario` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
-  `rol` varchar(3) COLLATE latin1_spanish_ci NOT NULL,
+  `rol` int(3) NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `email` varchar(30) COLLATE latin1_spanish_ci NOT NULL
+  `email` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `contrasenya` varchar(255) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `usuario`, `rol`, `nombre`, `email`, `contrasenya`) VALUES
+(9, 'nenitomg', 0, 'neno', 'nenitomg@gmail.com', '$2a$10$1PY6x2LQ9tNoK32KYz6.nuMhRkLDIq0bYptsgB5WeQDOKGz4i2B3.');
 
 --
 -- Índices para tablas volcadas
@@ -159,6 +194,13 @@ ALTER TABLE `anuncio`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `clave_temporal`
+--
+ALTER TABLE `clave_temporal`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `claveTemporal_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `configuracion`
@@ -225,10 +267,16 @@ ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `clave_temporal`
+--
+ALTER TABLE `clave_temporal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `configuracion`
 --
 ALTER TABLE `configuracion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `evento`
@@ -246,7 +294,7 @@ ALTER TABLE `oferta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
@@ -256,7 +304,14 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `anunciante`
 --
 ALTER TABLE `anunciante`
+  ADD CONSTRAINT `FK_qsgsljbvraj7kudvwdfhxeye5` FOREIGN KEY (`id`) REFERENCES `anuncio` (`id`),
   ADD CONSTRAINT `anunciante_ibfk_1` FOREIGN KEY (`id`) REFERENCES `anuncio` (`id_anunciante`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `clave_temporal`
+--
+ALTER TABLE `clave_temporal`
+  ADD CONSTRAINT `claveTemporal_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
 --
 -- Filtros para la tabla `configuracion`
