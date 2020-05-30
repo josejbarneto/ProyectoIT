@@ -1,21 +1,23 @@
-<%-- 
-    Document   : inicio
-    Created on : 26-may-2020, 18:14:01
-    Author     : Carlos
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>YOUEVENT</title>
+        <s:head/>
+        <%@include file="/vistas/includes.jsp" %>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <s:form action="redirigirACrearEvento" method="post">
-            <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
-        </s:form>
+        <%@include file="/vistas/header.jsp" %>
+        <div class="ui section hidden divider"></div>
+        <div id="main" class="ui very wide container">
+            <div class="ui basic segmetn">
+                <s:form action="redirigirACrearEvento" method="post">
+                    <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
+                </s:form>
+            </div>
+        </div>
+        <%@include file="/vistas/footer.html" %>
     </body>
 </html>
