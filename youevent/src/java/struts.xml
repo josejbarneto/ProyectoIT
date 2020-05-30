@@ -113,6 +113,18 @@
         <action name="redirigirAMostrarAnunciante" class="acciones.anunciante.redirigirAMostrarAnunciante">
             <result name="success">/vistas/anunciante/show.jsp</result>
         </action>
+        
+        <action name="redirigirAEditarAnunciante" class="acciones.anunciante.redirigirAEditarAnunciante">
+            <result name="success">/vistas/anunciante/edit.jsp</result>
+        </action>
+        
+        <action name="accionEditarAnunciante" class="acciones.anunciante.accionEditarAnunciante">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>
+        
+        <action name="accionEliminarAnunciante" class="acciones.anunciante.accionEliminarAnunciante">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>
     </package>
 
     <package name="accionesCategoria" extends="struts-default">
