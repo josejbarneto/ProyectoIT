@@ -55,7 +55,23 @@
             <result name="error">/vistas/recuperarClave.jsp</result>
             <result name="input">/vistas/recuperarClave.jsp</result>
         </action>
+        
+                
     </package>
     
+    
+    <package name="accionesEvento" extends="struts-default">
+ 
+        <action name="redirigirACrearEvento" class="acciones.eventos.redirigirACrearEvento">
+            <result name="success">/vistas/evento/new.jsp</result>
+        </action>
+        
+        <action name="accionCrearEvento" class="acciones.eventos.accionCrearEvento">
+            <result name="success">/vistas/inicio.jsp</result>
+            <result name="error">/vistas/evento/new.jsp</result>
+            <result name="input">/vistas/evento/new.jsp</result>
+        </action>
+
+    </package>
     
 </struts>

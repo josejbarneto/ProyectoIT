@@ -67,9 +67,9 @@ public class accionRegistrar extends ActionSupport {
         usuarioDAO usuarioDAO = new usuarioDAO();
         configuracionDAO configuracionDAO = new configuracionDAO();
         Usuario us = new Usuario(usuario, 0, nombre, email, hashPassword(password));
+        System.out.println(usuario+ nombre+email+password);
 
         Configuracion conf = new Configuracion();
-       
 
         if (usuarioDAO.existeUsuario(us.getUsuario())) {
             return ERROR;

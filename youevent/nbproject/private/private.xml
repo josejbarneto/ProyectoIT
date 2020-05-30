@@ -3,8 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/login.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/oferta/new.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/includes.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/acciones/accionLogin.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/acciones/eventos/redirigirACrearEvento.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/entidades/EventoCategoria.hbm.xml</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/entidades/EventoCategoriaId.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/javaMail/Mail.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/entidades/EventoCategoria.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/dao/categoriaDAO.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/dao/configuracionDAO.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/acciones/accionRecuperarClave.java</file>
             <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/inicio.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/entidades/Evento.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/acciones/redirigirARegistrar.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/registro.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/recuperarClave.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/hibernate.reveng.xml</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/evento/new.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/dao/claveTemporalDAO.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/struts.xml</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/dao/HibernateUtil.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/acciones/accionRegistrar.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/dao/usuarioDAO.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/acciones/redirigirARecuperarClave.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/dao/eventoDAO.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/login.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/oferta/listado.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/header.jsp</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/acciones/eventos/accionCrearEvento.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/src/java/modelo/dao/eventoCategoriaDAO.java</file>
+            <file>file:/C:/Users/Carlos/Documents/GitHub/ProyectoIT/youevent/web/vistas/evento/listado.jsp</file>
         </group>
     </open-files>
 </project-private>

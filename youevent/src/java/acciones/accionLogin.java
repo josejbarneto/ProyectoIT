@@ -46,7 +46,9 @@ public class accionLogin extends ActionSupport implements SessionAware {
     public String execute() throws Exception {
         usuarioDAO usuarioDAO = new usuarioDAO();
         Usuario usuario = usuarioDAO.comprobarLogin(this.usuario, this.password);
+        
         if (usuario != null) {
+            session.put("usuario", usuario);
             return SUCCESS;
         } else {
             claveTemporalDAO ctDAO = new claveTemporalDAO();

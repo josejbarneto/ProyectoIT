@@ -14,5 +14,8 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <s:form action="redirigirACrearEvento" method="post">
+            <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
+        </s:form>
     </body>
 </html>
