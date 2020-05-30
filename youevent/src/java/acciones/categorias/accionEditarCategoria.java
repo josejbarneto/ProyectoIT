@@ -50,6 +50,7 @@ public class accionEditarCategoria extends ActionSupport implements SessionAware
     public accionEditarCategoria() {
     }
 
+    @Override
     public String execute() throws Exception {
 
         categoriaDAO catDAO = new categoriaDAO();

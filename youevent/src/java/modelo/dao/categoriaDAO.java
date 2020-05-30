@@ -38,7 +38,7 @@ public class categoriaDAO {
         return null;
     }
     
-    public Categoria get(Integer id) {
+    public Categoria get(int id) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = sesion.beginTransaction();
         Query q = sesion.createQuery("From Categoria where id='" + id + "'");

@@ -7,7 +7,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Editar Evento</h1>
+        <h1>Editar Categoria</h1>
         <s:form action="accionEditarCategoria">
             <s:textfield name="nombre" label="Nombre " value="%{categoria.getNombre()}"></s:textfield>
             <s:textfield name="descripcion" label="Descripcion" value="%{categoria.getDescripcion()}"></s:textfield>   

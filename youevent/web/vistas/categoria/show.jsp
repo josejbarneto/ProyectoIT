@@ -14,7 +14,7 @@
         <s:textfield name="id" label="Id" value="%{categoria.getId()}" readonly="true"></s:textfield>
         
         <s:form action="redirigirAEditarCategoria">
-            <s:hidden name="idEvento" value="%{categoria.getId()}" ></s:hidden>
+            <s:hidden name="idCategoria" value="%{categoria.getId()}" ></s:hidden>
             <s:submit name="btnEditar" value="Editar"></s:submit>
         </s:form>
 

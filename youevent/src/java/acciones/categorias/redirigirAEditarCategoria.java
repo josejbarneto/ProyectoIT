@@ -22,7 +22,7 @@ public class redirigirAEditarCategoria extends ActionSupport implements SessionA
     
     private Map<String, Object> session;
     private Categoria categoria;
-    private int idCategoria;
+    private Integer idCategoria;
 
 
     
@@ -41,13 +41,14 @@ public class redirigirAEditarCategoria extends ActionSupport implements SessionA
         return idCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
+    public void setIdCategoria(Integer idCategoria) {
         this.idCategoria = idCategoria;
     }
 
     
     public String execute() throws Exception {
-        categoria = new categoriaDAO().get(idCategoria); 
+        categoriaDAO catDAO = new categoriaDAO();
+        this.categoria = catDAO.get(idCategoria); 
         return SUCCESS;
     }
 
