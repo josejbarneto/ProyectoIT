@@ -73,17 +73,13 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
         this.categorias = categoriaDAO.getAllCategorias();
     }
 
-    @InputConfig(methodName = "input")
     public String execute() throws Exception {
 
         eventoDAO eventoDAO = new eventoDAO();
 
-        System.out.println("hola");
-
         if (eventoDAO.comprobarNombreRepetido(this.nombre) == true) {
             return ERROR;
         } else {
-            System.out.println("hola2");
             Usuario usuario = (Usuario) session.get("usuario");
             Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar);
             eventoDAO.crear(evento);
