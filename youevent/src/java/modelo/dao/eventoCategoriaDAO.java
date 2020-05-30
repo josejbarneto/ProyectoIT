@@ -34,19 +34,16 @@ public class eventoCategoriaDAO {
     public List<Categoria> getCategorias(Evento evento) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = sesion.beginTransaction();
-        Query q = sesion.createQuery("From Evento where id='" + evento.getId() + "'");
-        evento = (Evento)q.uniqueResult();
-        System.out.println(evento);
-        q = sesion.createQuery("From EventoCategoria where Evento='" + evento + "'");
+        Query q = sesion.createQuery("From EventoCategoria where id_evento="+ evento.getId());
         List<EventoCategoria> listaEventoCategoria = (List<EventoCategoria>) q.list();
-        
-        System.out.println(listaEventoCategoria);
+        tx.commit();
         
         List<Categoria> listaCategoria = new ArrayList<>();
+        
         for(EventoCategoria ec : listaEventoCategoria){
             listaCategoria.add(ec.getCategoria());
         }
-        tx.commit();
+        
         return listaCategoria;
     }
 

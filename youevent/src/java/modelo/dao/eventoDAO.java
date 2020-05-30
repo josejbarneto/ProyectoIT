@@ -77,4 +77,13 @@ public class eventoDAO {
         return le;
     }
 
+    public void eliminar(Integer idEvento) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("delete from Evento where id  = "+idEvento);
+        q.executeUpdate();
+        tx.commit();
+
+    }
+    
 }
