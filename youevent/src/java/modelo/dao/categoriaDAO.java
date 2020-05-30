@@ -36,4 +36,9 @@ public class categoriaDAO {
         }
         return null;
     }
+    
+    public boolean insertaCategoria(){
+        return true;
+    
+    }
 }
