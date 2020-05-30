@@ -86,4 +86,13 @@ public class categoriaDAO {
         }
         
     }
+    
+    public void eliminar(Integer idCategoria) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("delete from Categoria where id  = "+idCategoria);
+        q.executeUpdate();
+        tx.commit();
+
+    }
 }

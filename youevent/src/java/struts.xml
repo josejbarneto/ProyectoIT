@@ -120,6 +120,10 @@
             <result name="error">/vistas/categoria/edit.jsp</result>
             <result name="input">/vistas/categoria/edit.jsp</result>
         </action>
+        
+        <action name="accionEliminarCategoria" class="acciones.categorias.accionEliminarCategoria">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>
     </package>
     
     
