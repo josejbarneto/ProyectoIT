@@ -17,6 +17,9 @@
                     <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
                 </s:form>
             </div>
+            <s:form action="redirigirAListarEvento" method="post">
+                    <s:submit name="btnListarEvento" value="Listar Evento"></s:submit>
+                </s:form>
         </div>
         <%@include file="/vistas/footer.html" %>
     </body>
