@@ -9,11 +9,11 @@
     <body>
         <h1>Mostrar Evento</h1>
 
-        <s:textfield name="nombre" label="Nombre de evento" value="%{evento.getNombre()}" readonly="true"></s:textfield>
-        <s:textfield name="descripcion" label="Descripcion" value="%{evento.getDescripcion()}" readonly="true"></s:textfield>
-        <s:textfield name="lugar" label="Lugar" value="%{evento.getLugar()}" readonly="true"></s:textfield>
-        <s:textfield name="aforo" label="Aforo" value="%{evento.getAforo()}" readonly="true"></s:textfield>
-        <s:textfield name="precio" label="Precio" value="%{evento.getPrecio()}" readonly="true"></s:textfield>
+        <s:textfield name="nombre" label="Nombre de evento" value="%{anunciante.getNombre()}" readonly="true"></s:textfield>
+        <s:textfield name="descripcion" label="Descripcion" value="%{anunciante.getDescripcion()}" readonly="true"></s:textfield>
+        <s:textfield name="lugar" label="Lugar" value="%{anunciante.getLugar()}" readonly="true"></s:textfield>
+        <s:textfield name="aforo" label="Aforo" value="%{anunciante.getAforo()}" readonly="true"></s:textfield>
+        <s:textfield name="precio" label="Precio" value="%{anunciante.getPrecio()}" readonly="true"></s:textfield>
 
         <br/>
         
@@ -25,12 +25,12 @@
         <br/>
         </s:iterator>
         
-        <s:form action="redirigirAEditarEvento">
-            <s:hidden name="idEvento" value="%{evento.getId()}" ></s:hidden>
+        <s:form action="redirigirAEditarAnunciante">
+            <s:hidden name="idAnunciante" value="%{anunciante.getId()}" ></s:hidden>
             <s:submit name="btnEditar" value="Editar"></s:submit>
         </s:form>
-        <s:form action="accionEliminarEvento">
-            <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
+        <s:form action="accionEliminarAnunciante">
+            <s:hidden name="idAnunciante" value="%{anunciante.getId()}"></s:hidden>
             <s:submit name="btnEliminar" value="Eliminar"></s:submit>
         </s:form>
 

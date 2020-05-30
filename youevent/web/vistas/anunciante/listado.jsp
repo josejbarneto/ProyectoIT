@@ -12,18 +12,6 @@
         <%@include file="/vistas/header.jsp" %>
         <div class="ui section hidden divider"></div>
         <div id="main" class="ui very wide container">
-            <div class="ui basic segment">
-                <s:form action="accionCrearAnunciante" cssClass="ui fluid table form">
-                    <s:textfield name="nombre" label="Nombre del anunciante"></s:textfield>
-                    <s:textfield name="direccion" label="Direccion"></s:textfield>
-                    <s:textfield name="email" label="Email"></s:textfield>
-                    <s:submit cssClass="ui green button" name="btnEnviar" value="Enviar"></s:submit>
-                </s:form>
-            </div>
-        </div>
-
-        <div class="ui section hidden divider"></div>
-        <div id="main" class="ui very wide container">
             <div class="ui grid">
                 <div class="ui twelve wide column">               
                     <div class="ui segment">
@@ -45,7 +33,7 @@
                                         <td>
                                             <s:form action="redirigirAMostrarAnunciante">
                                                 <s:hidden name="idAnunciante" value="%{#anunciante.getId()}"></s:hidden>
-                                                <s:submit name="btnMostrar" value="Mostrar"></s:submit>
+                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui green button"></s:submit>
                                             </s:form>
                                         </td>
                                     </tr>

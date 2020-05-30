@@ -16,8 +16,8 @@
                 <s:form action="redirigirACrearAnunciante" method="post">
                     <s:submit name="btnCrearAnunciante" value="Crear Anunciante"></s:submit>
                 </s:form>
-                <s:form action="redirigirAListarEvento" method="post">
-                    <s:submit name="btnListarEvento" value="Listar Evento"></s:submit>
+                <s:form action="redirigirAListarAnunciante" method="post">
+                    <s:submit name="btnListarAnunciante" value="Listar Anunciante"></s:submit>
                 </s:form>
                 <s:form action="redirigirACrearAnuncio" method="post">
                     <s:submit name="btnCrearAnuncio" value="Crear Anuncio"></s:submit>

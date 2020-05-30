@@ -5,7 +5,10 @@
  */
 package acciones.anunciante;
 
+import modelo.dao.anuncianteDAO;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.List;
+import modelo.entidades.Anunciante;
 
 /**
  *
@@ -13,11 +16,23 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class redirigirAListarAnunciante extends ActionSupport {
     
+    private List<Anunciante> listaAnunciantes;
+
+    public List<Anunciante> getListaAnunciantes() {
+        return listaAnunciantes;
+    }
+
+    public void setListaAnunciantes(List<Anunciante> listaAnunciantes) {
+        this.listaAnunciantes = listaAnunciantes;
+    }
+    
     public redirigirAListarAnunciante() {
     }
     
     public String execute() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        anuncianteDAO anuncianteDAO = new anuncianteDAO();
+        listaAnunciantes = anuncianteDAO.getAll();
+        return SUCCESS;
     }
     
 }
