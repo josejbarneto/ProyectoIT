@@ -11,7 +11,9 @@
         <s:form action="accionEditarEvento">
             <s:textfield name="nombre" label="Nombre de evento" value="%{evento.getNombre()}"></s:textfield>
             <s:textfield name="descripcion" label="Descripcion" value="%{evento.getDescripcion()}"></s:textfield>
-            <s:textfield name="lugar" label="Lugar" value="%{evento.getLugar()}"></s:textfield>      
+            <s:textfield name="lugar" label="Lugar" value="%{evento.getLugar()}"></s:textfield>   
+            <s:textfield name="aforo" label="Aforo" value="%{evento.getAforo()}"></s:textfield>    
+            <s:textfield name="precio" label="Precio" value="%{evento.getPrecio()}"></s:textfield>  
             <s:hidden name="id" value="%{evento.getId()}"></s:hidden>
             <s:submit name="btnEnviar" value="Enviar"></s:submit>
         </s:form>

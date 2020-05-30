@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 28-may-2020 22:53:01 by Hibernate Tools 4.3.1
+// Generated 30-may-2020 23:19:19 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,6 +16,8 @@ public class Evento  implements java.io.Serializable {
      private String nombre;
      private String descripcion;
      private String lugar;
+     private int aforo;
+     private float precio;
      private Set ofertas = new HashSet(0);
      private Set eventoCategorias = new HashSet(0);
      private Set entradas = new HashSet(0);
@@ -24,27 +26,24 @@ public class Evento  implements java.io.Serializable {
     }
 
 	
-    public Evento(int idUsuario, String nombre, String descripcion, String lugar) {
+    public Evento(int idUsuario, String nombre, String descripcion, String lugar, int aforo, float precio) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.lugar = lugar;
+        this.aforo = aforo;
+        this.precio = precio;
     }
-    public Evento(int idUsuario, String nombre, String descripcion, String lugar, Set ofertas, Set eventoCategorias, Set entradas) {
+    public Evento(int idUsuario, String nombre, String descripcion, String lugar, int aforo, float precio, Set ofertas, Set eventoCategorias, Set entradas) {
        this.idUsuario = idUsuario;
        this.nombre = nombre;
        this.descripcion = descripcion;
        this.lugar = lugar;
+       this.aforo = aforo;
+       this.precio = precio;
        this.ofertas = ofertas;
        this.eventoCategorias = eventoCategorias;
        this.entradas = entradas;
-    }
-    public Evento(int idUsuario, String nombre, String descripcion, String lugar, Set eventoCategorias) {
-       this.idUsuario = idUsuario;
-       this.nombre = nombre;
-       this.descripcion = descripcion;
-       this.lugar = lugar;
-       this.eventoCategorias = eventoCategorias;
     }
    
     public Integer getId() {
@@ -81,6 +80,20 @@ public class Evento  implements java.io.Serializable {
     
     public void setLugar(String lugar) {
         this.lugar = lugar;
+    }
+    public int getAforo() {
+        return this.aforo;
+    }
+    
+    public void setAforo(int aforo) {
+        this.aforo = aforo;
+    }
+    public float getPrecio() {
+        return this.precio;
+    }
+    
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
     public Set getOfertas() {
         return this.ofertas;

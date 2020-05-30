@@ -12,7 +12,8 @@
         <s:textfield name="nombre" label="Nombre de evento" value="%{evento.getNombre()}" readonly="true"></s:textfield>
         <s:textfield name="descripcion" label="Descripcion" value="%{evento.getDescripcion()}" readonly="true"></s:textfield>
         <s:textfield name="lugar" label="Lugar" value="%{evento.getLugar()}" readonly="true"></s:textfield>
-        <s:textfield name="id" label="Id" value="%{evento.getId()}" readonly="true"></s:textfield>
+        <s:textfield name="aforo" label="Aforo" value="%{evento.getAforo()}" readonly="true"></s:textfield>
+        <s:textfield name="precio" label="Precio" value="%{evento.getPrecio()}" readonly="true"></s:textfield>
 
         <br/>
         

@@ -23,6 +23,8 @@ public class accionEditarEvento extends ActionSupport implements SessionAware {
     private String nombre;
     private String descripcion;
     private String lugar;
+    private int aforo;
+    private float precio;
     private Map<String, Object> session;
 
     public String getNombre() {
@@ -57,6 +59,24 @@ public class accionEditarEvento extends ActionSupport implements SessionAware {
         this.id = id;
     }
 
+    public int getAforo() {
+        return aforo;
+    }
+
+    public void setAforo(int aforo) {
+        this.aforo = aforo;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+    
+    
+
     public accionEditarEvento() {
     }
 
@@ -65,7 +85,7 @@ public class accionEditarEvento extends ActionSupport implements SessionAware {
         eventoDAO eventoDAO = new eventoDAO();
 
         Usuario usuario = (Usuario) session.get("usuario");
-        Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar);
+        Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar, aforo, precio);
         evento.setId(id);
         eventoDAO.editar(evento);
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-may-2020 22:53:01 by Hibernate Tools 4.3.1 -->
+<!-- Generated 30-may-2020 23:19:19 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.entidades.Evento" table="evento" catalog="youevent" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -19,6 +19,12 @@
         </property>
         <property name="lugar" type="string">
             <column name="lugar" length="30" not-null="true" />
+        </property>
+        <property name="aforo" type="int">
+            <column name="aforo" not-null="true" />
+        </property>
+        <property name="precio" type="float">
+            <column name="precio" precision="12" scale="0" not-null="true" />
         </property>
         <set name="ofertas" table="oferta" inverse="true" lazy="true" fetch="select">
             <key>

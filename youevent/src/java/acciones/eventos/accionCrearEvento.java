@@ -32,6 +32,8 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
     private String nombre;
     private String descripcion;
     private String lugar;
+    private int aforo;
+    private float precio;
     private List<Categoria> categorias = new ArrayList();
     private List<String> categoriasEvento = new ArrayList();
     private Map<String, Object> session;
@@ -60,6 +62,22 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
         this.lugar = lugar;
     }
 
+    public int getAforo() {
+        return aforo;
+    }
+
+    public void setAforo(int aforo) {
+        this.aforo = aforo;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
     public List<Categoria> getCategorias() {
         return categorias;
     }
@@ -81,7 +99,7 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
             return ERROR;
         } else {
             Usuario usuario = (Usuario) session.get("usuario");
-            Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar);
+            Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar, aforo, precio);
             eventoDAO.crear(evento);
             evento = eventoDAO.get(evento.getId());
 

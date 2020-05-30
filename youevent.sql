@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2020 a las 12:46:52
+-- Tiempo de generación: 30-05-2020 a las 23:24:53
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -60,6 +60,14 @@ CREATE TABLE `categoria` (
   `descripcion` varchar(255) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Fiesta', 'Eshto es una fieshta'),
+(3, 'rave', 'Hasta el amanecer');
+
 -- --------------------------------------------------------
 
 --
@@ -78,7 +86,8 @@ CREATE TABLE `clave_temporal` (
 --
 
 INSERT INTO `clave_temporal` (`id`, `id_usuario`, `contrasenya`, `fecha_de_creacion`) VALUES
-(5, 9, '1ZFDVGGS90D3', '2020-05-29 10:44:23');
+(5, 9, '1ZFDVGGS90D3', '2020-05-29 10:44:23'),
+(6, 11, 'MRD7BMW0UPT8', '2020-05-29 16:01:22');
 
 -- --------------------------------------------------------
 
@@ -96,7 +105,8 @@ CREATE TABLE `configuracion` (
 --
 
 INSERT INTO `configuracion` (`id`, `id_usuario`) VALUES
-(9, 9);
+(9, 9),
+(11, 11);
 
 -- --------------------------------------------------------
 
@@ -107,8 +117,7 @@ INSERT INTO `configuracion` (`id`, `id_usuario`) VALUES
 CREATE TABLE `entrada` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `id_evento` int(11) NOT NULL,
-  `precio` float NOT NULL
+  `id_evento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- --------------------------------------------------------
@@ -122,7 +131,9 @@ CREATE TABLE `evento` (
   `id_usuario` int(11) NOT NULL,
   `nombre` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
   `descripcion` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
-  `lugar` varchar(30) COLLATE latin1_spanish_ci NOT NULL
+  `lugar` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `aforo` int(11) NOT NULL,
+  `precio` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- --------------------------------------------------------
@@ -170,7 +181,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `usuario`, `rol`, `nombre`, `email`, `contrasenya`) VALUES
-(9, 'nenitomg', 0, 'neno', 'nenitomg@gmail.com', '$2a$10$1PY6x2LQ9tNoK32KYz6.nuMhRkLDIq0bYptsgB5WeQDOKGz4i2B3.');
+(9, 'nenitomg', 0, 'neno', 'nenitomg@gmail.com', '$2a$10$1PY6x2LQ9tNoK32KYz6.nuMhRkLDIq0bYptsgB5WeQDOKGz4i2B3.'),
+(11, 'carlos', 0, 'Carlos Pumar', 'cpjimenez123@gmail.com', '$2a$10$LOc/0.MXv4jkCHrO5eK8AOYXFInrM/dUleV1NCKR9rnEUIiV7iBoi');
 
 --
 -- Índices para tablas volcadas
@@ -264,25 +276,31 @@ ALTER TABLE `anuncio`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `clave_temporal`
 --
 ALTER TABLE `clave_temporal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracion`
 --
 ALTER TABLE `configuracion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `entrada`
+--
+ALTER TABLE `entrada`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `oferta`
@@ -294,18 +312,17 @@ ALTER TABLE `oferta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `anunciante`
+-- Filtros para la tabla `anuncio`
 --
-ALTER TABLE `anunciante`
-  ADD CONSTRAINT `FK_qsgsljbvraj7kudvwdfhxeye5` FOREIGN KEY (`id`) REFERENCES `anuncio` (`id`),
-  ADD CONSTRAINT `anunciante_ibfk_1` FOREIGN KEY (`id`) REFERENCES `anuncio` (`id_anunciante`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `anuncio`
+  ADD CONSTRAINT `anuncio_ibfk_1` FOREIGN KEY (`id_anunciante`) REFERENCES `anunciante` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `clave_temporal`

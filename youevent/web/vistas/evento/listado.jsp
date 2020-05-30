@@ -30,6 +30,8 @@
                                         <td><s:property value="nombre" /></td>
                                         <td><s:property value="descripcion" /></td>
                                         <td><s:property value="lugar" /></td>
+                                        <td><s:property value="aforo" /></td>
+                                        <td><s:property value="precio" /></td>
                                         <td>
                                             <s:form action="redirigirAMostrarEvento">
                                                 <s:hidden name="idEvento" value="%{#evento.getId()}"></s:hidden>

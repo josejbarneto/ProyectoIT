@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 28-may-2020 22:53:01 by Hibernate Tools 4.3.1
+// Generated 30-may-2020 23:19:19 by Hibernate Tools 4.3.1
 
 
 
@@ -10,27 +10,17 @@ public class Anuncio  implements java.io.Serializable {
 
 
      private Integer id;
-     private int idAnunciante;
+     private Anunciante anunciante;
      private String contenido;
      private float precio;
-     private Anunciante anuncianteById;
-     private Anunciante anuncianteByIdAnunciante;
 
     public Anuncio() {
     }
 
-	
-    public Anuncio(int idAnunciante, String contenido, float precio) {
-        this.idAnunciante = idAnunciante;
-        this.contenido = contenido;
-        this.precio = precio;
-    }
-    public Anuncio(int idAnunciante, String contenido, float precio, Anunciante anuncianteById, Anunciante anuncianteByIdAnunciante) {
-       this.idAnunciante = idAnunciante;
+    public Anuncio(Anunciante anunciante, String contenido, float precio) {
+       this.anunciante = anunciante;
        this.contenido = contenido;
        this.precio = precio;
-       this.anuncianteById = anuncianteById;
-       this.anuncianteByIdAnunciante = anuncianteByIdAnunciante;
     }
    
     public Integer getId() {
@@ -40,12 +30,12 @@ public class Anuncio  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public int getIdAnunciante() {
-        return this.idAnunciante;
+    public Anunciante getAnunciante() {
+        return this.anunciante;
     }
     
-    public void setIdAnunciante(int idAnunciante) {
-        this.idAnunciante = idAnunciante;
+    public void setAnunciante(Anunciante anunciante) {
+        this.anunciante = anunciante;
     }
     public String getContenido() {
         return this.contenido;
@@ -60,20 +50,6 @@ public class Anuncio  implements java.io.Serializable {
     
     public void setPrecio(float precio) {
         this.precio = precio;
-    }
-    public Anunciante getAnuncianteById() {
-        return this.anuncianteById;
-    }
-    
-    public void setAnuncianteById(Anunciante anuncianteById) {
-        this.anuncianteById = anuncianteById;
-    }
-    public Anunciante getAnuncianteByIdAnunciante() {
-        return this.anuncianteByIdAnunciante;
-    }
-    
-    public void setAnuncianteByIdAnunciante(Anunciante anuncianteByIdAnunciante) {
-        this.anuncianteByIdAnunciante = anuncianteByIdAnunciante;
     }
 
 
