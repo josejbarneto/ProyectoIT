@@ -51,7 +51,7 @@
     
     <package name="accionesRecuperarClave" extends="struts-default">
         <action name="recuperarClave" class="acciones.accionRecuperarClave">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success">/vistas/login.jsp</result>
             <result name="error">/vistas/recuperarClave.jsp</result>
             <result name="input">/vistas/recuperarClave.jsp</result>
         </action>
