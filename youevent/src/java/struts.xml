@@ -91,4 +91,31 @@
         </action>
     </package>
     
+    <package name="accionesCategoria" extends="struts-default">
+        <action name="accionCrearCategoria" class="acciones.categorias.accionCrearCategoria">
+            <result name="success">/vistas/inicio.jsp</result>
+            <result name="error">/vistas/categoria/new.jsp</result>
+            <result name="input">/vistas/categoria/new.jsp</result>
+        </action>
+        
+        <action name="redirigirAListarCategoria" class="acciones.categorias.redirigirAListarCategoria">
+            <result name="success">/vistas/categoria/listado.jsp</result>
+        </action>
+        
+        <action name="redirigirAMostrarCategoria" class="acciones.categorias.redirigirAMostrarCategoria">
+            <result name="success">/vistas/categoria/show.jsp</result>
+        </action>
+        
+        <action name="redirigirAEditarCategoria" class="acciones.categorias.redirigirAEditarCategoria">
+            <result name="success">/vistas/categoria/edit.jsp</result>
+        </action>
+        
+        <action name="accionEditarCategoria" class="acciones.categorias.accionEditarCategoria">
+            <result name="success">/vistas/inicio.jsp</result>
+            <result name="error">/vistas/categoria/edit.jsp</result>
+            <result name="input">/vistas/categoria/edit.jsp</result>
+        </action>
+    </package>
+    
+    
 </struts>
