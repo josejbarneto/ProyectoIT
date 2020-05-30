@@ -39,6 +39,13 @@ public class Evento  implements java.io.Serializable {
        this.eventoCategorias = eventoCategorias;
        this.entradas = entradas;
     }
+    public Evento(int idUsuario, String nombre, String descripcion, String lugar, Set eventoCategorias) {
+       this.idUsuario = idUsuario;
+       this.nombre = nombre;
+       this.descripcion = descripcion;
+       this.lugar = lugar;
+       this.eventoCategorias = eventoCategorias;
+    }
    
     public Integer getId() {
         return this.id;

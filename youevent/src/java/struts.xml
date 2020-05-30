@@ -72,6 +72,23 @@
             <result name="input">/vistas/evento/new.jsp</result>
         </action>
 
+        <action name="redirigirAEditarEvento" class="acciones.eventos.redirigirAEditarEvento">
+            <result name="success">/vistas/evento/edit.jsp</result>
+        </action>
+        
+        <action name="accionEditarEvento" class="acciones.eventos.accionEditarEvento">
+            <result name="success">/vistas/inicio.jsp</result>
+            <result name="error">/vistas/evento/edit.jsp</result>
+            <result name="input">/vistas/evento/edit.jsp</result>
+        </action>
+        
+        <action name="redirigirAListarEvento" class="acciones.eventos.redirigirAListarEvento">
+            <result name="success">/vistas/evento/listado.jsp</result>
+        </action>
+        
+        <action name="redirigirAMostrarEvento" class="acciones.eventos.redirigirAMostrarEvento">
+            <result name="success">/vistas/evento/show.jsp</result>
+        </action>
     </package>
     
 </struts>

@@ -5,9 +5,13 @@
  */
 package modelo.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+import modelo.entidades.Categoria;
 import modelo.entidades.Evento;
 import modelo.entidades.EventoCategoria;
 import modelo.entidades.EventoCategoriaId;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -25,6 +29,25 @@ public class eventoCategoriaDAO {
         EventoCategoriaId res = (EventoCategoriaId) sesion.save(ec);
         tx.commit();
         return res;
+    }
+
+    public List<Categoria> getCategorias(Evento evento) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("From Evento where id='" + evento.getId() + "'");
+        evento = (Evento)q.uniqueResult();
+        System.out.println(evento);
+        q = sesion.createQuery("From EventoCategoria where Evento='" + evento + "'");
+        List<EventoCategoria> listaEventoCategoria = (List<EventoCategoria>) q.list();
+        
+        System.out.println(listaEventoCategoria);
+        
+        List<Categoria> listaCategoria = new ArrayList<>();
+        for(EventoCategoria ec : listaEventoCategoria){
+            listaCategoria.add(ec.getCategoria());
+        }
+        tx.commit();
+        return listaCategoria;
     }
 
 }

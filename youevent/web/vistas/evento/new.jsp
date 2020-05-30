@@ -14,7 +14,6 @@
             <s:textfield name="lugar" label="Lugar"></s:textfield>
                 
             <s:select label="Categorias" name="categoriasEvento" listValue="nombre" listKey="id" list="categorias" multiple="true" required="true"/>
-            <%--<s:checkboxlist label="Categorias" name="categories" value="" list="categorias"/>--%>
                         
             <s:submit name="btnEnviar" value="Enviar"></s:submit>
         </s:form>

@@ -17,5 +17,8 @@
         <s:form action="redirigirACrearEvento" method="post">
             <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
         </s:form>
+        <s:form action="redirigirAListarEvento" method="post">
+            <s:submit name="btnListarEvento" value="Listar Evento"></s:submit>
+        </s:form>
     </body>
 </html>
