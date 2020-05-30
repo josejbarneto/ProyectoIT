@@ -5,7 +5,9 @@
  */
 package modelo.dao;
 
+import java.util.List;
 import modelo.entidades.Anunciante;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -22,5 +24,14 @@ public class anuncianteDAO {
         Transaction tx = sesion.beginTransaction();
         int res = (int) sesion.save(anunciante);
         tx.commit();
+    }
+    
+    public List<Anunciante> getAllAnunciantes() {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("From Anunciante");
+        List<Anunciante> a = (List<Anunciante>) q.list();
+        tx.commit();
+        return a;
     }
 }
