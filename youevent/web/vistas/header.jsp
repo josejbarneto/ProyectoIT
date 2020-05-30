@@ -1,6 +1,6 @@
 <nav class="ui fixed menu">
     <a href="" class="item">
-        <img src="/youevent/img/YOUEVENT.png">
+        <img src="/youevent/img/YOUEVENT.png" style="width: 70px;">
     </a>
     <a href="" class="item"><i class="tags icon"></i>Eventos</a>
     <a href="" class="item"><i class="photo video icon"></i>Categorias</a>

@@ -12,14 +12,14 @@
         <%@include file="/vistas/header.jsp" %>
         <div class="ui section hidden divider"></div>
         <div id="main" class="ui very wide container">
-            <div class="ui basic segmetn">
+            <div class="ui basic segment">
                 <s:form action="redirigirACrearEvento" method="post">
                     <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
                 </s:form>
-            </div>
-            <s:form action="redirigirAListarEvento" method="post">
+                <s:form action="redirigirAListarEvento" method="post">
                     <s:submit name="btnListarEvento" value="Listar Evento"></s:submit>
                 </s:form>
+            </div>
         </div>
         <%@include file="/vistas/footer.html" %>
     </body>
