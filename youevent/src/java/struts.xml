@@ -89,6 +89,11 @@
         <action name="redirigirAMostrarEvento" class="acciones.eventos.redirigirAMostrarEvento">
             <result name="success">/vistas/evento/show.jsp</result>
         </action>
+        
+        <action name="accionEliminarEvento" class="acciones.eventos.accionEliminarEvento">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>
+        
     </package>
     
     <package name="accionesCategoria" extends="struts-default">
