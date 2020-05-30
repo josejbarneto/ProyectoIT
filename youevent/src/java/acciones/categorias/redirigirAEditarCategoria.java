@@ -22,7 +22,11 @@ public class redirigirAEditarCategoria extends ActionSupport implements SessionA
     
     private Map<String, Object> session;
     private Categoria categoria;
+<<<<<<< HEAD
     private int idCategoria;
+=======
+    private Integer idCategoria;
+>>>>>>> 18eb5ef53ef74043b3908a05902e5118310f7d61
 
 
     
@@ -41,13 +45,22 @@ public class redirigirAEditarCategoria extends ActionSupport implements SessionA
         return idCategoria;
     }
 
+<<<<<<< HEAD
     public void setIdCategoria(int idCategoria) {
+=======
+    public void setIdCategoria(Integer idCategoria) {
+>>>>>>> 18eb5ef53ef74043b3908a05902e5118310f7d61
         this.idCategoria = idCategoria;
     }
 
     
     public String execute() throws Exception {
+<<<<<<< HEAD
         categoria = new categoriaDAO().get(idCategoria); 
+=======
+        categoriaDAO catDAO = new categoriaDAO();
+        this.categoria = catDAO.get(idCategoria); 
+>>>>>>> 18eb5ef53ef74043b3908a05902e5118310f7d61
         return SUCCESS;
     }
 
