@@ -3,26 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package acciones.eventos;
+package acciones.categorias;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.Map;
-import modelo.dao.eventoDAO;
-import modelo.entidades.Evento;
-import modelo.entidades.Usuario;
+import modelo.dao.categoriaDAO;
+import modelo.entidades.Categoria;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author Carlos
  */
-public class accionEditarEvento extends ActionSupport implements SessionAware {
+public class accionEditarCategoria extends ActionSupport implements SessionAware {
 
     private Integer id;
     private String nombre;
     private String descripcion;
-    private String lugar;
     private Map<String, Object> session;
 
     public String getNombre() {
@@ -41,14 +39,6 @@ public class accionEditarEvento extends ActionSupport implements SessionAware {
         this.descripcion = descripcion;
     }
 
-    public String getLugar() {
-        return lugar;
-    }
-
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -57,17 +47,17 @@ public class accionEditarEvento extends ActionSupport implements SessionAware {
         this.id = id;
     }
 
-    public accionEditarEvento() {
+    public accionEditarCategoria() {
     }
 
     public String execute() throws Exception {
 
-        eventoDAO eventoDAO = new eventoDAO();
-
-        Usuario usuario = (Usuario) session.get("usuario");
-        Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar);
-        evento.setId(id);
-        eventoDAO.editar(evento);
+        categoriaDAO catDAO = new categoriaDAO();
+        
+        Categoria cat = new Categoria(nombre, descripcion);
+        cat.setId(id);
+        
+        catDAO.editar(cat);
 
         return SUCCESS;
 

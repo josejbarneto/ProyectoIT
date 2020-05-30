@@ -6,6 +6,8 @@
 package acciones.categorias;
 
 import com.opensymphony.xwork2.ActionSupport;
+import modelo.dao.categoriaDAO;
+import modelo.entidades.Categoria;
 
 /**
  *
@@ -37,7 +39,20 @@ public class accionCrearCategoria extends ActionSupport {
     
     
     public String execute() throws Exception {
-        return null;
+        categoriaDAO cDAO = new categoriaDAO();
+        if (!cDAO.existeCategoria(this.nombre)) {
+            Categoria cat = new Categoria(this.nombre, this.descripcion);
+            cDAO.insertaCategoria(cat);
+            return SUCCESS;
+        }
+        else{
+            return ERROR;
+        }
+    }
+    
+    @Override
+    public void validate() {
+
     }
     
 }

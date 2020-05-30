@@ -1,9 +1,3 @@
-<%-- 
-    Document   : registro
-    Created on : 26-may-2020, 18:27:48
-    Author     : Carlos
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>

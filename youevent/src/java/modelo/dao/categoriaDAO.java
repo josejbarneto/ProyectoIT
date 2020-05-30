@@ -7,6 +7,7 @@ package modelo.dao;
 
 import java.util.List;
 import modelo.entidades.Categoria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -37,8 +38,52 @@ public class categoriaDAO {
         return null;
     }
     
-    public boolean insertaCategoria(){
-        return true;
+    public Categoria get(Integer id) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("From Categoria where id='" + id + "'");
+        Categoria c = (Categoria) q.uniqueResult();
+        tx.commit();
+        return c;
+    }
     
+    public int insertaCategoria(Categoria cat){
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        int res = (int)sesion.save(cat);
+        tx.commit();
+        
+        return res;
+    
+    }
+    
+    public void editar(Categoria cat) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = null;
+        try {
+            tx = sesion.beginTransaction();
+            sesion.update(cat);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+    
+    public boolean existeCategoria(String nombre) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("From Categoria where nombre='" + nombre + "'");
+        Categoria c = (Categoria) q.uniqueResult();
+        tx.commit();
+        
+        if (c != null) {
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 }
