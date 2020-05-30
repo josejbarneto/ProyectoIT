@@ -13,7 +13,7 @@
             <s:textfield name="descripcion" label="Descripcion"></s:textfield>
             <s:textfield name="lugar" label="Lugar"></s:textfield>
                 
-            <s:select label="Categorias" name="id_categories" listValue="nombre" list="categorias" multiple="true" required="true"/>
+            <s:select label="Categorias" name="categories" listValue="nombre" list="categorias" multiple="true" required="true"/>
                         
             <s:submit name="btnEnviar" value="Enviar"></s:submit>
         </s:form>

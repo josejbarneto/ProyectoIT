@@ -31,7 +31,7 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
     private String nombre;
     private String descripcion;
     private String lugar;
-    private ArrayList<Integer> id_categories;
+    private List<Categoria> categories;
     private Map<String, Object> session;
 
     public String getNombre() {
@@ -58,12 +58,12 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
         this.lugar = lugar;
     }
 
-    public ArrayList<Integer> getId_categories() {
-        return id_categories;
+    public List<Categoria> getCategories() {
+        return categories;
     }
 
-    public void setId_categories(ArrayList<Integer> id_categories) {
-        this.id_categories = id_categories;
+    public void setCategories(List<Categoria> categories) {
+        this.categories = categories;
     }
 
     public accionCrearEvento() {
@@ -87,7 +87,7 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
 
             eventoCategoriaDAO ecDAO = new eventoCategoriaDAO();
 
-            System.out.println(id_categories.toString());
+            System.out.println(categories.toString());
 
             /*
             Iterator <Categoria>it = categories.iterator();
