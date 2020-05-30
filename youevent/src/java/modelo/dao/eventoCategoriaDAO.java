@@ -7,6 +7,7 @@ package modelo.dao;
 
 import modelo.entidades.Evento;
 import modelo.entidades.EventoCategoria;
+import modelo.entidades.EventoCategoriaId;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -15,12 +16,13 @@ import org.hibernate.Transaction;
  * @author Carlos
  */
 public class eventoCategoriaDAO {
-        Session sesion = null;
-    
-        public int crear(EventoCategoria ec) {
+
+    Session sesion = null;
+
+    public EventoCategoriaId crear(EventoCategoria ec) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = sesion.beginTransaction();
-        int res = (int) sesion.save(ec);
+        EventoCategoriaId res = (EventoCategoriaId) sesion.save(ec);
         tx.commit();
         return res;
     }

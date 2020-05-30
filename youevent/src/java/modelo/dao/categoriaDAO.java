@@ -16,6 +16,7 @@ import org.hibernate.Transaction;
  * @author Carlos
  */
 public class categoriaDAO {
+
     Session sesion = null;
 
     public List<Categoria> getAllCategorias() {
@@ -25,5 +26,14 @@ public class categoriaDAO {
         List<Categoria> c = (List<Categoria>) q.list();
         tx.commit();
         return c;
+    }
+
+    public Categoria getById(List<Categoria> lista, Integer id) {
+        for (Categoria categoria : lista) {
+            if (categoria.getId() == id) {
+                return categoria;
+            }
+        }
+        return null;
     }
 }

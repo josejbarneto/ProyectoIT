@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import modelo.dao.categoriaDAO;
 import modelo.dao.eventoCategoriaDAO;
 import modelo.dao.eventoDAO;
 import modelo.entidades.Categoria;
@@ -31,7 +32,8 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
     private String nombre;
     private String descripcion;
     private String lugar;
-    private List<Categoria> categories;
+    private List<Categoria> categorias = new ArrayList();
+    private List<String> categoriasEvento = new ArrayList();
     private Map<String, Object> session;
 
     public String getNombre() {
@@ -58,15 +60,17 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
         this.lugar = lugar;
     }
 
-    public List<Categoria> getCategories() {
-        return categories;
+    public List<Categoria> getCategorias() {
+        return categorias;
     }
 
     public void setCategories(List<Categoria> categories) {
-        this.categories = categories;
+        this.categorias = categories;
     }
 
     public accionCrearEvento() {
+        categoriaDAO categoriaDAO = new categoriaDAO();
+        this.categorias = categoriaDAO.getAllCategorias();
     }
 
     @InputConfig(methodName = "input")
@@ -87,24 +91,28 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
 
             eventoCategoriaDAO ecDAO = new eventoCategoriaDAO();
 
-            System.out.println(categories.toString());
-
-            /*
-            Iterator <Categoria>it = categories.iterator();
-            while(it.hasNext()){
-                Categoria c = it.next();
+            //System.out.println(categories.toString());
+            categoriaDAO cdao = new categoriaDAO();
+            Iterator<String> it = categoriasEvento.iterator();
+            while (it.hasNext()) {
+                Categoria c = cdao.getById(categorias, Integer.parseInt(it.next()));
                 EventoCategoriaId ecId = new EventoCategoriaId(evento.getId(), c.getId());
                 EventoCategoria ec = new EventoCategoria(ecId, c, evento);
                 ecDAO.crear(ec);
-
             }
-             */
+
             return SUCCESS;
         }
 
     }
 
-    
+    public List<String> getCategoriasEvento() {
+        return categoriasEvento;
+    }
+
+    public void setCategoriasEvento(List<String> categoriasEvento) {
+        this.categoriasEvento = categoriasEvento;
+    }
 
     @Override
     public void setSession(Map<String, Object> map) {
