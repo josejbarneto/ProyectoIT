@@ -14,19 +14,22 @@
         <s:textfield name="lugar" label="Lugar" value="%{evento.getLugar()}" readonly="true"></s:textfield>
         <s:textfield name="id" label="Id" value="%{evento.getId()}" readonly="true"></s:textfield>
 
+        <br/>
+        
         <s:iterator value="listaCategorias" var="categoria">
         <tr>
-            <td><s:property value="nombre" /></td>
-            <td><s:property value="descripcion" /></td>
+            <td>Categoria:   <s:property value="nombre" /></td>
+            <td>Descripcion: <s:property value="descripcion" /></td>
         </tr>
+        <br/>
         </s:iterator>
         
         <s:form action="redirigirAEditarEvento">
             <s:hidden name="idEvento" value="%{evento.getId()}" ></s:hidden>
             <s:submit name="btnEditar" value="Editar"></s:submit>
         </s:form>
-        <s:form action="redirigirAEliminarEvento">
-            <s:hidden name="idPrueba" value="%{evento.getId()}"></s:hidden>
+        <s:form action="accionEliminarEvento">
+            <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
             <s:submit name="btnEliminar" value="Eliminar"></s:submit>
         </s:form>
 
