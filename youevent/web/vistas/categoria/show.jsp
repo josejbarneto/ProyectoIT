@@ -17,6 +17,11 @@
             <s:hidden name="idEvento" value="%{categoria.getId()}" ></s:hidden>
             <s:submit name="btnEditar" value="Editar"></s:submit>
         </s:form>
+        
+        <s:form action="accionEliminarCategoria">
+            <s:hidden name="idCategoria" value="%{categoria.getId()}"></s:hidden>
+            <s:submit name="btnEliminar" value="Eliminar"></s:submit>
+        </s:form>
 
     </body>
 </html>
