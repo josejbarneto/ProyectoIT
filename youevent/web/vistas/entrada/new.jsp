@@ -15,10 +15,14 @@
             <div class="ui grid">
                 <div class="ui twelve wide column">               
                     <div class="ui segment">
+                        <s:if test="descuento!=-1">
+                            <h3>Estás de suerte! Tenemos una oferta activa donde aplicamos un <s:property value="descuento" />% de descuento en las entradas de este evento.</h3>
+                        </s:if>
                         <h3>El precio de las <s:property value="numEntradas" /> entradas seleccionadas es de un total de <s:property value="precioTotal" />€</h3>
                             <s:form action="accionCrearEntrada">
-                                <s:hidden name="numEntradas" value="numEntradas" ></s:hidden>
-                                <s:hidden name="idEvento" value="idEvento" ></s:hidden>
+                                <s:hidden name="numEntradas" value="%{numEntradas}" ></s:hidden>
+                                <s:hidden name="idEvento" value="%{idEvento}" ></s:hidden>
+                                <s:hidden name="descuento" value="%{descuento}" ></s:hidden>
                                 <s:submit cssClass="ui green button" name="btnConfirmar" value="Confirmar compra"></s:submit>
                             </s:form>
                     </div>
