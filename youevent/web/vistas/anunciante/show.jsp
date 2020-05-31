@@ -21,6 +21,7 @@
                 <s:iterator value="listaAnuncios">
                     <tr>
                         <td>Anuncio: <s:property value="contenido" /></td>
+                        <td>Precio:  <s:property value="precio" /></td>
                     </tr>
                     <br/>
                 </s:iterator>
