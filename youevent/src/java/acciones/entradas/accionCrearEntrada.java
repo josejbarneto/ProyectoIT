@@ -34,6 +34,15 @@ public class accionCrearEntrada extends ActionSupport implements SessionAware {
     private int numEntradas;
     private Map<String, Object> session;
     private int idEvento;
+    private float descuento;
+
+    public float getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(float descuento) {
+        this.descuento = descuento;
+    }
 
     public int getNumEntradas() {
         return numEntradas;
@@ -57,7 +66,7 @@ public class accionCrearEntrada extends ActionSupport implements SessionAware {
         eventoDAO eventoDAO = new eventoDAO();
         Evento evento = eventoDAO.get(idEvento);
         while (numEntradas > 0) {
-            Entrada entrada = new Entrada(evento, usuario);
+            Entrada entrada = new Entrada(evento, usuario, evento.getPrecio() * (1 - descuento/100));
             entradaDAO.crear(entrada);
             numEntradas--;
         }
