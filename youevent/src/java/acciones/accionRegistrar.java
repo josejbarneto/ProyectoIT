@@ -66,7 +66,7 @@ public class accionRegistrar extends ActionSupport {
     public String execute() throws Exception {
         usuarioDAO usuarioDAO = new usuarioDAO();
         configuracionDAO configuracionDAO = new configuracionDAO();
-        Usuario us = new Usuario(usuario, 0, nombre, email, hashPassword(password));
+        Usuario us = new Usuario(usuario, 2, nombre, email, hashPassword(password));
         System.out.println(usuario+ nombre+email+password);
 
         Configuracion conf = new Configuracion();
