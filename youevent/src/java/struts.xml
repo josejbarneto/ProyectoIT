@@ -157,15 +157,63 @@
         </action>
     </package>  
     
-    <package name="accionesAnuncio" extends="struts-default">
+    <package extends="struts-default" name="accionesAnuncio">
+
+
         <action name="redirigirACrearAnuncio" class="acciones.anuncios.redirigirACrearAnuncio">
+
             <result name="success">/vistas/anuncio/new.jsp</result>
+
         </action>
-        
+
+
         <action name="accionCrearAnuncio" class="acciones.anuncios.accionCrearAnuncio">
-            <result name="success">/vistas/anuncio/new.jsp</result>
+
+            <result name="success">/vistas/inicio.jsp</result>
+
+            <result name="error">/vistas/anuncio/new.jsp</result>
+
             <result name="input">/vistas/anuncio/new.jsp</result>
+
         </action>
+
+
+        <action name="redirigirAListarAnuncio" class="acciones.anuncios.redirigirAListarAnuncio">
+
+            <result name="success">/vistas/anuncio/listado.jsp</result>
+
+        </action>
+
+
+        <action name="redirigirAMostrarAnuncio" class="acciones.anuncios.redirigirAMostrarAnuncio">
+
+            <result name="success">/vistas/anuncio/show.jsp</result>
+
+        </action>
+
+
+        <action name="redirigirAEditarAnuncio" class="acciones.anuncios.redirigirAEditarAnuncio">
+
+            <result name="success">/vistas/anuncio/edit.jsp</result>
+
+        </action>
+
+
+        <action name="accionEditarAnuncio" class="acciones.anuncios.accionEditarAnuncio">
+
+            <result name="success">/vistas/inicio.jsp</result>
+
+            <result name="input">/vistas/anuncio/edit.jsp</result>
+
+        </action>
+
+
+        <action name="accionEliminarAnuncio" class="acciones.anuncios.accionEliminarAnuncio">
+
+            <result name="success">/vistas/inicio.jsp</result>
+
+        </action>
+
     </package>
     
     <package name="accionesEntrada" extends="struts-default">
