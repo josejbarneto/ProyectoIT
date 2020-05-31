@@ -56,7 +56,6 @@
         var llamadaLocalizacion = new XMLHttpRequest();
         llamadaLocalizacion.onreadystatechange = function (e) {
             if (this.readyState == 4 && this.status == 200) {
-                console.log(e);
                 var localizacion = this.response;
                 var llamadaTiempo = new XMLHttpRequest();
                 llamadaTiempo.onreadystatechange = function () {

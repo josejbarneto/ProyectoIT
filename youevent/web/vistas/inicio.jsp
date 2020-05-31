@@ -22,8 +22,8 @@
                 <s:form action="redirigirAMostrarConfiguracion" method="post">
                     <s:submit name="btnCrearAnuncio" value="Crear Anuncio"></s:submit>
                 </s:form>
-                <s:form action="redirigirACrearEvento" method="post">
-                    <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
+                <s:form action="redirigirAListarUsuario" method="post">
+                    <s:submit name="btnListarUsuario" value="Listar usuarios"></s:submit>
                 </s:form>
             </div>
         </div>

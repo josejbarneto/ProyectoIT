@@ -23,6 +23,7 @@
                                     <th>Lugar</th>
                                     <th>Aforo</th>
                                     <th>Precio</th>
+                                    <th>Fecha</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -36,9 +37,9 @@
                                         <td><s:property value="precio" />€</td>
                                         <td><s:property value="fecha" /></td>
                                         <td>
-                                            <s:form action="redirigirAMostrarEvento">
+                                            <s:form cssClass="ui form" action="redirigirAMostrarEvento" theme="simple">
                                                 <s:hidden name="idEvento" value="%{#evento.getId()}"></s:hidden>
-                                                <s:submit name="btnMostrar" value="Mostrar"></s:submit>
+                                                <s:submit cssClass="ui basic button" name="btnMostrar" value="Mostrar"></s:submit>
                                             </s:form>
                                         </td>
                                     </tr>

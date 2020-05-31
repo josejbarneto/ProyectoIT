@@ -5,7 +5,9 @@ package modelo.dao;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.List;
 import modelo.entidades.Usuario;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -58,6 +60,39 @@ public class usuarioDAO {
         
     }
     
+    public List<Usuario> getAll() {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("From Usuario");
+        List<Usuario> us = (List<Usuario>) q.list();
+        tx.commit();
+        return us;
+    }
+    
+    public Usuario get(Integer id) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("From Usuario where id='" + id + "'");
+        Usuario a = (Usuario) q.uniqueResult();
+        tx.commit();
+        return a;
+    }
+    
+    public void editar(Usuario us) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = null;
+        try {
+            tx = sesion.beginTransaction();
+            sesion.update(us);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+    
 
     public int insertUsuario(Usuario usuario) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -76,5 +111,13 @@ public class usuarioDAO {
         
         return u;
     } 
+
+    public void eliminar(Integer idUsuario) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = sesion.beginTransaction();
+        Query q = sesion.createQuery("delete from Usuario where id  = "+idUsuario);
+        q.executeUpdate();
+        tx.commit();
+    }
 
 }

@@ -120,6 +120,7 @@
         
         <action name="accionEditarAnunciante" class="acciones.anunciante.accionEditarAnunciante">
             <result name="success">/vistas/inicio.jsp</result>
+            <result name="input">/vistas/anunciante/edit.jsp</result>
         </action>
         
         <action name="accionEliminarAnunciante" class="acciones.anunciante.accionEliminarAnunciante">
@@ -244,6 +245,34 @@
             <result name="success">/vistas/inicio.jsp</result>
             <result name="input">/vistas/configuracion/edit.jsp</result>
         </action>
+    </package>
+    
+    <package name="accionesUsuario" extends="struts-default">
+        <action name="redirigirAListarUsuario" class="acciones.usuario.redirigirAListarUsuario">
+            <result name="success">/vistas/usuario/listado.jsp</result>
+        </action>
+        
+        <action name="redirigirAMostrarUsuario" class="acciones.usuario.redirigirAMostrarUsuario">
+            <result name="success">/vistas/usuario/show.jsp</result>
+        </action>
+        
+        <action name="accionEditarUsuario" class="acciones.usuario.accionEditarUsuario">
+
+            <result name="success">/vistas/inicio.jsp</result>
+
+            <result name="input">/vistas/usuario/edit.jsp</result>
+
+        </action>
+        
+        <action name="redirigirAEditarUsuario" class="acciones.usuario.redirigirAEditarUsuario">
+            <result name="success">/vistas/usuario/edit.jsp</result>
+            <result name="input">/vistas/usuario/edit.jsp</result>
+        </action>
+        
+        <action name="accionEliminarUsuario" class="acciones.usuario.accionEliminarUsuario">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>
+        
     </package>
     
     
