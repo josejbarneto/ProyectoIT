@@ -6,23 +6,19 @@
     <!-- Configuration for the default package. -->
     
     <!--Pantalla de inicio getEventos-->
-    <!--
+  
     <package name="default" extends="struts-default">
         <action name="">
             <result type="chain">
-                <param name="actionName">getPruebas</param>
+                <param name="actionName">redirigirAListarEvento</param>
             </result>
         </action>
     </package>
-    -->
     
-    <package name="default" namespace="/" extends="struts-default">
-
-    </package>
     
     <package name="accionesLogin" extends="struts-default">
         <action name="comprobarLogin" class="acciones.accionLogin">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
             <result name="error">/vistas/login.jsp</result>
             <result name="input">/vistas/login.jsp</result>
         </action>
@@ -44,7 +40,7 @@
     <package name="accionesRegistro" extends="struts-default">
  
         <action name="registrar" class="acciones.accionRegistrar">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
             <result name="error">/vistas/registro.jsp</result>
             <result name="input">/vistas/registro.jsp</result>
         </action>
@@ -72,7 +68,7 @@
         </action>
         
         <action name="accionCrearEvento" class="acciones.eventos.accionCrearEvento">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
             <result name="error">/vistas/evento/new.jsp</result>
             <result name="input">/vistas/evento/new.jsp</result>
         </action>
@@ -82,7 +78,7 @@
         </action>
         
         <action name="accionEditarEvento" class="acciones.eventos.accionEditarEvento">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
             <result name="error">/vistas/evento/edit.jsp</result>
             <result name="input">/vistas/evento/edit.jsp</result>
         </action>
@@ -96,7 +92,7 @@
         </action>
         
         <action name="accionEliminarEvento" class="acciones.eventos.accionEliminarEvento">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>
         
     </package>
@@ -108,7 +104,7 @@
         </action>
         
         <action name="accionCrearAnunciante" class="acciones.anunciante.accionCrearAnunciante">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>
         
         <action name="redirigirAListarAnunciante" class="acciones.anunciante.redirigirAListarAnunciante">
@@ -124,18 +120,18 @@
         </action>
         
         <action name="accionEditarAnunciante" class="acciones.anunciante.accionEditarAnunciante">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
             <result name="input">/vistas/anunciante/edit.jsp</result>
         </action>
         
         <action name="accionEliminarAnunciante" class="acciones.anunciante.accionEliminarAnunciante">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>
     </package>
     
     <package name="accionesCategoria" extends="struts-default">
         <action name="accionCrearCategoria" class="acciones.categorias.accionCrearCategoria">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
             <result name="error">/vistas/categoria/new.jsp</result>
             <result name="input">/vistas/categoria/new.jsp</result>
         </action>
@@ -153,13 +149,13 @@
         </action>
         
         <action name="accionEditarCategoria" class="acciones.categorias.accionEditarCategoria">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
             <result name="error">/vistas/categoria/edit.jsp</result>
             <result name="input">/vistas/categoria/edit.jsp</result>
         </action>
         
         <action name="accionEliminarCategoria" class="acciones.categorias.accionEliminarCategoria">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>
     </package>  
     
@@ -175,7 +171,7 @@
 
         <action name="accionCrearAnuncio" class="acciones.anuncios.accionCrearAnuncio">
 
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
 
             <result name="error">/vistas/anuncio/new.jsp</result>
 
@@ -207,7 +203,7 @@
 
         <action name="accionEditarAnuncio" class="acciones.anuncios.accionEditarAnuncio">
 
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
 
             <result name="input">/vistas/anuncio/edit.jsp</result>
 
@@ -216,7 +212,7 @@
 
         <action name="accionEliminarAnuncio" class="acciones.anuncios.accionEliminarAnuncio">
 
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
 
         </action>
 
@@ -228,7 +224,7 @@
         </action>
         
         <action name="accionCrearEntrada" class="acciones.entradas.accionCrearEntrada">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>
         
         <action name="redirigirAListarEntradaPorCliente" class="acciones.entradas.redirigirAListarEntradaPorCliente">
@@ -236,7 +232,7 @@
         </action>
         
         <action name="accionEliminarEntrada" class="acciones.entradas.accionEliminarEntrada">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>
     </package>
     
@@ -246,7 +242,7 @@
         </action>
         
         <action name="accionCrearOferta" class="acciones.ofertas.accionCrearOferta">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>     
         
         <action name="redirigirAListarOferta" class="acciones.ofertas.redirigirAListarOferta">
@@ -258,7 +254,7 @@
         </action>  
         
         <action name="accionEliminarOferta" class="acciones.ofertas.accionEliminarOferta">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action> 
         
         <action name="redirigirAEditarOferta" class="acciones.ofertas.redirigirAEditarOferta">
@@ -266,7 +262,7 @@
         </action>  
         
         <action name="accionEditarOferta" class="acciones.ofertas.accionEditarOferta">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>
         
     </package>
@@ -281,7 +277,7 @@
         </action>
         
         <action name="accionEditarConfiguracion" class="acciones.configuracion.accionEditarConfiguracion">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
             <result name="input">/vistas/configuracion/edit.jsp</result>
         </action>
     </package>
@@ -297,7 +293,7 @@
         
         <action name="accionEditarUsuario" class="acciones.usuario.accionEditarUsuario">
 
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
 
             <result name="input">/vistas/usuario/edit.jsp</result>
 
@@ -309,7 +305,7 @@
         </action>
         
         <action name="accionEliminarUsuario" class="acciones.usuario.accionEliminarUsuario">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success" type="chain">redirigirAListarEvento</result>
         </action>
         
     </package>

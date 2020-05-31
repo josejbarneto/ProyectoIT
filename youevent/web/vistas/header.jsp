@@ -10,6 +10,9 @@
         <s:if test="#session.usuario!=null && #session.usuario.rol==0">
             <a href='/youevent/vistas/redirigirAListarUsuario.action' class="item"><i class="tools icon"></i>Administrar</a>
         </s:if>
+        <s:if test="#session.usuario!=null && #session.usuario.rol==0">
+            <a href='/youevent/vistas/redirigirAListarAnunciante.action' class="item"><i class="tools icon"></i>Administrar</a>
+        </s:if>
         <%-- FIN SI ESTA LOGADO Y ES ADMIN--%>
 
         <%-- SI ESTA LOGADO Y ES ORGANIZADOR --%>
@@ -24,10 +27,10 @@
             <a class="item" href="youevent/vistas/redirigirAListarEntradaPorCliente.action"><i class="ticket icon"></i>Mis Entradas</a>
         </s:if>
         <%-- FIN SI ESTA LOGADO Y ES USUARIO NORMAL --%>
-        
-        
+
+
         <s:if test="#session.usuario==null">
-            
+
             <a class="ui item" href="/youevent/vistas/login.jsp"><i class="sign in alternate icon"></i>Login</a>
         </s:if>
         <s:else>
