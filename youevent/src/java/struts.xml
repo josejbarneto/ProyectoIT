@@ -231,17 +231,18 @@
         </action>
     </package>
     
-        <package name="accionesConfiguracion" extends="struts-default">
+    <package name="accionesConfiguracion" extends="struts-default">
         <action name="redirigirAMostrarConfiguracion" class="acciones.configuracion.redirigirAMostrarConfiguracion">
             <result name="success">/vistas/configuracion/show.jsp</result>
         </action>
         
         <action name="redirigirAEditarConfiguracion" class="acciones.configuracion.redirigirAEditarConfiguracion">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success">/vistas/configuracion/edit.jsp</result>
         </action>
         
         <action name="accionEditarConfiguracion" class="acciones.configuracion.accionEditarConfiguracion">
             <result name="success">/vistas/inicio.jsp</result>
+            <result name="input">/vistas/configuracion/edit.jsp</result>
         </action>
     </package>
     
