@@ -21,7 +21,7 @@
 
         <%-- SI ESTA LOGADO Y ES USUARIO NORMAL --%>
         <s:if test="#session.usuario!=null && #session.usuario.rol==2 || #session.usuario.rol==0">
-            <a class="item" href=""><i class="ticket icon"></i>Mis Entradas</a>
+            <a class="item" href="youevent/vistas/redirigirAListarEntradaPorCliente.action"><i class="ticket icon"></i>Mis Entradas</a>
         </s:if>
         <%-- FIN SI ESTA LOGADO Y ES USUARIO NORMAL --%>
         
