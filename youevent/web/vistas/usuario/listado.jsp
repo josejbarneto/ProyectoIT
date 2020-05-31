@@ -34,7 +34,6 @@
                                     <th>Rol</th>
                                     <th>Usuario</th>
                                     <th>Correo</th>
-                                    <th>Contraseña</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -46,11 +45,10 @@
                                         <td><s:property value="rol" /></td>
                                         <td><s:property value="usuario" /></td>
                                         <td><s:property value="email" /></td>
-                                        <td><s:property value="contrasenya" /></td>
                                         <td>
                                             <s:form action="redirigirAMostrarUsuario">
                                                 <s:hidden name="idUsuario" value="%{#usuario.getId()}"></s:hidden>
-                                                <s:submit name="btnMostrar" value="Mostrar"></s:submit>
+                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui basic green button"></s:submit>
                                             </s:form>
                                         </td>
                                     </tr>
