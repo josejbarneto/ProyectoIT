@@ -34,6 +34,7 @@
                                         <td><s:property value="lugar" /></td>
                                         <td><s:property value="aforo" /></td>
                                         <td><s:property value="precio" />€</td>
+                                        <td><s:property value="fecha" /></td>
                                         <td>
                                             <s:form action="redirigirAMostrarEvento">
                                                 <s:hidden name="idEvento" value="%{#evento.getId()}"></s:hidden>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2020 a las 23:24:53
+-- Tiempo de generación: 31-05-2020 a las 13:41:28
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -34,6 +34,14 @@ CREATE TABLE `anunciante` (
   `direccion` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `email` varchar(40) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `anunciante`
+--
+
+INSERT INTO `anunciante` (`id`, `nombre`, `direccion`, `email`) VALUES
+(1, 'Samsung', 'C/Samsung street', 'samsumg@sam.com'),
+(2, 'Nokia', 'C/Invent', 'nokia@piedra.com');
 
 -- --------------------------------------------------------
 
@@ -97,16 +105,19 @@ INSERT INTO `clave_temporal` (`id`, `id_usuario`, `contrasenya`, `fecha_de_creac
 
 CREATE TABLE `configuracion` (
   `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL
+  `id_usuario` int(11) NOT NULL,
+  `modoNocturno` tinyint(1) NOT NULL,
+  `openNewTab` int(11) NOT NULL,
+  `id_categoriaInicial` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `configuracion`
 --
 
-INSERT INTO `configuracion` (`id`, `id_usuario`) VALUES
-(9, 9),
-(11, 11);
+INSERT INTO `configuracion` (`id`, `id_usuario`, `modoNocturno`, `openNewTab`, `id_categoriaInicial`) VALUES
+(9, 9, 0, 0, 0),
+(11, 11, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -117,7 +128,8 @@ INSERT INTO `configuracion` (`id`, `id_usuario`) VALUES
 CREATE TABLE `entrada` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `id_evento` int(11) NOT NULL
+  `id_evento` int(11) NOT NULL,
+  `precio` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- --------------------------------------------------------
@@ -133,8 +145,16 @@ CREATE TABLE `evento` (
   `descripcion` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `lugar` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
   `aforo` int(11) NOT NULL,
-  `precio` float NOT NULL
+  `precio` float NOT NULL,
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `evento`
+--
+
+INSERT INTO `evento` (`id`, `id_usuario`, `nombre`, `descripcion`, `lugar`, `aforo`, `precio`, `fecha`) VALUES
+(10, 11, 'Octopus', 'Hard', 'Sevilla', 200, 15, '1999-06-05');
 
 -- --------------------------------------------------------
 
@@ -146,6 +166,14 @@ CREATE TABLE `evento_categoria` (
   `id_evento` int(11) NOT NULL,
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `evento_categoria`
+--
+
+INSERT INTO `evento_categoria` (`id_evento`, `id_categoria`) VALUES
+(10, 1),
+(10, 3);
 
 -- --------------------------------------------------------
 
@@ -264,7 +292,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `anunciante`
 --
 ALTER TABLE `anunciante`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `anuncio`
@@ -300,7 +328,7 @@ ALTER TABLE `entrada`
 -- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `oferta`

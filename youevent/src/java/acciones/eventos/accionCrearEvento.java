@@ -7,8 +7,10 @@ package acciones.eventos;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +36,7 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
     private String lugar;
     private int aforo;
     private float precio;
+    private String fecha;
     private List<Categoria> categorias = new ArrayList();
     private List<String> categoriasEvento = new ArrayList();
     private Map<String, Object> session;
@@ -78,6 +81,14 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
         this.precio = precio;
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
     public List<Categoria> getCategorias() {
         return categorias;
     }
@@ -99,7 +110,8 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
             return ERROR;
         } else {
             Usuario usuario = (Usuario) session.get("usuario");
-            Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar, aforo, precio);
+            Date fechaDate =new SimpleDateFormat("dd/MM/yyyy").parse(fecha); 
+            Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar, aforo, precio, fechaDate);
             eventoDAO.crear(evento);
             evento = eventoDAO.get(evento.getId());
 

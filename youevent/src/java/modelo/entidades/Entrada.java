@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 30-may-2020 23:19:19 by Hibernate Tools 4.3.1
+// Generated 31-may-2020 13:38:34 by Hibernate Tools 4.3.1
 
 
 
@@ -12,13 +12,15 @@ public class Entrada  implements java.io.Serializable {
      private Integer id;
      private Evento evento;
      private Usuario usuario;
+     private float precio;
 
     public Entrada() {
     }
 
-    public Entrada(Evento evento, Usuario usuario) {
+    public Entrada(Evento evento, Usuario usuario, float precio) {
        this.evento = evento;
        this.usuario = usuario;
+       this.precio = precio;
     }
    
     public Integer getId() {
@@ -41,6 +43,13 @@ public class Entrada  implements java.io.Serializable {
     
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+    public float getPrecio() {
+        return this.precio;
+    }
+    
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
 
 
