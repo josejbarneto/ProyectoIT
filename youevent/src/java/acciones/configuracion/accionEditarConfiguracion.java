@@ -6,9 +6,7 @@
 package acciones.configuracion;
 
 import com.opensymphony.xwork2.ActionSupport;
-import java.util.ArrayList;
 import java.util.List;
-import modelo.dao.categoriaDAO;
 import modelo.dao.configuracionDAO;
 import modelo.entidades.Categoria;
 import modelo.entidades.Configuracion;
@@ -18,12 +16,12 @@ import modelo.entidades.Configuracion;
  * @author Carlos
  */
 public class accionEditarConfiguracion extends ActionSupport {
-
+    
     private boolean modeoNocturno;
     private boolean openNewTab;
     private int id_categoria;
     private int idConfiguracion;
-    private List<Categoria> listaCategorias = new ArrayList();
+    private List<Categoria> listaCategorias;
 
     public boolean isModeoNocturno() {
         return modeoNocturno;
@@ -66,14 +64,13 @@ public class accionEditarConfiguracion extends ActionSupport {
     public void setListaCategorias(List<Categoria> listaCategorias) {
         this.listaCategorias = listaCategorias;
     }
-
+    
+    
+    
     public accionEditarConfiguracion() {
     }
-
+    
     public String execute() throws Exception {
-        categoriaDAO categoriaDAO = new categoriaDAO();
-        listaCategorias = categoriaDAO.getAllCategorias();
-
         configuracionDAO configuracionDAO = new configuracionDAO();
         Configuracion configuracion = configuracionDAO.get(idConfiguracion);
         configuracion.setIdCategoriaInicial(id_categoria);
@@ -82,5 +79,5 @@ public class accionEditarConfiguracion extends ActionSupport {
         configuracionDAO.edit(configuracion);
         return SUCCESS;
     }
-
+    
 }
