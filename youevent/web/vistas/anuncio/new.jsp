@@ -17,7 +17,7 @@
                     <div class="ui segment">
                         <s:form action="accionCrearAnuncio" cssClass="ui fluid table form">
                             <s:textfield name="contenido" label="Contenido"></s:textfield>
-                            <s:textfield name="precio" label="Precio"></s:textfield>
+                            <s:textfield name="precio" label="Precio" required="true"></s:textfield>
                             <s:select cssClass="ui dropdown" label="Anunciante" name="anunciantes" listValue="nombre" listKey="id" list="anunciantesLista" required="true"/>
                             <s:submit cssClass="ui green button" name="btnEnviar" value="Enviar"></s:submit>
                         </s:form>

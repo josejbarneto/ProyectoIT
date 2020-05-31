@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import modelo.dao.anuncianteDAO;
 import modelo.dao.anuncioDAO;
 import modelo.entidades.Anunciante;
@@ -77,6 +78,7 @@ public class accionCrearAnuncio extends ActionSupport implements SessionAware {
 
 
 
+    @Override
     public String execute() throws Exception {
         int id = Integer.valueOf(anunciantes.get(0));
         Anunciante ains = new anuncianteDAO().getById(anunciantesLista, id);
@@ -94,7 +96,23 @@ public class accionCrearAnuncio extends ActionSupport implements SessionAware {
 
     @Override
     public void validate() {
-
+        if(this.contenido.length() == 0){
+            addFieldError("contenido", "El contenido no puede estar vacío");
+        }
+        
+        if(this.contenido.length() > 255){
+            addFieldError("contenido", "El contenido no puede contener más de 255 caracteres");
+        }
+        
+        if(!Pattern.matches("^[a-zA-Z0-9_]*$", this.contenido)){
+            addFieldError("contenido", "El contenido debe contener caracteres alfanuméricos");
+        }
+        
+        if(!Pattern.matches("^([+]?\\d*\\.?\\d*)$", Float.toString(precio))){
+            addFieldError("precio", "El precio es incorrecto");
+        }
+        
+        
     }
 
 }
