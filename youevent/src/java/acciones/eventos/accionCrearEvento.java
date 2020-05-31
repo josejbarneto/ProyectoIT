@@ -15,6 +15,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import modelo.dao.categoriaDAO;
 import modelo.dao.eventoCategoriaDAO;
 import modelo.dao.eventoDAO;
@@ -147,7 +149,17 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
 
     @Override
     public void validate() {
+        String regex = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$";
+        Pattern pattern = Pattern.compile(regex);
 
+        Matcher matcher = pattern.matcher(this.fecha);
+        if(!matcher.matches()){
+            addFieldError("fecha", "La fecha debe tener el siguiente formato: dd/mm/YYYY");
+        }
+        
+        if(this.nombre.length() == 0){
+            addFieldError("nombre", "El nombre no puede estar vacío");
+        }
     }
 
 }
