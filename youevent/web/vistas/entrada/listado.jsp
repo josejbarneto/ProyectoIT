@@ -18,10 +18,7 @@
                         <table class="ui stripped table">
                             <thead>
                                 <tr>
-                                    <th>Nombre</th>
-                                    <th>Descripción</th>
-                                    <th>Lugar</th>
-                                    <th>Aforo</th>
+                                    <th>Evento</th>
                                     <th>Precio</th>
                                     <th></th>
                                 </tr>
@@ -29,10 +26,8 @@
                             <tbody>
                                 <s:iterator value="listaEntradas" var="entrada">
                                     <tr>
-                                        <td><s:property value="nombre" /></td>
-                                        <td><s:property value="descripcion" /></td>
-                                        <td><s:property value="lugar" /></td>
-                                        <td><s:property value="aforo" /></td>
+                                        
+                                        <td><s:property value="%{#entrada.getEvento().getNombre()}" /></td>
                                         <td><s:property value="precio" />€</td>
                                         <td>
                                             <s:form action="accionEliminarEntrada">

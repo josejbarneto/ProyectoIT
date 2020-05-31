@@ -6,7 +6,6 @@
 package acciones.categorias;
 
 import com.opensymphony.xwork2.ActionSupport;
-import java.util.regex.Pattern;
 import modelo.dao.categoriaDAO;
 import modelo.entidades.Categoria;
 
@@ -53,31 +52,7 @@ public class accionCrearCategoria extends ActionSupport {
     
     @Override
     public void validate() {
-        if(this.nombre.length() == 0){
-            addFieldError("nombre", "El nombre no puede estar vacío");
-        }
-        
-        if(this.nombre.length() > 20){
-            addFieldError("nombre", "El nombre no puede contener más de 20 caracteres");
-        }
-        
-        if(this.descripcion.length() == 0){
-            addFieldError("descripcion", "La descripción no puede estar vacía");
-        }
-        
-        if(this.descripcion.length() > 255){
-            addFieldError("descripcion", "La descripción no puede contener más de 255 caracteres");
-        }
-        
-        if(!Pattern.matches("^[a-zA-Z0-9_,. ]*$", this.descripcion)){
-            addFieldError("descripcion", "La descripción debe contener caracteres alfanuméricos");
-        }
-        
-        if(!Pattern.matches("^[a-zA-Z]*$", this.nombre)){
-            addFieldError("nombre", "El nombre debe contener caracteres alfabéticos sin espacios");
-        }
-        
-        
+
     }
     
 }
