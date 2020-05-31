@@ -19,7 +19,7 @@
                 <s:form action="redirigirAListarAnunciante" method="post">
                     <s:submit name="btnListarEvento" value="Listar Evento"></s:submit>
                 </s:form>
-                <s:form action="redirigirACrearAnuncio" method="post">
+                <s:form action="redirigirAMostrarConfiguracion" method="post">
                     <s:submit name="btnCrearAnuncio" value="Crear Anuncio"></s:submit>
                 </s:form>
             </div>
