@@ -32,14 +32,14 @@
                                 <s:hidden name="idCategoria" value="%{categoria.getId()}"></s:hidden>
                                 <s:submit name="btnEliminar" value="Eliminar" cssClass="ui basic red button"></s:submit>
                             </s:form>
-                            </s:if>
-                            </div>
-                        </div>
-                        <aside class="ui four wide column">
-                            <%-- OFERTAS/ANUNCIOS --%>
-                        </aside>
+                        </s:if>
                     </div>
                 </div>
-                <%@include file="/vistas/footer.html" %>
-            </body>
-        </html>
+                <aside class="ui four wide column">
+                    <%-- OFERTAS/ANUNCIOS --%>
+                </aside>
+            </div>
+        </div>
+        <%@include file="/vistas/footer.html" %>
+    </body>
+</html>

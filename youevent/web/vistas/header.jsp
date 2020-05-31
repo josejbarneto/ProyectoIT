@@ -1,6 +1,6 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <nav class="ui fixed menu">
-    <a href="/youevent/vistas/inicio.jsp" class="item">
+    <a class="item">
         <img src="/youevent/img/YOUEVENT.png" style="width: 70px;">
     </a>
     <a href="youevent/vistas/redirigirAListarEvento.action" class="item"><i class="glass cheers icon"></i>Eventos</a>
@@ -8,7 +8,7 @@
     <div class="right menu">
         <%-- SI ESTA LOGADO Y ES ADMIN --%>
         <s:if test="#session.usuario!=null && #session.usuario.rol==0">
-            <a href='' class="item"><i class="tools icon"></i>Administrar</a>
+            <a href='/youevent/vistas/redirigirAListarUsuario.action' class="item"><i class="tools icon"></i>Administrar</a>
         </s:if>
         <%-- FIN SI ESTA LOGADO Y ES ADMIN--%>
 
