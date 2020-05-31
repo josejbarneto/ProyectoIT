@@ -74,7 +74,7 @@ public class accionCrearCategoria extends ActionSupport {
         }
         
         if(!Pattern.matches("^[a-zA-Z]*$", this.nombre)){
-            addFieldError("descripcion", "El nombre debe contener caracteres alfabéticos");
+            addFieldError("nombre", "El nombre debe contener caracteres alfabéticos sin espacios");
         }
         
         
