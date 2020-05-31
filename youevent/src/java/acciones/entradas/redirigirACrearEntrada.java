@@ -89,7 +89,7 @@ public class redirigirACrearEntrada extends ActionSupport implements SessionAwar
             return ERROR;
         } else {*/
             precioTotal = (float) numEntradas * evento.getPrecio();
-            descuento = 1;
+            descuento = -1;
         }
             return SUCCESS;
         //}

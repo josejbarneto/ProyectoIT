@@ -229,7 +229,6 @@
         
         <action name="accionCrearEntrada" class="acciones.entradas.accionCrearEntrada">
             <result name="success">/vistas/inicio.jsp</result>
-            <result name="input">/vistas/entrada/new.jsp</result>
         </action>
         
         <action name="redirigirAListarEntradaPorCliente" class="acciones.entradas.redirigirAListarEntradaPorCliente">
