@@ -69,7 +69,7 @@ public class accionCrearCategoria extends ActionSupport {
             addFieldError("descripcion", "La descripción no puede contener más de 255 caracteres");
         }
         
-        if(!Pattern.matches("^[a-zA-Z0-9_ ]*$", this.descripcion)){
+        if(!Pattern.matches("^[a-zA-Z0-9_,. ]*$", this.descripcion)){
             addFieldError("descripcion", "La descripción debe contener caracteres alfanuméricos");
         }
         
