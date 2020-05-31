@@ -50,14 +50,14 @@
                                 <s:submit cssClass="ui basic red button" name="btnEliminar" value="Eliminar"></s:submit>
                             </s:form>
                         </s:if>
-                        <s:elseif test="%{#session.usuario!=null}">
+                        <s:else>
                             <%-- Si eres comprador compras o admin puedes editar-eliminar --%>
                             <s:form action="redirigirACrearEntrada" cssClass="ui form">
                                 <s:textfield name="numEntradas" label="Numero de entradas"></s:textfield>
                                 <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
                                 <s:submit cssClass="ui basic green button" name="btnComprarEntradas" value="Comprar entradas"></s:submit>
                             </s:form> 
-                        </s:elseif>
+                        </s:else>
                     </div>
                 </div>
                 <aside class="ui four wide column">
