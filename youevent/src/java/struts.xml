@@ -33,7 +33,12 @@
         
         <action name="redirigirARegistrar" class="acciones.redirigirARegistrar">
             <result name="success">/vistas/registro.jsp</result>
-        </action>   
+        </action>
+        
+        <action name="accionLogout" class="acciones.accionLogout">
+            <result name="success">/vistas/login.jsp</result>
+        </action> 
+        
     </package>
     
     <package name="accionesRegistro" extends="struts-default">
