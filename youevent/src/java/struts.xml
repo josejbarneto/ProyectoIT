@@ -323,6 +323,12 @@
 
         </action>
 
+
+        <action name="getListaAnuncios" class="acciones.sesiones.getListaAnuncios">
+            <result name="success">
+                
+            </result>
+        </action>
     </package>
     
     
