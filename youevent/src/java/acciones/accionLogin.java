@@ -39,27 +39,26 @@ public class accionLogin extends ActionSupport implements SessionAware {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
     public accionLogin() {
     }
 
     public String execute() throws Exception {
         usuarioDAO usuarioDAO = new usuarioDAO();
         Usuario usuario = usuarioDAO.comprobarLogin(this.usuario, this.password);
-        
+
         if (usuario != null) {
             session.put("usuario", usuario);
             return SUCCESS;
-        } 
-        else {
+        } else {
             claveTemporalDAO ctDAO = new claveTemporalDAO();
             Usuario usuario2 = ctDAO.compruebaClaveTemporal(this.usuario, this.password);
-            
-            if(usuario2 != null){
+
+            if (usuario2 != null) {
                 session.put("usuario", usuario);
                 return SUCCESS;
             }
-            
+
             return ERROR;
         }
     }
@@ -76,6 +75,7 @@ public class accionLogin extends ActionSupport implements SessionAware {
     /**
      *
      */
+    @Override
     public void validate() {
         if (this.usuario.equals("")) {
             addFieldError("usuario", "Error 1");
@@ -84,9 +84,9 @@ public class accionLogin extends ActionSupport implements SessionAware {
         //if (!Pattern.matches("[\\\\w&&[^\\\\d]]+", this.usuario)) {
         //    addFieldError("usuario", "Error 2");
         //}
-
         if (this.password.equals("")) {
             addFieldError("password", "Error 3");
         }
     }
+
 }

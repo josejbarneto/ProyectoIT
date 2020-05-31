@@ -31,7 +31,7 @@
             <a class="ui item" href="/youevent/vistas/login.jsp"><i class="sign in alternate icon"></i>Login</a>
         </s:if>
         <s:else>
-            <a class="ui item" href=""><i class="sign out alternate icon"></i>Logout</a>
+            <a class="ui item" href="accionLogout"><i class="sign out alternate icon"></i>Logout</a>
         </s:else>
     </div>
 </nav>
