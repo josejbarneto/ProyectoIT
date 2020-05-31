@@ -8,6 +8,7 @@ package acciones.categorias;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.Map;
+import java.util.regex.Pattern;
 import modelo.dao.categoriaDAO;
 import modelo.entidades.Categoria;
 import org.apache.struts2.interceptor.SessionAware;
@@ -71,7 +72,31 @@ public class accionEditarCategoria extends ActionSupport implements SessionAware
 
     @Override
     public void validate() {
-
+        if(this.nombre.length() == 0){
+            addFieldError("nombre", "El nombre no puede estar vacío");
+        }
+        
+        if(this.nombre.length() > 20){
+            addFieldError("nombre", "El nombre no puede contener más de 20 caracteres");
+        }
+        
+        if(this.descripcion.length() == 0){
+            addFieldError("descripcion", "La descripción no puede estar vacía");
+        }
+        
+        if(this.descripcion.length() > 255){
+            addFieldError("descripcion", "La descripción no puede contener más de 255 caracteres");
+        }
+        
+        if(!Pattern.matches("^[a-zA-Z0-9_ ]*$", this.descripcion)){
+            addFieldError("descripcion", "La descripción debe contener caracteres alfanuméricos");
+        }
+        
+        if(!Pattern.matches("^[a-zA-Z]*$", this.nombre)){
+            addFieldError("descripcion", "El nombre debe contener caracteres alfabéticos");
+        }
+        
+        
     }
 
 }

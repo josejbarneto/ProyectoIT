@@ -120,6 +120,7 @@
         
         <action name="accionEditarAnunciante" class="acciones.anunciante.accionEditarAnunciante">
             <result name="success">/vistas/inicio.jsp</result>
+            <result name="input">/vistas/anunciante/edit.jsp</result>
         </action>
         
         <action name="accionEliminarAnunciante" class="acciones.anunciante.accionEliminarAnunciante">
@@ -222,45 +223,53 @@
         </action>
         
         <action name="accionCrearEntrada" class="acciones.entradas.accionCrearEntrada">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success">/vistas/entrada/listado.jsp</result>
             <result name="input">/vistas/entrada/new.jsp</result>
         </action>
         
         <action name="redirigirAListarEntradaPorCliente" class="acciones.entradas.redirigirAListarEntradaPorCliente">
             <result name="success">/vistas/entrada/listado.jsp</result>
         </action>
+    </package>
+    
+    <package name="accionesConfiguracion" extends="struts-default">
+        <action name="redirigirAMostrarConfiguracion" class="acciones.configuracion.redirigirAMostrarConfiguracion">
+            <result name="success">/vistas/configuracion/show.jsp</result>
+        </action>
         
-        <action name="accionEliminarEntrada" class="acciones.entradas.accionEliminarEntrada">
+        <action name="redirigirAEditarConfiguracion" class="acciones.configuracion.redirigirAEditarConfiguracion">
+            <result name="success">/vistas/configuracion/edit.jsp</result>
+        </action>
+        
+        <action name="accionEditarConfiguracion" class="acciones.configuracion.accionEditarConfiguracion">
             <result name="success">/vistas/inicio.jsp</result>
+            <result name="input">/vistas/configuracion/edit.jsp</result>
         </action>
     </package>
     
-    <package name="accionesOferta" extends="struts-default">
-        <action name="redirigirACrearOferta" class="acciones.ofertas.redirigirACrearOferta">
-            <result name="success">/vistas/oferta/new.jsp</result>
+    <package name="accionesUsuario" extends="struts-default">
+        <action name="redirigirAListarUsuario" class="acciones.usuario.redirigirAListarUsuario">
+            <result name="success">/vistas/usuario/listado.jsp</result>
         </action>
         
-        <action name="accionCrearOferta" class="acciones.ofertas.accionCrearOferta">
-            <result name="success">/vistas/inicio.jsp</result>
-        </action>     
-        
-        <action name="redirigirAListarOferta" class="acciones.ofertas.redirigirAListarOferta">
-            <result name="success">/vistas/oferta/listado.jsp</result>
+        <action name="redirigirAMostrarUsuario" class="acciones.usuario.redirigirAMostrarUsuario">
+            <result name="success">/vistas/usuario/show.jsp</result>
         </action>
         
-        <action name="redirigirAMostrarOferta" class="acciones.ofertas.redirigirAMostrarOferta">
-            <result name="success">/vistas/oferta/show.jsp</result>
-        </action>  
-        
-        <action name="accionEliminarOferta" class="acciones.ofertas.accionEliminarOferta">
+        <action name="accionEditarUsuario" class="acciones.usuario.accionEditarUsuario">
+
             <result name="success">/vistas/inicio.jsp</result>
-        </action> 
+
+            <result name="input">/vistas/usuario/edit.jsp</result>
+
+        </action>
         
-        <action name="redirigirAEditarOferta" class="acciones.ofertas.redirigirAEditarOferta">
-            <result name="success">/vistas/oferta/edit.jsp</result>
-        </action>  
+        <action name="redirigirAEditarUsuario" class="acciones.usuario.redirigirAEditarUsuario">
+            <result name="success">/vistas/usuario/edit.jsp</result>
+            <result name="input">/vistas/usuario/edit.jsp</result>
+        </action>
         
-        <action name="accionEditarOferta" class="acciones.ofertas.accionEditarOferta">
+        <action name="accionEliminarUsuario" class="acciones.usuario.accionEliminarUsuario">
             <result name="success">/vistas/inicio.jsp</result>
         </action>
         

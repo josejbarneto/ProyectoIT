@@ -39,15 +39,6 @@ public class ofertaDAO {
         tx.commit();
         return e;
     }
-    
-    public Oferta getOfertaEvento(Evento evento) {
-        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tx = sesion.beginTransaction();
-        Query q = sesion.createQuery("From Oferta where id_evento='" + evento.getId() + "'");
-        Oferta e = (Oferta) q.uniqueResult();
-        tx.commit();
-        return e;
-    }
 
     public void editar(Oferta oferta) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();

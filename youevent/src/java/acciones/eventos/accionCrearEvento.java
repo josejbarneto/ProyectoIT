@@ -15,6 +15,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import modelo.dao.categoriaDAO;
 import modelo.dao.eventoCategoriaDAO;
 import modelo.dao.eventoDAO;
@@ -147,6 +149,58 @@ public class accionCrearEvento extends ActionSupport implements SessionAware {
 
     @Override
     public void validate() {
+        String regex = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$";
+        Pattern pattern = Pattern.compile(regex);
+
+        Matcher matcher = pattern.matcher(this.fecha);
+        if(!matcher.matches()){
+            addFieldError("fecha", "La fecha debe tener el siguiente formato: dd/mm/YYYY");
+        }
+        
+        if(this.nombre.length() == 0){
+            addFieldError("nombre", "El nombre no puede estar vacío");
+        }
+        
+        if(this.nombre.length() > 20){
+            addFieldError("nombre", "El nombre no puede contener mas de 20 caracteres");
+        }
+        
+        if(!Pattern.matches("^[a-zA-Z ]*$", this.nombre)){
+            addFieldError("nombre", "El nombre debe contener caracteres alfabéticos");
+        }
+        
+        if (this.descripcion.length() == 0) {
+            addFieldError("descripcion", "La descripción no puede estar vacía");
+        }
+        
+        if(this.descripcion.length() > 255){
+            addFieldError("descripcion", "La descripción no puede contener más de 255 caracteres");
+        }
+        
+        if(!Pattern.matches("^[a-zA-Z0-9_,. ]*$", this.descripcion)){
+            addFieldError("descripcion", "La descripción debe contener caracteres alfanuméricos");
+        }
+        
+        if (this.lugar.length() == 0) {
+            addFieldError("lugar", "Introduzca un lugar");
+        }
+        
+        if(!Pattern.matches("^[a-zA-Z0-9_, ]*$", this.lugar)){
+            addFieldError("lugar", "El lugar debe contener caracteres alfanuméricos");
+        }
+        
+        if(this.lugar.length() > 30){
+            addFieldError("lugar", "El lugar no puede contener más de 30 caracteres");
+        }
+        
+        if(!Pattern.matches("^([+]?\\d*\\.?\\d*)$", Float.toString(precio))){
+            addFieldError("precio", "El precio es incorrecto");
+        }
+        
+        if(!Pattern.matches("\\d+", Integer.toString(aforo))){
+            addFieldError("precio", "El aforo es incorrecto");
+        }
+        
 
     }
 

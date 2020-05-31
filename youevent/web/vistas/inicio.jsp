@@ -13,19 +13,18 @@
         <div class="ui section hidden divider"></div>
         <div id="main" class="ui very wide container">
             <div class="ui basic segment">
-                <s:form action="redirigirACrearEvento" method="post">
+                <s:form action="redirigirACrearAnunciante" method="post">
                     <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
                 </s:form>
-                <s:form action="redirigirAListarEvento" method="post">
+                <s:form action="redirigirAListarAnunciante" method="post">
                     <s:submit name="btnListarEvento" value="Listar Evento"></s:submit>
                 </s:form>
-                <s:form action="redirigirACrearAnuncio" method="post">
+                <s:form action="redirigirAMostrarConfiguracion" method="post">
                     <s:submit name="btnCrearAnuncio" value="Crear Anuncio"></s:submit>
                 </s:form>
-                <s:form action="redirigirAListarOferta" method="post">
-                    <s:submit name="btnListarOferta" value="Listar ofertas"></s:submit>
+                <s:form action="redirigirAListarUsuario" method="post">
+                    <s:submit name="btnListarUsuario" value="Listar usuarios"></s:submit>
                 </s:form>
-
             </div>
         </div>
         <%@include file="/vistas/footer.html" %>
