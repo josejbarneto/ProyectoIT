@@ -53,6 +53,9 @@
                                 <s:form action="redirigirACrearAnunciante">
                                     <s:submit name="btnCrear" value="Crear" cssClass="ui green button"></s:submit>
                                 </s:form>
+                                <s:form action="redirigirACrearAnuncio">
+                                    <s:submit name="btnCrear2" value="Crear Anuncio" cssClass="ui green button"></s:submit>
+                                </s:form>
                             </tbody>
                         </table>
                     </div>
