@@ -2,7 +2,7 @@
     <a href="/youevent/vistas/inicio.jsp" class="item">
         <img src="/youevent/img/YOUEVENT.png" style="width: 70px;">
     </a>
-    <a href="" class="item"><i class="tags icon"></i>Eventos</a>
+    <a href="youevent/vistas/redirigirAListarEvento.action" class="item"><i class="tags icon"></i>Eventos</a>
     <a href="" class="item"><i class="photo video icon"></i>Categorias</a>
     <div class="right menu">
         <%-- SI ESTA LOGADO Y ES ADMIN --%>

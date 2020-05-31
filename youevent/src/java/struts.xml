@@ -168,5 +168,20 @@
         </action>
     </package>
     
+    <package name="accionesEntrada" extends="struts-default">
+        <action name="redirigirACrearEntrada" class="acciones.entradas.redirigirACrearEntrada">
+            <result name="success">/vistas/entrada/new.jsp</result>
+        </action>
+        
+        <action name="accionCrearEntrada" class="acciones.entradas.accionCrearEntrada">
+            <result name="success">/vistas/entrada/listado.jsp</result>
+            <result name="input">/vistas/entrada/new.jsp</result>
+        </action>
+        
+        <action name="redirigirAListarEntradaPorCliente" class="acciones.entradas.redirigirAListarEntradaPorCliente">
+            <result name="success">/vistas/entrada/listado.jsp</result>
+        </action>
+    </package>
+    
     
 </struts>

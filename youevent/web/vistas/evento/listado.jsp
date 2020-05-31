@@ -21,6 +21,8 @@
                                     <th>Nombre</th>
                                     <th>Descripción</th>
                                     <th>Lugar</th>
+                                    <th>Aforo</th>
+                                    <th>Precio</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -31,7 +33,7 @@
                                         <td><s:property value="descripcion" /></td>
                                         <td><s:property value="lugar" /></td>
                                         <td><s:property value="aforo" /></td>
-                                        <td><s:property value="precio" /></td>
+                                        <td><s:property value="precio" />€</td>
                                         <td>
                                             <s:form action="redirigirAMostrarEvento">
                                                 <s:hidden name="idEvento" value="%{#evento.getId()}"></s:hidden>
