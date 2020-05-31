@@ -1,7 +1,8 @@
 package modelo.entidades;
-// Generated 30-may-2020 23:19:19 by Hibernate Tools 4.3.1
+// Generated 31-may-2020 13:38:34 by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +19,7 @@ public class Evento  implements java.io.Serializable {
      private String lugar;
      private int aforo;
      private float precio;
+     private Date fecha;
      private Set ofertas = new HashSet(0);
      private Set eventoCategorias = new HashSet(0);
      private Set entradas = new HashSet(0);
@@ -26,21 +28,23 @@ public class Evento  implements java.io.Serializable {
     }
 
 	
-    public Evento(int idUsuario, String nombre, String descripcion, String lugar, int aforo, float precio) {
+    public Evento(int idUsuario, String nombre, String descripcion, String lugar, int aforo, float precio, Date fecha) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.lugar = lugar;
         this.aforo = aforo;
         this.precio = precio;
+        this.fecha = fecha;
     }
-    public Evento(int idUsuario, String nombre, String descripcion, String lugar, int aforo, float precio, Set ofertas, Set eventoCategorias, Set entradas) {
+    public Evento(int idUsuario, String nombre, String descripcion, String lugar, int aforo, float precio, Date fecha, Set ofertas, Set eventoCategorias, Set entradas) {
        this.idUsuario = idUsuario;
        this.nombre = nombre;
        this.descripcion = descripcion;
        this.lugar = lugar;
        this.aforo = aforo;
        this.precio = precio;
+       this.fecha = fecha;
        this.ofertas = ofertas;
        this.eventoCategorias = eventoCategorias;
        this.entradas = entradas;
@@ -94,6 +98,13 @@ public class Evento  implements java.io.Serializable {
     
     public void setPrecio(float precio) {
         this.precio = precio;
+    }
+    public Date getFecha() {
+        return this.fecha;
+    }
+    
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
     public Set getOfertas() {
         return this.ofertas;

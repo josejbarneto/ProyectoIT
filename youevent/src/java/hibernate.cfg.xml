@@ -50,15 +50,15 @@ Contributor(s):
     <property name="hibernate.format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
     <property name="hibernate.enable_lazy_load_no_trans">true</property>
-    <mapping resource="modelo/entidades/ClaveTemporal.hbm.xml"/>
     <mapping resource="modelo/entidades/Anuncio.hbm.xml"/>
-    <mapping resource="modelo/entidades/Entrada.hbm.xml"/>
-    <mapping resource="modelo/entidades/Configuracion.hbm.xml"/>
     <mapping resource="modelo/entidades/Oferta.hbm.xml"/>
-    <mapping resource="modelo/entidades/EventoCategoria.hbm.xml"/>
-    <mapping resource="modelo/entidades/Usuario.hbm.xml"/>
-    <mapping resource="modelo/entidades/Categoria.hbm.xml"/>
+    <mapping resource="modelo/entidades/Configuracion.hbm.xml"/>
     <mapping resource="modelo/entidades/Anunciante.hbm.xml"/>
+    <mapping resource="modelo/entidades/Usuario.hbm.xml"/>
     <mapping resource="modelo/entidades/Evento.hbm.xml"/>
+    <mapping resource="modelo/entidades/ClaveTemporal.hbm.xml"/>
+    <mapping resource="modelo/entidades/Entrada.hbm.xml"/>
+    <mapping resource="modelo/entidades/Categoria.hbm.xml"/>
+    <mapping resource="modelo/entidades/EventoCategoria.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

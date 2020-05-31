@@ -19,17 +19,15 @@ import org.apache.struts2.interceptor.SessionAware;
 public class redirigirACrearAnuncio extends ActionSupport implements SessionAware{
 
     private Map<String, Object> session;
-    private List<Anunciante> anunciantesLista;
+    private List<Anunciante> anunciantes;
 
-    public List<Anunciante> getAnunciantesLista() {
-        return anunciantesLista;
+    public List<Anunciante> getAnunciantes() {
+        return anunciantes;
     }
 
-    public void setAnunciantesLista(List<Anunciante> anunciantesLista) {
-        this.anunciantesLista = anunciantesLista;
+    public void setAnunciantes(List<Anunciante> anunciantes) {
+        this.anunciantes = anunciantes;
     }
-
-
     
 
     public redirigirACrearAnuncio() {
@@ -37,7 +35,7 @@ public class redirigirACrearAnuncio extends ActionSupport implements SessionAwar
 
     public String execute() throws Exception {
         anuncianteDAO anDAO = new anuncianteDAO();
-        this.anunciantesLista = anDAO.getAll();
+        this.anunciantes = anDAO.getAll();
         return SUCCESS;
     }
 
