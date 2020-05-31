@@ -1,4 +1,17 @@
 <button id="ir-arriba" class="ui icon blue big icon button"><i class="arrow up icon"></i></button>
+<div id="weather" class="ui toast">
+    <div class="content">
+        <div class="ui huge statistic">
+            <div class="value">
+                <i id="tmpicon" class="loading spinner huge icon"></i>
+            </div>
+            <div class="label">
+                <span id="temperatura">24</span>&ordm;C
+            </div>
+        </div>
+    </div>
+    <i class="close big icon"></i>
+</div>
 <div class="ui hidden divider"></div>
 <footer class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
@@ -29,4 +42,44 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.4/lib/darkmode-js.min.js"></script>
 <script>
+    $(document).ready(function () {
+
+        var llamadaLocalizacion = new XMLHttpRequest();
+        llamadaLocalizacion.onreadystatechange = function (e) {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(e);
+                var localizacion = this.response;
+                var llamadaTiempo = new XMLHttpRequest();
+                llamadaTiempo.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var tiempo = this.response;
+                        var cielo = tiempo.weather[0].icon;
+                        var temperatura = Math.round(tiempo.main.temp);
+                        $('#tmpicon').removeClass('loading spinner huge');
+                        $('#tmpicon').html('<img src="http://openweathermap.org/img/wn/' + cielo + '@2x.png"/>');
+                        $('#temperatura').html(temperatura);
+
+                        $('#weather').toast({
+                            displayTime: 0,
+                            closeIcon: 'right'
+                        });
+                    }
+                };
+
+                var latitud = localizacion.latitude;
+                var longitude = localizacion.longitude;
+                var url = "https://api.openweathermap.org/data/2.5/weather?"
+                        + "lat=" + latitud + "&lon=" + longitude + ""
+                        + "&appid=4ee491936a450ccb7304ae7e4fa55eef&units=metric";
+                llamadaTiempo.responseType = 'json';
+                llamadaTiempo.open("GET", url, true);
+                llamadaTiempo.send();
+            }
+        };
+        llamadaLocalizacion.responseType = 'json';
+        llamadaLocalizacion.open("GET", "https://geolocation-db.com/json/", true);
+        llamadaLocalizacion.send();
+
+
+    });
 </script>

@@ -13,11 +13,11 @@
         <div class="ui section hidden divider"></div>
         <div id="main" class="ui very wide container">
             <div class="ui basic segment">
-                <s:form action="redirigirACrearAnunciante" method="post">
-                    <s:submit name="btnCrearAnunciante" value="Crear Anunciante"></s:submit>
+                <s:form action="redirigirACrearEvento" method="post">
+                    <s:submit name="btnCrearEvento" value="Crear Evento"></s:submit>
                 </s:form>
-                <s:form action="redirigirAListarAnunciante" method="post">
-                    <s:submit name="btnListarAnunciante" value="Listar Anunciante"></s:submit>
+                <s:form action="redirigirAListarEvento" method="post">
+                    <s:submit name="btnListarEvento" value="Listar Evento"></s:submit>
                 </s:form>
                 <s:form action="redirigirACrearAnuncio" method="post">
                     <s:submit name="btnCrearAnuncio" value="Crear Anuncio"></s:submit>

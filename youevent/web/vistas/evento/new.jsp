@@ -21,6 +21,7 @@
                             <s:textfield name="lugar" label="Lugar"></s:textfield>
                             <s:textfield name="aforo" label="Aforo"></s:textfield>
                             <s:textfield name="precio" label="Precio"></s:textfield>
+                            <s:textfield name="fecha" label="Fecha"></s:textfield>
                             <s:select cssClass="ui dropdown" label="Categorias" name="categoriasEvento" listValue="nombre" listKey="id" list="categorias" multiple="true" required="true"/>
                             <s:submit cssClass="ui green button" name="btnEnviar" value="Enviar"></s:submit>
                         </s:form>

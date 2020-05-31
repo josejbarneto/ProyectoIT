@@ -7,6 +7,8 @@ package acciones.eventos;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import modelo.dao.eventoDAO;
 import modelo.entidades.Evento;
@@ -25,6 +27,7 @@ public class accionEditarEvento extends ActionSupport implements SessionAware {
     private String lugar;
     private int aforo;
     private float precio;
+    private String fecha;
     private Map<String, Object> session;
 
     public String getNombre() {
@@ -74,8 +77,15 @@ public class accionEditarEvento extends ActionSupport implements SessionAware {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
-    
-    
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
 
     public accionEditarEvento() {
     }
@@ -84,13 +94,15 @@ public class accionEditarEvento extends ActionSupport implements SessionAware {
 
         eventoDAO eventoDAO = new eventoDAO();
 
+        Date fechaDate =new SimpleDateFormat("dd/MM/yyyy").parse(fecha); 
+        
         Usuario usuario = (Usuario) session.get("usuario");
-        Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar, aforo, precio);
+        System.out.println(usuario.getId());
+        Evento evento = new Evento(usuario.getId(), nombre, descripcion, lugar, aforo, precio, fechaDate);
         evento.setId(id);
         eventoDAO.editar(evento);
 
         return SUCCESS;
-
     }
 
     @Override
