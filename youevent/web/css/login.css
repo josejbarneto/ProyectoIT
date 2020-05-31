@@ -1,0 +1,12 @@
+#main-grid{
+    height: 100%;
+}
+
+#main-column{
+    max-width: 450px;
+    background-color: white;
+}
+
+#main-column .image{
+    width: 200px;
+}

@@ -18,7 +18,8 @@
         <%-- FIN SI ESTA LOGADO Y ES USUARIO NORMAL --%>
 
         <a class="item" href=""><i class="user circle icon"></i>Ver perfil</a>
-        <a class="ui item" href=""><i class="sign in alternate icon"></i>Logout</a>
+        <a class="ui item" href="/youevent/vistas/login.jsp"><i class="sign in alternate icon"></i>Login</a>
+        <a class="ui item" href=""><i class="sign out alternate icon"></i>Logout</a>
     </div>
     <script src="."></script>
 </nav>
