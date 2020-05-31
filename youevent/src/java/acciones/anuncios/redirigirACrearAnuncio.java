@@ -35,7 +35,7 @@ public class redirigirACrearAnuncio extends ActionSupport implements SessionAwar
 
     public String execute() throws Exception {
         anuncianteDAO anDAO = new anuncianteDAO();
-        this.anunciantes = anDAO.getAllAnunciantes();
+        this.anunciantes = anDAO.getAll();
         return SUCCESS;
     }
 
