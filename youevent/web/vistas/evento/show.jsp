@@ -14,6 +14,7 @@
         <s:textfield name="lugar" label="Lugar" value="%{evento.getLugar()}" readonly="true"></s:textfield>
         <s:textfield name="aforo" label="Aforo" value="%{evento.getAforo()}" readonly="true"></s:textfield>
         <s:textfield name="precio" label="Precio" value="%{evento.getPrecio()}" readonly="true"></s:textfield>
+        <s:textfield name="fecha" label="Fecha" value="%{evento.getFecha()}" readonly="true"></s:textfield>
 
         <br/>
         
@@ -25,13 +26,13 @@
         <br/>
         </s:iterator>
         
-        <s:form action="redirigirAEditarAnunciante">
-            <s:hidden name="idAnunciante" value="%{anunciante.getId()}" ></s:hidden>
+        <s:form action="redirigirAEditarEvento">
+            <s:hidden name="idEvento" value="%{evento.getId()}" ></s:hidden>
             <s:submit name="btnEditar" value="Editar"></s:submit>
         </s:form>
         
-        <s:form action="accionEliminarAnunciante">
-            <s:hidden name="idAnunciante" value="%{anunciante.getId()}"></s:hidden>
+        <s:form action="accionEliminarEvento">
+            <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
             <s:submit name="btnEliminar" value="Eliminar"></s:submit>
         </s:form>
         
