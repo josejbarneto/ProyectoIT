@@ -319,7 +319,7 @@
 
         <action name="redireccionaInicio" class="acciones.sesiones.redireccionaInicio">
 
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success">/vistas/login.jsp</result>
 
         </action>
 
