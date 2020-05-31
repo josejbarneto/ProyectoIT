@@ -238,11 +238,12 @@
         </action>
         
         <action name="redirigirAEditarConfiguracion" class="acciones.configuracion.redirigirAEditarConfiguracion">
-            <result name="success">/vistas/inicio.jsp</result>
+            <result name="success">/vistas/configuracion/edit.jsp</result>
         </action>
         
         <action name="accionEditarConfiguracion" class="acciones.configuracion.accionEditarConfiguracion">
             <result name="success">/vistas/inicio.jsp</result>
+            <result name="input">/vistas/configuracion/edit.jsp</result>
         </action>
     </package>
     

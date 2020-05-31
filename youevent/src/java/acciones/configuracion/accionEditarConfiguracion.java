@@ -6,6 +6,9 @@
 package acciones.configuracion;
 
 import com.opensymphony.xwork2.ActionSupport;
+import modelo.dao.configuracionDAO;
+import modelo.entidades.Categoria;
+import modelo.entidades.Configuracion;
 
 /**
  *
@@ -13,11 +16,54 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class accionEditarConfiguracion extends ActionSupport {
     
+    private boolean modeoNocturno;
+    private int openNewTab;
+    private int id_categoria;
+    private int idConfiguracion;
+
+    public boolean isModeoNocturno() {
+        return modeoNocturno;
+    }
+
+    public void setModeoNocturno(boolean modeoNocturno) {
+        this.modeoNocturno = modeoNocturno;
+    }
+
+    public int getOpenNewTab() {
+        return openNewTab;
+    }
+
+    public void setOpenNewTab(int openNewTab) {
+        this.openNewTab = openNewTab;
+    }
+
+    public int getId_categoria() {
+        return id_categoria;
+    }
+
+    public void setId_categoria(int id_categoria) {
+        this.id_categoria = id_categoria;
+    }
+
+    public int getIdConfiguracion() {
+        return idConfiguracion;
+    }
+
+    public void setIdConfiguracion(int idConfiguracion) {
+        this.idConfiguracion = idConfiguracion;
+    }
+    
     public accionEditarConfiguracion() {
     }
     
     public String execute() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        configuracionDAO configuracionDAO = new configuracionDAO();
+        Configuracion configuracion = configuracionDAO.get(idConfiguracion);
+        configuracion.setIdCategoriaInicial(id_categoria);
+        configuracion.setModoNocturno(modeoNocturno);
+        configuracion.setOpenNewTab(openNewTab);
+        configuracionDAO.edit(configuracion);
+        return SUCCESS;
     }
     
 }

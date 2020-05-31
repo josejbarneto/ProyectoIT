@@ -7,6 +7,7 @@ package modelo.dao;
 
 import modelo.entidades.Configuracion;
 import modelo.entidades.Evento;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -34,4 +35,18 @@ public class configuracionDAO {
         tx.commit();
         return c;
     }
+
+    public void edit(Configuracion configuracion) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = null;
+        try {
+            tx = sesion.beginTransaction();
+            sesion.update(configuracion);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }    }
 }

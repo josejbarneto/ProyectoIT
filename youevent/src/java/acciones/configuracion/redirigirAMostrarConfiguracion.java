@@ -22,7 +22,7 @@ public class redirigirAMostrarConfiguracion extends ActionSupport implements Ses
     
     private Map<String, Object> session;
     private Configuracion configuracion;
-    private String nombreCategoria;
+    private Categoria categoria;
 
     public Configuracion getConfiguracion() {
         return configuracion;
@@ -31,6 +31,16 @@ public class redirigirAMostrarConfiguracion extends ActionSupport implements Ses
     public void setConfiguracion(Configuracion configuracion) {
         this.configuracion = configuracion;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
+    
     
     public redirigirAMostrarConfiguracion() {
         
@@ -41,9 +51,7 @@ public class redirigirAMostrarConfiguracion extends ActionSupport implements Ses
         configuracionDAO configuracionDAO = new configuracionDAO();
         configuracion = configuracionDAO.get(usuario.getId());
         categoriaDAO categoriaDAO = new categoriaDAO();
-        Categoria categoria = categoriaDAO.get(configuracion.getIdCategoriaInicial());
-        nombreCategoria = categoria.getNombre();
-        System.out.println(nombreCategoria);
+        categoria = categoriaDAO.get(configuracion.getIdCategoriaInicial());
         return SUCCESS;
     }
     

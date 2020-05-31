@@ -1,12 +1,21 @@
 <button id="ir-arriba" class="ui icon blue big icon button"><i class="arrow up icon"></i></button>
 <div id="weather" class="ui toast">
     <div class="content">
-        <div class="ui huge statistic">
-            <div class="value">
-                <i id="tmpicon" class="loading spinner huge icon"></i>
-            </div>
-            <div class="label">
-                <span id="temperatura">24</span>&ordm;C
+        <div class="ui items">
+            <div class="item">
+                <div id="tmpicon" class="ui image" style="background-color: white;">
+                    <img src="https://fomantic-ui.com/images/avatar2/large/elyse.png">
+                </div>
+                <div class="middle aligned content">
+                    <div class="ui header">
+                        <div class="content">
+                            <span id="temperatura">24</span>&ordm;C
+                        </div>
+                        <div class="sub header">
+                            Temperatura y estado del cielo en su ubicaci&oacute;n.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -61,7 +70,8 @@
 
                         $('#weather').toast({
                             displayTime: 0,
-                            closeIcon: 'right'
+                            closeIcon: 'right',
+                            position: 'bottom right',
                         });
                     }
                 };

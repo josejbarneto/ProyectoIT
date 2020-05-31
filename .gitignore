@@ -1,6 +1,9 @@
 /youevent/build/
 /youevent/dist/
-/youevent/nbproject/
+/youevent/nbproject/*
 youevent/nbproject/private/private.properties
 youevent/nbproject/private/private.xml
 youevent/nbproject/project.properties
+youevent/nbproject/project.xml
+youevent/nbproject/genfiles.properties
+youevent/nbproject/build-impl.xml
