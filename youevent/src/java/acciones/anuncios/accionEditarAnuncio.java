@@ -5,8 +5,8 @@
  */
 package acciones.anuncios;
 
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import modelo.dao.anuncianteDAO;
@@ -19,30 +19,21 @@ import org.apache.struts2.interceptor.SessionAware;
  *
  * @author Carlos
  */
-public class accionCrearAnuncio extends ActionSupport implements SessionAware {
+public class accionEditarAnuncio extends ActionSupport implements SessionAware {
 
+    private Integer id;
     private String contenido;
     private float precio;
-    private String anunciante;
-    private List<String> anunciantes  = new ArrayList();
-    private List<Anunciante> anunciantesLista = new ArrayList();
+    private List<String> anunciantes;
+    private List<Anunciante> anunciantesLista;
     private Map<String, Object> session;
 
-
-    public float getPrecio() {
-        return precio;
+    public Integer getId() {
+        return id;
     }
 
-    public List<Anunciante> getAnunciantesLista() {
-        return anunciantesLista;
-    }
-
-    public void setAnunciantesLista(List<Anunciante> anunciantesLista) {
-        this.anunciantesLista = anunciantesLista;
-    }
-
-    public void setPrecio(float precio) {
-        this.precio = precio;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getContenido() {
@@ -53,12 +44,12 @@ public class accionCrearAnuncio extends ActionSupport implements SessionAware {
         this.contenido = contenido;
     }
 
-    public String getAnunciante() {
-        return anunciante;
+    public float getPrecio() {
+        return precio;
     }
 
-    public void setAnunciante(String anunciante) {
-        this.anunciante = anunciante;
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
 
     public List<String> getAnunciantes() {
@@ -69,23 +60,33 @@ public class accionCrearAnuncio extends ActionSupport implements SessionAware {
         this.anunciantes = anunciantes;
     }
 
-    public accionCrearAnuncio() {
-        anuncianteDAO aDAO = new anuncianteDAO();
-        this.anunciantesLista = aDAO.getAll();
+    public List<Anunciante> getAnunciantesLista() {
+        return anunciantesLista;
+    }
+
+    public void setAnunciantesLista(List<Anunciante> anunciantesLista) {
+        this.anunciantesLista = anunciantesLista;
     }
 
 
+    
 
+    public accionEditarAnuncio() {
+        anuncianteDAO aDAO = new anuncianteDAO();
+        this.anunciantesLista = aDAO.getAll();
+        
+    }
 
     public String execute() throws Exception {
-        int id = Integer.valueOf(anunciantes.get(0));
-        Anunciante ains = new anuncianteDAO().getById(anunciantesLista, id);
-        Anuncio ins = new Anuncio(ains, contenido, precio);
-        new anuncioDAO().crear(ins);
+        int ida = Integer.valueOf(anunciantes.get(0));
+        Anunciante ains = new anuncianteDAO().getById(anunciantesLista, ida);
+        Anuncio edit = new Anuncio(ains, contenido, precio);
+        edit.setId(id);
+        new anuncioDAO().editar(edit);
+
         return SUCCESS;
 
     }
-
 
     @Override
     public void setSession(Map<String, Object> map) {

@@ -18,11 +18,12 @@
                         <s:form action="accionCrearAnuncio" cssClass="ui fluid table form">
                             <s:textfield name="contenido" label="Contenido"></s:textfield>
                             <s:textfield name="precio" label="Precio"></s:textfield>
-                            <s:select cssClass="ui dropdown" label="Anunciante" name="anunciantes" listValue="nombre" listKey="id" list="anunciantes" required="true"/>
+                            <s:select cssClass="ui dropdown" label="Anunciante" name="anunciantes" listValue="nombre" listKey="id" list="anunciantesLista" required="true"/>
                             <s:submit cssClass="ui green button" name="btnEnviar" value="Enviar"></s:submit>
                         </s:form>
                     </div>
                 </div>
+                
                 <aside class="ui four wide column">
                     <%-- OFERTAS/ANUNCIOS --%>
                 </aside>

@@ -46,6 +46,15 @@ public class anuncianteDAO {
         tx.commit();
         return a;
     }
+    
+    public Anunciante getById(List<Anunciante> lista, Integer id) {
+        for (Anunciante anunciante : lista) {
+            if (anunciante.getId() == id) {
+                return anunciante;
+            }
+        }
+        return null;
+    }
 
     public void editar(Anunciante anunciante) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();

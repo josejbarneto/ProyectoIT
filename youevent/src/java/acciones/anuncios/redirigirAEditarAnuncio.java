@@ -5,20 +5,30 @@
  */
 package acciones.anuncios;
 
+import acciones.eventos.*;
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
 import java.util.Map;
 import modelo.dao.anuncianteDAO;
+import modelo.dao.anuncioDAO;
+import modelo.dao.categoriaDAO;
+import modelo.dao.eventoDAO;
 import modelo.entidades.Anunciante;
+import modelo.entidades.Anuncio;
+import modelo.entidades.Categoria;
+import modelo.entidades.Evento;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author Carlos
  */
-public class redirigirACrearAnuncio extends ActionSupport implements SessionAware{
-
+public class redirigirAEditarAnuncio extends ActionSupport implements SessionAware{
+    
     private Map<String, Object> session;
+    private Anuncio anuncio;
+    private int idAnuncio;
     private List<Anunciante> anunciantesLista;
 
     public List<Anunciante> getAnunciantesLista() {
@@ -29,15 +39,27 @@ public class redirigirACrearAnuncio extends ActionSupport implements SessionAwar
         this.anunciantesLista = anunciantesLista;
     }
 
-
-    
-
-    public redirigirACrearAnuncio() {
+    public Anuncio getAnuncio() {
+        return anuncio;
     }
 
+    public void setAnuncio(Anuncio anuncio) {
+        this.anuncio = anuncio;
+    }
+
+    public int getIdAnuncio() {
+        return idAnuncio;
+    }
+
+    public void setIdAnuncio(int idAnuncio) {
+        this.idAnuncio = idAnuncio;
+    }
+
+
+    
     public String execute() throws Exception {
-        anuncianteDAO anDAO = new anuncianteDAO();
-        this.anunciantesLista = anDAO.getAll();
+        anunciantesLista = new anuncianteDAO().getAll();
+        anuncio = new anuncioDAO().get(idAnuncio); 
         return SUCCESS;
     }
 
@@ -45,5 +67,4 @@ public class redirigirACrearAnuncio extends ActionSupport implements SessionAwar
     public void setSession(Map<String, Object> map) {
         this.session = map;
     }
-
 }
