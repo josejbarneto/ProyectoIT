@@ -20,10 +20,16 @@
                             <s:textfield name="descuento" label="descuento" value="%{oferta.getDescuento()}%" readonly="true"></s:textfield>
                             <s:textfield name="fechainicio" label="Fecha inicio de la oferta" value="%{oferta.getTInicio()}" readonly="true"></s:textfield>
                             <s:textfield name="fechafin" label="Fecha fin de la oferta" value="%{oferta.getTFin()}" readonly="true"></s:textfield>
-                        </div>
-                        <br/>
+                            </div>
+                            <br/>
+                        <s:form action="redirigirAEditarOferta" cssClass="ui form">
+                            <s:hidden name="idOferta" value="%{oferta.getId()}" ></s:hidden>
+                            <s:submit name="btnEditar" value="Editar" cssClass="ui basic green button"></s:submit>
+                        </s:form>
+                    </div>
 
-                        
+                </div>
+
                 <aside class="ui four wide column">
                     <%-- OFERTAS/ANUNCIOS --%>
                 </aside>
