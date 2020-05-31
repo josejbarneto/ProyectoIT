@@ -38,6 +38,9 @@
                                 </s:iterator>
                             </tbody>
                         </table>
+                        <s:if test="#session.usuario != null">
+                            <a class="ui basic green button" id="crearEvento" class="item" href="/youevent/vistas/redirigirACrearCategoria.action">Crear</a>
+                        </s:if>
                     </div>
                 </div>
                 <aside class="ui four wide column">

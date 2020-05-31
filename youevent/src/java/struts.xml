@@ -136,6 +136,10 @@
             <result name="input">/vistas/categoria/new.jsp</result>
         </action>
         
+        <action name="redirigirACrearCategoria" class="acciones.categorias.redirigirACrearCategoria">
+            <result name="success">/vistas/categoria/new.jsp</result>
+        </action>
+        
         <action name="redirigirAListarCategoria" class="acciones.categorias.redirigirAListarCategoria">
             <result name="success">/vistas/categoria/listado.jsp</result>
         </action>
