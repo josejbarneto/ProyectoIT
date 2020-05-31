@@ -11,7 +11,7 @@
             <a href='/youevent/vistas/redirigirAListarUsuario.action' class="item"><i class="tools icon"></i>Administrar</a>
         </s:if>
         <s:if test="#session.usuario!=null && #session.usuario.rol==0">
-            <a href='/youevent/vistas/redirigirAListarAnunciante.action' class="item"><i class="tools icon"></i>Administrar</a>
+            <a href='/youevent/vistas/redirigirAListarAnunciante.action' class="item"><i class="user circle icon"></i>Anunciantes</a>
         </s:if>
         <%-- FIN SI ESTA LOGADO Y ES ADMIN--%>
 
@@ -34,7 +34,7 @@
             <a class="ui item" href="/youevent/vistas/login.jsp"><i class="sign in alternate icon"></i>Login</a>
         </s:if>
         <s:else>
-            <a class="item" href=""><i class="user circle icon"></i>Ver perfil</a>
+            <a class="item" href="/youevent/vistas/configuracion/show.jsp"><i class="user circle icon"></i>Ver perfil</a>
             <a class="ui item" href="accionLogout"><i class="sign out alternate icon"></i>Logout</a>
         </s:else>
     </div>
