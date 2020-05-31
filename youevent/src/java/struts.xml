@@ -217,19 +217,54 @@
 
     </package>
     
-    <package name="accionesEntrada" extends="struts-default">
+        <package name="accionesEntrada" extends="struts-default">
         <action name="redirigirACrearEntrada" class="acciones.entradas.redirigirACrearEntrada">
             <result name="success">/vistas/entrada/new.jsp</result>
         </action>
         
         <action name="accionCrearEntrada" class="acciones.entradas.accionCrearEntrada">
-            <result name="success">/vistas/entrada/listado.jsp</result>
+            <result name="success">/vistas/inicio.jsp</result>
             <result name="input">/vistas/entrada/new.jsp</result>
         </action>
         
         <action name="redirigirAListarEntradaPorCliente" class="acciones.entradas.redirigirAListarEntradaPorCliente">
             <result name="success">/vistas/entrada/listado.jsp</result>
         </action>
+        
+        <action name="accionEliminarEntrada" class="acciones.entradas.accionEliminarEntrada">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>
+    </package>
+    
+    <package name="accionesOferta" extends="struts-default">
+        <action name="redirigirACrearOferta" class="acciones.ofertas.redirigirACrearOferta">
+            <result name="success">/vistas/oferta/new.jsp</result>
+        </action>
+        
+        <action name="accionCrearOferta" class="acciones.ofertas.accionCrearOferta">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>     
+        
+        <action name="redirigirAListarOferta" class="acciones.ofertas.redirigirAListarOferta">
+            <result name="success">/vistas/oferta/listado.jsp</result>
+        </action>
+        
+        <action name="redirigirAMostrarOferta" class="acciones.ofertas.redirigirAMostrarOferta">
+            <result name="success">/vistas/oferta/show.jsp</result>
+        </action>  
+        
+        <action name="accionEliminarOferta" class="acciones.ofertas.accionEliminarOferta">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action> 
+        
+        <action name="redirigirAEditarOferta" class="acciones.ofertas.redirigirAEditarOferta">
+            <result name="success">/vistas/oferta/edit.jsp</result>
+        </action>  
+        
+        <action name="accionEditarOferta" class="acciones.ofertas.accionEditarOferta">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>
+        
     </package>
     
     <package name="accionesConfiguracion" extends="struts-default">

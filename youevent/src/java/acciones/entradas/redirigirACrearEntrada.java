@@ -7,10 +7,13 @@ package acciones.entradas;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Date;
 import java.util.Map;
 import modelo.dao.entradaDAO;
 import modelo.dao.eventoDAO;
+import modelo.dao.ofertaDAO;
 import modelo.entidades.Evento;
+import modelo.entidades.Oferta;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
@@ -24,6 +27,15 @@ public class redirigirACrearEntrada extends ActionSupport implements SessionAwar
     private Map<String, Object> session;
     private int idEvento;
     private Evento evento;
+    private float descuento;
+
+    public float getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(float descuento) {
+        this.descuento = descuento;
+    }
 
     public float getPrecioTotal() {
         return precioTotal;
@@ -63,15 +75,24 @@ public class redirigirACrearEntrada extends ActionSupport implements SessionAwar
     }
 
     public String execute() throws Exception {
-        entradaDAO entradaDAO = new entradaDAO();
         eventoDAO eventoDAO = new eventoDAO();
+        ofertaDAO ofertaDAO = new ofertaDAO();
         evento = eventoDAO.get(idEvento);
-        if ((entradaDAO.getAforoOcupado(evento) + numEntradas) > evento.getAforo()) {
+        Oferta oferta = ofertaDAO.getOfertaEvento(evento);
+        Date hoy = new Date();
+        if(oferta != null && (hoy.after(oferta.getTInicio()) && hoy.before(oferta.getTFin()))){
+            precioTotal = (float) numEntradas * evento.getPrecio() * (1 - oferta.getDescuento()/100);
+            descuento = oferta.getDescuento();
+        }else{
+        
+        /*if ((entradaDAO.getAforoOcupado(evento) + numEntradas) > evento.getAforo()) {
             return ERROR;
-        } else {
+        } else {*/
             precioTotal = (float) numEntradas * evento.getPrecio();
-            return SUCCESS;
+            descuento = 1;
         }
+            return SUCCESS;
+        //}
     }
 
 }

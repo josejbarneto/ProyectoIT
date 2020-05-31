@@ -25,6 +25,9 @@
                 <s:form action="redirigirAListarUsuario" method="post">
                     <s:submit name="btnListarUsuario" value="Listar usuarios"></s:submit>
                 </s:form>
+                <s:form action="redirigirAListarOferta" method="post">
+                    <s:submit name="btnListarOferta" value="Listar ofertas"></s:submit>
+                </s:form>
             </div>
         </div>
         <%@include file="/vistas/footer.html" %>

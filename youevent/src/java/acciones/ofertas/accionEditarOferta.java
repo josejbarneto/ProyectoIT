@@ -6,36 +6,31 @@
 package acciones.ofertas;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
 import modelo.dao.eventoDAO;
 import modelo.dao.ofertaDAO;
 import modelo.entidades.Evento;
 import modelo.entidades.Oferta;
-import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author Fran
  */
-public class accionCrearOferta extends ActionSupport implements SessionAware {
-
-    private Evento evento;
+public class accionEditarOferta extends ActionSupport {
+    
     private float descuento;
     private String fechainicio;
     private String fechafin;
-    private Integer idEvento;
-    private Map<String, Object> session;
+    private int idOferta;
+    private Oferta oferta;
 
-    public Evento getEvento() {
-        return evento;
+    public Oferta getOferta() {
+        return oferta;
     }
 
-    public void setEvento(Evento evento) {
-        this.evento = evento;
+    public void setOferta(Oferta oferta) {
+        this.oferta = oferta;
     }
 
     public float getDescuento() {
@@ -62,28 +57,28 @@ public class accionCrearOferta extends ActionSupport implements SessionAware {
         this.fechafin = fechafin;
     }
 
-    public Integer getIdEvento() {
-        return idEvento;
+    public int getIdOferta() {
+        return idOferta;
     }
 
-    public void setIdEvento(Integer idEvento) {
-        this.idEvento = idEvento;
+    public void setIdOferta(int idOferta) {
+        this.idOferta = idOferta;
     }
-
+    
+    public accionEditarOferta() {
+    }
+    
     public String execute() throws Exception {
         ofertaDAO ofertaDAO = new ofertaDAO();
         eventoDAO eventoDAO = new eventoDAO();
-        Evento evento = eventoDAO.get(idEvento);
-        Date fechaInicioDate = new SimpleDateFormat("dd/MM/yyyy").parse(fechainicio);
-        Date fechaFinDate = new SimpleDateFormat("dd/MM/yyyy").parse(fechafin);
+        Oferta o = ofertaDAO.get(idOferta);
+        Evento evento = eventoDAO.get(o.getEvento().getId());
+        Date fechaInicioDate =new SimpleDateFormat("dd/MM/yyyy").parse(fechainicio);
+        Date fechaFinDate =new SimpleDateFormat("dd/MM/yyyy").parse(fechafin);
         Oferta oferta = new Oferta(evento, descuento, fechaInicioDate, fechaFinDate);
-        ofertaDAO.crear(oferta);
+        oferta.setId(idOferta);
+        ofertaDAO.editar(oferta);
         return SUCCESS;
     }
-
-    @Override
-    public void setSession(Map<String, Object> map) {
-        this.session = map;
-    }
-
+    
 }

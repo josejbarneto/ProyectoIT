@@ -13,12 +13,13 @@ import modelo.dao.entradaDAO;
 import modelo.dao.eventoDAO;
 import modelo.entidades.Entrada;
 import modelo.entidades.Usuario;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author Carlos
  */
-public class redirigirAListarEntradaPorCliente extends ActionSupport {
+public class redirigirAListarEntradaPorCliente extends ActionSupport implements SessionAware {
     
     private List<Entrada> listaEntradas;
     private Map<String, Object> session;
@@ -41,4 +42,8 @@ public class redirigirAListarEntradaPorCliente extends ActionSupport {
         return SUCCESS;
     }
     
+    @Override
+    public void setSession(Map<String, Object> map) {
+        this.session = map;
+    }
 }

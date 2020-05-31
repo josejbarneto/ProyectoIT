@@ -40,6 +40,11 @@
                                 <s:submit cssClass="ui basic blue right floated button" name="btnEditar" value="Editar"></s:submit>
                             </s:form>
 
+                            <s:form action="redirigirACrearOferta">
+                                <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
+                                <s:submit name="btnCrearOferta" value="Crear oferta"></s:submit>
+                            </s:form>
+
                             <s:form action="accionEliminarEvento" theme="simple">
                                 <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
                                 <s:submit cssClass="ui basic red button" name="btnEliminar" value="Eliminar"></s:submit>
