@@ -10,11 +10,12 @@
         <%-- FIN SI ESTA LOGADO Y ES ADMIN--%>
 
         <%-- SI ESTA LOGADO Y ES ORGANIZADOR --%>
-        <a class="item" href=""><i class="plus circle icon"></i>Nuevo Evento</a>
+        <a id="crearEvento" class="item" href="/youevent/vistas/redirigirACrearEvento.action"><i class="plus circle icon"></i>Nuevo Evento</a>
         <%-- FIN SI ESTA LOGADO Y ES ORGANIZADOR --%>
 
 
         <%-- SI ESTA LOGADO Y ES USUARIO NORMAL --%>
+        <a class="item" href=""><i class="ticket icon"></i>Mis Entradas</a>
         <%-- FIN SI ESTA LOGADO Y ES USUARIO NORMAL --%>
 
         <a class="item" href=""><i class="user circle icon"></i>Ver perfil</a>
