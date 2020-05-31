@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
@@ -17,22 +15,22 @@
             <div class="ui grid">
                 <div class="ui twelve wide column">               
                     <div class="ui segment">
-                        <h1>Mostrar Categoria</h1>
+                        <div class="ui form"> 
+                            <s:textfield name="nombre" label="Nombre " value="%{categoria.getNombre()}" readonly="true"></s:textfield>
+                            <s:textfield name="descripcion" label="Descripcion" value="%{categoria.getDescripcion()}" readonly="true"></s:textfield>
+                            <s:textfield name="id" label="Id" value="%{categoria.getId()}" readonly="true"></s:textfield>
+                            </div>
+                            <br/>
 
-                        <s:textfield name="nombre" label="Nombre " value="%{categoria.getNombre()}" readonly="true"></s:textfield>
-                        <s:textfield name="descripcion" label="Descripcion" value="%{categoria.getDescripcion()}" readonly="true"></s:textfield>
-                        <s:textfield name="id" label="Id" value="%{categoria.getId()}" readonly="true"></s:textfield>
-
-                        <s:form action="redirigirAEditarCategoria">
+                        <s:form action="redirigirAEditarCategoria" theme="simple">
                             <s:hidden name="idEvento" value="%{categoria.getId()}" ></s:hidden>
-                            <s:submit name="btnEditar" value="Editar"></s:submit>
+                            <s:submit name="btnEditar" value="Editar" cssClass="ui basic blue right floated button"></s:submit>
                         </s:form>
 
-                        <s:form action="accionEliminarCategoria">
+                        <s:form action="accionEliminarCategoria" theme="simple">
                             <s:hidden name="idCategoria" value="%{categoria.getId()}"></s:hidden>
-                            <s:submit name="btnEliminar" value="Eliminar"></s:submit>
+                            <s:submit name="btnEliminar" value="Eliminar" cssClass="ui basic red button"></s:submit>
                         </s:form>
-
                     </div>
                 </div>
                 <aside class="ui four wide column">

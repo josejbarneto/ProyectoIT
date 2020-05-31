@@ -1,10 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
-
-<s:if test="#session.usuario == null">
-    <s:action name="redireccionaInicio" executeResult="true">
-    </s:action>
-</s:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,24 +15,33 @@
             <div class="ui grid">
                 <div class="ui twelve wide column">               
                     <div class="ui segment">
-                        <h1>Listado Categorias</h1>
-
-                        <s:iterator value="listaCategorias" var="categoria">
-                            <tr>
-                                <td><s:property value="nombre" /></td>
-                                <td><s:property value="descripcion" /></td>
-                                <td><s:property value="lugar" /></td>
-                                <s:form action="redirigirAMostrarCategoria">
-                                    <s:hidden name="idCategoria" value="%{#categoria.getId()}"></s:hidden>
-                                    <s:submit name="btnMostrar" value="Mostrar"></s:submit>
-                                </s:form>
-                            </tr>
-                        </s:iterator>
-
+                        <table class="ui stripped table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <s:iterator value="listaCategorias" var="categoria">
+                                    <tr>
+                                        <td><s:property value="nombre" /></td>
+                                        <td><s:property value="descripcion" /></td>
+                                        <td>
+                                            <s:form action="redirigirAMostrarCategoria">
+                                                <s:hidden name="idCategoria" value="%{#categoria.getId()}"></s:hidden>
+                                                <s:submit name="btnMostrar" value="Mostrar"></s:submit>
+                                            </s:form>
+                                        </td>
+                                    </tr>
+                                </s:iterator>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <aside class="ui four wide column">
-                    <%-- OFERTAS/ANUNCIOS --%>
+
                 </aside>
             </div>
         </div>
