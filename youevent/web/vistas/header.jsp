@@ -26,7 +26,6 @@
         <%-- FIN SI ESTA LOGADO Y ES USUARIO NORMAL --%>
 
         <a class="item" href=""><i class="user circle icon"></i>Ver perfil</a>
-        <a class="ui item" href="/youevent/vistas/login.jsp"><i class="sign in alternate icon"></i>Login</a>
         <s:if test="#session.usuario==null">
             <a class="ui item" href="/youevent/vistas/login.jsp"><i class="sign in alternate icon"></i>Login</a>
         </s:if>
