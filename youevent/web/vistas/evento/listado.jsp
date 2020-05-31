@@ -1,14 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
 
-
-
-<s:if test="#session.usuario == null">
-    <s:action name="redireccionaInicio" executeResult="true">
-    </s:action>
-</s:if>
-
-
 <!DOCTYPE html>
 <html>
     <head>
