@@ -275,5 +275,11 @@
         
     </package>
     
+    <package name="accionesSesiones" extends="struts-default">
+        <action name="redireccionaInicio" class="acciones.sesiones.redireccionaInicio">
+            <result name="success">/vistas/inicio.jsp</result>
+        </action>
+    </package>
+    
     
 </struts>
