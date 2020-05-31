@@ -22,7 +22,7 @@
                         <s:checkbox label="Modo nocturno" name="modoNocturno" value="true" fieldValue="true"/>
                     </s:else>
                     <br/>
-                    <s:if  test="! configuracion.getOpenNewTab()">
+                    <s:if  test="! configuracion.isOpenNewTab()">
                         <s:checkbox label="Abrir en pestaña nueva" name="openNewTab" value="false" fieldValue="true"/>
                     </s:if>
                     <s:else>

@@ -1,5 +1,5 @@
 package modelo.entidades;
-// Generated 31-may-2020 13:38:34 by Hibernate Tools 4.3.1
+// Generated 31-may-2020 19:26:09 by Hibernate Tools 4.3.1
 
 
 
@@ -12,13 +12,13 @@ public class Configuracion  implements java.io.Serializable {
      private Integer id;
      private Usuario usuario;
      private boolean modoNocturno;
-     private int openNewTab;
+     private boolean openNewTab;
      private int idCategoriaInicial;
 
     public Configuracion() {
     }
 
-    public Configuracion(Usuario usuario, boolean modoNocturno, int openNewTab, int idCategoriaInicial) {
+    public Configuracion(Usuario usuario, boolean modoNocturno, boolean openNewTab, int idCategoriaInicial) {
        this.usuario = usuario;
        this.modoNocturno = modoNocturno;
        this.openNewTab = openNewTab;
@@ -46,11 +46,11 @@ public class Configuracion  implements java.io.Serializable {
     public void setModoNocturno(boolean modoNocturno) {
         this.modoNocturno = modoNocturno;
     }
-    public int getOpenNewTab() {
+    public boolean isOpenNewTab() {
         return this.openNewTab;
     }
     
-    public void setOpenNewTab(int openNewTab) {
+    public void setOpenNewTab(boolean openNewTab) {
         this.openNewTab = openNewTab;
     }
     public int getIdCategoriaInicial() {

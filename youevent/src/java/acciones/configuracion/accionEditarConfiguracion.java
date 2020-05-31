@@ -20,7 +20,7 @@ import modelo.entidades.Configuracion;
 public class accionEditarConfiguracion extends ActionSupport {
 
     private boolean modeoNocturno;
-    private int openNewTab;
+    private boolean openNewTab;
     private int id_categoria;
     private int idConfiguracion;
     private List<Categoria> listaCategorias = new ArrayList();
@@ -33,13 +33,15 @@ public class accionEditarConfiguracion extends ActionSupport {
         this.modeoNocturno = modeoNocturno;
     }
 
-    public int getOpenNewTab() {
+    public boolean isOpenNewTab() {
         return openNewTab;
     }
 
-    public void setOpenNewTab(int openNewTab) {
+    public void setOpenNewTab(boolean openNewTab) {
         this.openNewTab = openNewTab;
     }
+
+
 
     public int getId_categoria() {
         return id_categoria;
