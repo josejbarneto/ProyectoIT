@@ -104,7 +104,7 @@ public class accionEditarAnuncio extends ActionSupport implements SessionAware {
             addFieldError("contenido", "El contenido no puede contener más de 255 caracteres");
         }
         
-        if(!Pattern.matches("^[a-zA-Z0-9_]*$", this.contenido)){
+        if(!Pattern.matches("^[a-zA-Z0-9_ ]*$", this.contenido)){
             addFieldError("contenido", "El contenido debe contener caracteres alfanuméricos");
         }
         
