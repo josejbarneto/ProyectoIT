@@ -12,7 +12,7 @@
         <%@include file="/vistas/header.jsp" %>
         <div class="ui section hidden divider"></div>
         <div id="main" class="ui very wide container">
-            <div class="ui basic segment">
+            <div class="ui segment">
                 <div class="ui form"> 
                     <h1>Configuracion</h1>
                 <s:if  test="! configuracion.isModoNocturno()">
@@ -31,6 +31,7 @@
                 <br/>
                 <s:textfield name="categoriaInicial" label="Categoria de Inicio" value="%{categoria.getNombre()}" readonly="true"></s:textfield>
                     <br/>
+                    
                     
                 <s:form action="redirigirAEditarConfiguracion">
                     <s:hidden name="idConfiguracion" value="%{configuracion.getId()}" ></s:hidden>

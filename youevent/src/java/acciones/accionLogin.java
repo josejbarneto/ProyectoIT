@@ -78,14 +78,14 @@ public class accionLogin extends ActionSupport implements SessionAware {
     @Override
     public void validate() {
         if (this.usuario.equals("")) {
-            addFieldError("usuario", "Error 1");
+            addFieldError("usuario", "Error usuario");
         }
 
         //if (!Pattern.matches("[\\\\w&&[^\\\\d]]+", this.usuario)) {
         //    addFieldError("usuario", "Error 2");
         //}
         if (this.password.equals("")) {
-            addFieldError("password", "Error 3");
+            addFieldError("password", "Error contraseña");
         }
     }
 

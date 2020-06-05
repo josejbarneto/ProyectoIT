@@ -6,12 +6,14 @@
 package acciones;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import modelo.dao.configuracionDAO;
 import modelo.dao.usuarioDAO;
 import modelo.entidades.Configuracion;
 import modelo.entidades.Usuario;
+import org.apache.struts2.interceptor.SessionAware;
 import org.mindrot.jbcrypt.BCrypt;
 
 
@@ -20,12 +22,13 @@ import org.mindrot.jbcrypt.BCrypt;
  *
  * @author Carlos
  */
-public class accionRegistrar extends ActionSupport {
+public class accionRegistrar extends ActionSupport implements SessionAware{
 
     private String nombre;
     private String usuario;
     private String password;
     private String email;
+private Map<String, Object> session;
 
     public String getNombre() {
         return nombre;
@@ -78,6 +81,7 @@ public class accionRegistrar extends ActionSupport {
             us.setId(usuarioDAO.insertUsuario(us));
             conf.setUsuario(us);
             configuracionDAO.insertConfiguracion(conf);
+            session.put("usuario", us);
             
             return SUCCESS;
         }
@@ -136,6 +140,11 @@ public class accionRegistrar extends ActionSupport {
         if(this.email.length() > 30){
             addFieldError("email", "El correo no puede contener más de 30 caracteres.");
         }
+    }
+    
+    @Override
+    public void setSession(Map<String, Object> map) {
+        this.session = map;
     }
 
 }

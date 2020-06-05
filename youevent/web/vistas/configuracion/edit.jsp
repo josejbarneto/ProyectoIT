@@ -12,8 +12,8 @@
         <%@include file="/vistas/header.jsp" %>
         <div class="ui section hidden divider"></div>
         <div id="main" class="ui very wide container">
-            <div class="ui basic segment">
-                <h1>Configuracion</h1>
+            <div class="ui segment">
+                <h1>Configuracion</h1>  
                 <s:form action="accionEditarConfiguracion" cssClass="ui fluid table form"> 
 
                     <s:if  test="! configuracion.isModoNocturno()">
