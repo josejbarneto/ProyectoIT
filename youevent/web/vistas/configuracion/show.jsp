@@ -13,6 +13,8 @@
         <div class="ui section hidden divider"></div>
         <div id="main" class="ui very wide container">
             <div class="ui basic segment">
+                <div class="ui form"> 
+                    <h1>Configuracion</h1>
                 <s:if  test="! configuracion.isModoNocturno()">
                      <s:checkbox label="Modo nocturno" name="modoNocturno" value="false" fieldValue="true" onclick="return false;"/>
                 </s:if>
@@ -34,6 +36,7 @@
                     <s:hidden name="idConfiguracion" value="%{configuracion.getId()}" ></s:hidden>
                     <s:submit name="btnEditar" value="Editar"></s:submit>
                 </s:form>
+                </div>
             </div>
         </div>
 

@@ -13,8 +13,9 @@
         <div class="ui section hidden divider"></div>
         <div id="main" class="ui very wide container">
             <div class="ui basic segment">
+                <h1>Configuracion</h1>
+                <s:form action="accionEditarConfiguracion" cssClass="ui fluid table form"> 
 
-                <s:form action="accionEditarConfiguracion">
                     <s:if  test="! configuracion.isModoNocturno()">
                         <s:checkbox label="Modo nocturno" name="modoNocturno" value="false" fieldValue="true"/>
                     </s:if>
@@ -30,7 +31,7 @@
                     </s:else>
                     <br/>
                     <s:select cssClass="ui dropdown" label="Categorias" name="id_categoria" listValue="nombre" listKey="id" value="id" list="listaCategorias" required="true"/>
-                        <br/>
+                    <br/>
                     <s:hidden name="idConfiguracion" value="%{configuracion.getId()}"></s:hidden>
                     <s:hidden name="id_categoriaInicial" value="%{categoria.getId()}"></s:hidden>
                     <s:submit name="btnEditar" value="Editar"></s:submit>
