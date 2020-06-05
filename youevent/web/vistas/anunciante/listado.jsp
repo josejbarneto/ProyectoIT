@@ -45,7 +45,7 @@
                                         <td>
                                             <s:form action="redirigirAMostrarAnunciante">
                                                 <s:hidden name="idAnunciante" value="%{#anunciante.getId()}"></s:hidden>
-                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui green button"></s:submit>
+                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui blue button"></s:submit>
                                             </s:form>
                                         </td>
                                     </tr>

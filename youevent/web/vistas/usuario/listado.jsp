@@ -48,7 +48,7 @@
                                         <td>
                                             <s:form action="redirigirAMostrarUsuario">
                                                 <s:hidden name="idUsuario" value="%{#usuario.getId()}"></s:hidden>
-                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui green button"></s:submit>
+                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui blue button"></s:submit>
                                             </s:form>
                                         </td>
                                     </tr>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <aside class="ui four wide column">
-
+                    <%@include file="/vistas/aside.jsp" %>
                 </aside>
             </div>
         </div>

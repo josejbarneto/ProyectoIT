@@ -5,7 +5,6 @@
             <thead>
                 <tr>
                     <th>Contenido</th>
-                    <th>Precio</th>
                     <th></th>
                 </tr>
             </thead>
@@ -13,7 +12,6 @@
             <s:iterator value="#session.listaAnuncios" var="anuncio">
                 <tr>
                     <td><s:property value="contenido" /></td>
-                <td><s:property value="precio" /></td>
                 <td>
                 <s:form action="redirigirAMostrarAnuncio">
                     <s:hidden name="idAnuncio" value="%{#anuncio.getId()}"></s:hidden>
