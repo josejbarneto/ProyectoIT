@@ -23,7 +23,7 @@
                         <s:form action="accionCrearCategoria" method="post" cssClass="ui fluid table form">
                             <s:textfield name="nombre" label="Nombre"></s:textfield>
                             <s:textfield name="descripcion" label="Descripcion"></s:textfield>
-                            <s:submit cssClass="ui basic green button" name="btnEnviar" value="Enviar"></s:submit>
+                            <s:submit cssClass="ui green button" name="btnEnviar" value="Enviar"></s:submit>
                         </s:form>
 
                     </div>

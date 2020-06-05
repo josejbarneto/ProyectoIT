@@ -35,11 +35,11 @@
                                         <td>
                                             <s:form action="redirigirAMostrarOferta">
                                                 <s:hidden name="idOferta" value="%{#oferta.getId()}"></s:hidden>
-                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui basic green button"></s:submit>
+                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui green button"></s:submit>
                                             </s:form>
                                             <s:form action="accionEliminarOferta">
                                                 <s:hidden name="idOferta" value="%{#oferta.getId()}"></s:hidden>
-                                                <s:submit name="btnEliminar" value="Eliminar" cssClass="ui basic red button"></s:submit>
+                                                <s:submit name="btnEliminar" value="Eliminar" cssClass="ui red button"></s:submit>
                                             </s:form>
                                         </td>
                                     </tr>

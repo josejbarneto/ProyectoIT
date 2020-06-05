@@ -32,7 +32,7 @@
                                         <td>
                                             <s:form action="accionEliminarEntrada">
                                                 <s:hidden name="idEntrada" value="%{#entrada.getId()}"></s:hidden>
-                                                <s:submit name="btnDevolver" value="Devolver"></s:submit>
+                                                <s:submit cssClass="ui red button" name="btnDevolver" value="Devolver"></s:submit>
                                             </s:form>
                                         </td>
                                     </tr>

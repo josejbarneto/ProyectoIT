@@ -36,7 +36,7 @@
                                 <s:textfield name="contrasenya" label="Contraseña" value="%{usuario.getContrasenya()}"></s:textfield>
                                 <s:textfield name="email" label="Correo" value="%{usuario.getEmail()}"></s:textfield>
                                 <s:hidden name="id" value="%{usuario.getId()}"></s:hidden>
-                                <s:submit name="btnEnviar" value="Enviar"></s:submit>
+                                <s:submit cssClass="ui green button" name="btnEnviar" value="Enviar"></s:submit>
                             </s:form>
                         </div>
 

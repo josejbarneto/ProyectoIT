@@ -35,27 +35,27 @@
 
                         <%-- Si eres el organizador o admin puedes editar-eliminar --%>
                         <s:if test="%{#session.usuario!=null && #session.usuario.rol!=2}">
-                            <s:form action="redirigirAEditarEvento" theme="simple">
+                            <s:form action="redirigirAEditarEvento">
                                 <s:hidden name="idEvento" value="%{evento.getId()}" ></s:hidden>
-                                <s:submit cssClass="ui basic blue right floated button" name="btnEditar" value="Editar"></s:submit>
+                                <s:submit cssClass="ui blue right floated button" name="btnEditar" value="Editar"></s:submit>
                             </s:form>
 
-                            <s:form action="redirigirACrearOferta" theme="simple">
+                            <s:form action="redirigirACrearOferta">
                                 <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
-                                <s:submit cssClass="ui basic yellow button" name="btnCrearOferta" value="Crear oferta"></s:submit>
+                                <s:submit cssClass="ui yellow button" name="btnCrearOferta" value="Crear oferta"></s:submit>
                             </s:form>
 
-                            <s:form action="accionEliminarEvento" theme="simple">
+                            <s:form action="accionEliminarEvento">
                                 <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
-                                <s:submit cssClass="ui basic red button" name="btnEliminar" value="Eliminar"></s:submit>
+                                <s:submit cssClass="ui red button" name="btnEliminar" value="Eliminar"></s:submit>
                             </s:form>
                         </s:if>
                         <s:if test="%{#session.usuario!=null}">
                             <%-- Si eres comprador compras o admin puedes editar-eliminar --%>
-                            <s:form action="redirigirACrearEntrada" cssClass="ui form">
-                                <s:textfield name="numEntradas" label="Numero de entradas"></s:textfield>
+                            <s:form action="redirigirACrearEntrada" cssClass="ui form" style="margin-top: 30px;">
+                                <s:textfield name="numEntradas" label="Numero de entradas "></s:textfield>
                                 <s:hidden name="idEvento" value="%{evento.getId()}"></s:hidden>
-                                <s:submit cssClass="ui basic green button" name="btnComprarEntradas" value="Comprar entradas"></s:submit>
+                                <s:submit cssClass="ui green button" name="btnComprarEntradas" value="Comprar entradas"></s:submit>
                             </s:form> 
                         </s:if>
                     </div>

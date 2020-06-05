@@ -28,12 +28,12 @@
                         <s:if test="%{#session.usuario!=null && #session.usuario.rol!=2}">
                             <s:form action="redirigirAEditarAnuncio">
                                 <s:hidden name="idAnuncio" value="%{anuncio.getId()}" ></s:hidden>
-                                <s:submit cssClass="ui basic blue button" name="btnEditar" value="Editar"></s:submit>
+                                <s:submit cssClass="ui blue button" name="btnEditar" value="Editar"></s:submit>
                             </s:form>
 
                             <s:form action="accionEliminarAnuncio">
                                 <s:hidden name="idAnuncio" value="%{anuncio.getId()}"></s:hidden>
-                                <s:submit cssClass="ui basic red button" name="btnEliminar" value="Eliminar"></s:submit>
+                                <s:submit cssClass="ui red button" name="btnEliminar" value="Eliminar"></s:submit>
                             </s:form>
                         </s:if>
                     </div>

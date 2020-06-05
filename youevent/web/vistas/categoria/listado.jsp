@@ -31,7 +31,7 @@
                                         <td>
                                             <s:form action="redirigirAMostrarCategoria">
                                                 <s:hidden name="idCategoria" value="%{#categoria.getId()}"></s:hidden>
-                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui basic green button"></s:submit>
+                                                <s:submit name="btnMostrar" value="Mostrar" cssClass="ui green button"></s:submit>
                                             </s:form>
                                         </td>
                                     </tr>

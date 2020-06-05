@@ -22,9 +22,6 @@
                             <s:submit cssClass="ui green button" name="btnEnviar" value="Enviar"></s:submit>
                         </s:form>
                         
-                        <s:form action="redirigirAListarAnuncio" method="post">
-                    <s:submit name="btnListarAnuncio" value="Listar Anuncio"></s:submit>
-                </s:form>
                     </div>
                 </div>
                 

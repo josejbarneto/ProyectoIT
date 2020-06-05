@@ -30,35 +30,35 @@
                     <div class="ui segment">
                         <div class="ui form"> 
 
-                            
-                                <s:textfield name="nombre" label="Nombre" value="%{usuario.getNombre()}"></s:textfield>
-                                <s:textfield name="rol" label="Rol" value="%{usuario.getRol()}"></s:textfield>
-                                <s:textfield name="us" label="Usuario" value="%{usuario.getUsuario()}"></s:textfield>
-                                <s:textfield name="contrasenya" label="Contraseña" value="%{usuario.getContrasenya()}"></s:textfield>
-                                <s:textfield name="email" label="Correo" value="%{usuario.getEmail()}"></s:textfield>
 
-            <br/>
+                            <s:textfield name="nombre" label="Nombre" value="%{usuario.getNombre()}"></s:textfield>
+                            <s:textfield name="rol" label="Rol" value="%{usuario.getRol()}"></s:textfield>
+                            <s:textfield name="us" label="Usuario" value="%{usuario.getUsuario()}"></s:textfield>
+                            <s:textfield name="contrasenya" label="Contraseña" value="%{usuario.getContrasenya()}"></s:textfield>
+                            <s:textfield name="email" label="Correo" value="%{usuario.getEmail()}"></s:textfield>
 
-        <s:if test="%{#session.usuario.getRol()==0}">
-        <s:form action="redirigirAEditarUsuario">
-            <s:hidden name="idUsuario" value="%{usuario.getId()}" ></s:hidden>
-            <s:submit name="btnEditar" value="Editar" cssClass="ui basic blue button"></s:submit>
-        </s:form>
+                                <br/>
 
-        <s:form action="accionEliminarUsuario">
-            <s:hidden name="idUsuario" value="%{usuario.getId()}"></s:hidden>
-            <s:submit name="btnBorrar" value="Eliminar" cssClass="ui basic red button"></s:submit>
-        </s:form>
-        </s:if>
+                            <s:if test="%{#session.usuario.getRol()==0}">
+                                <s:form action="redirigirAEditarUsuario">
+                                    <s:hidden name="idUsuario" value="%{usuario.getId()}" ></s:hidden>
+                                    <s:submit name="btnEditar" value="Editar" cssClass="ui blue button"></s:submit>
+                                </s:form>
+
+                                <s:form action="accionEliminarUsuario">
+                                    <s:hidden name="idUsuario" value="%{usuario.getId()}"></s:hidden>
+                                    <s:submit name="btnBorrar" value="Eliminar" cssClass="ui red button"></s:submit>
+                                </s:form>
+                            </s:if>
+                        </div>
+
                     </div>
 
+                    <aside class="ui four wide column">
+                        <%-- OFERTAS/ANUNCIOS --%>
+                    </aside>
                 </div>
-
-                <aside class="ui four wide column">
-                    <%-- OFERTAS/ANUNCIOS --%>
-                </aside>
             </div>
-        </div>
-        <%@include file="/vistas/footer.html" %>
+            <%@include file="/vistas/footer.html" %>
     </body>
 </html>

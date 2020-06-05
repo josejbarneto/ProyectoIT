@@ -20,7 +20,7 @@
             <s:textfield name="nombre" label="Nombre " value="%{categoria.getNombre()}"></s:textfield>
             <s:textfield name="descripcion" label="Descripcion" value="%{categoria.getDescripcion()}"></s:textfield>   
             <s:hidden name="id" value="%{categoria.getId()}"></s:hidden>
-            <s:submit name="btnEnviar" value="Enviar"></s:submit>
+            <s:submit cssClass="ui basic green button" name="btnEnviar" value="Enviar"></s:submit>
         </s:form>
                         </div>
 

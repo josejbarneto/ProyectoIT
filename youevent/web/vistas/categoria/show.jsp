@@ -25,12 +25,12 @@
                         <s:if test="%{#session.usuario!=null && #session.usuario.rol!=2}">
                         <s:form action="redirigirAEditarCategoria" theme="simple">
                             <s:hidden name="idEvento" value="%{categoria.getId()}" ></s:hidden>
-                            <s:submit name="btnEditar" value="Editar" cssClass="ui basic blue right floated button"></s:submit>
+                            <s:submit name="btnEditar" value="Editar" cssClass="ui blue right floated button"></s:submit>
                         </s:form>
 
                         <s:form action="accionEliminarCategoria" theme="simple">
                             <s:hidden name="idCategoria" value="%{categoria.getId()}"></s:hidden>
-                            <s:submit name="btnEliminar" value="Eliminar" cssClass="ui basic red button"></s:submit>
+                            <s:submit name="btnEliminar" value="Eliminar" cssClass="ui red button"></s:submit>
                         </s:form>
                         </s:if>
                     </div>

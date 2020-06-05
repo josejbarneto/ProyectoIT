@@ -24,7 +24,7 @@
             <s:textfield name="precio" label="Precio" value="%{evento.getPrecio()}"></s:textfield>  
             <s:textfield name="fecha" label="Fecha" value="%{evento.getFecha()}"></s:textfield> 
             <s:hidden name="id" value="%{evento.getId()}"></s:hidden>
-            <s:submit name="btnEnviar" value="Enviar"></s:submit>
+            <s:submit cssClass="ui green button" name="btnEnviar" value="Enviar"></s:submit>
         </s:form>
                         </div>
 

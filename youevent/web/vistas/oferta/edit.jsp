@@ -21,7 +21,7 @@
                                 <s:textfield name="fechainicio" label="Fecha inicio" value="%{oferta.getTInicio()}"></s:textfield>
                                 <s:textfield name="fechafin" label="Fecha fin" value="%{oferta.getTFin()}"></s:textfield>
                                 <s:hidden name="idOferta" value="%{oferta.getId()}"></s:hidden>
-                                <s:submit cssClass="ui basic green button" name="btnEditar" value="Editar"></s:submit>
+                                <s:submit cssClass="ui green button" name="btnEditar" value="Editar"></s:submit>
                             </s:form>
                         </div>
 

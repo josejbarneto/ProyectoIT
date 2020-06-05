@@ -29,11 +29,11 @@
                 <s:if test="%{#session.usuario!=null && #session.usuario.rol!=2}">
                 <s:form action="redirigirAEditarAnunciante">
                     <s:hidden name="idAnunciante" value="%{anunciante.getId()}" ></s:hidden>
-                    <s:submit name="btnEditar" value="Editar"></s:submit>
+                    <s:submit cssClass="uis blue button" name="btnEditar" value="Editar"></s:submit>
                 </s:form>
                 <s:form action="accionEliminarAnunciante">
                     <s:hidden name="idAnunciante" value="%{anunciante.getId()}"></s:hidden>
-                    <s:submit name="btnEliminar" value="Eliminar"></s:submit>
+                    <s:submit cssClass="ui red button" name="btnEliminar" value="Eliminar"></s:submit>
                 </s:form>
                 </s:if>
             </div>
