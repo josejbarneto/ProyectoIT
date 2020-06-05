@@ -5,6 +5,7 @@
  */
 package acciones;
 
+
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
@@ -30,10 +31,13 @@ public class accionLogout extends ActionSupport implements SessionAware{
     }
     
     public String execute() throws Exception {
-        if (session.containsKey("usuario")) {
-            session.remove("usuario");
+        if (session instanceof org.apache.struts2.dispatcher.SessionMap) {
+            try {
+                ((org.apache.struts2.dispatcher.SessionMap) session).invalidate();
+            } catch (IllegalStateException e) {
+                return ERROR;
+            }
         }
-        session.clear();
         return SUCCESS;
     }
     

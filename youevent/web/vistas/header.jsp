@@ -1,6 +1,6 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <nav class="ui fixed menu">
-    <a class="item">
+    <a class="item" href="/youevent">
         <img src="/youevent/img/YOUEVENT.png" style="width: 70px;">
     </a>
     <a href="youevent/vistas/redirigirAListarEvento.action" class="item"><i class="glass cheers icon"></i>Eventos</a>

@@ -49,9 +49,6 @@
                         </table>
                     </div>
                 </div>
-                <aside class="ui four wide column">
-
-                </aside>
             </div>
         </div>
         <%@include file="/vistas/footer.html" %>

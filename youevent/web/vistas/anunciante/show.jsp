@@ -26,6 +26,7 @@
                     <br/>
                 </s:iterator>
 
+                <s:if test="%{#session.usuario!=null && #session.usuario.rol!=2}">
                 <s:form action="redirigirAEditarAnunciante">
                     <s:hidden name="idAnunciante" value="%{anunciante.getId()}" ></s:hidden>
                     <s:submit name="btnEditar" value="Editar"></s:submit>
@@ -34,6 +35,7 @@
                     <s:hidden name="idAnunciante" value="%{anunciante.getId()}"></s:hidden>
                     <s:submit name="btnEliminar" value="Eliminar"></s:submit>
                 </s:form>
+                </s:if>
             </div>
         </div>
 

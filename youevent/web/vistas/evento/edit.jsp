@@ -33,7 +33,7 @@
                 </div>
 
                 <aside class="ui four wide column">
-                    <%-- OFERTAS/ANUNCIOS --%>
+                    <%@include file="/vistas/aside.jsp" %>
                 </aside>
             </div>
         </div>

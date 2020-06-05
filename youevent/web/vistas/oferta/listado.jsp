@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <aside class="ui four wide column">
-
+                    <%@include file="/vistas/aside.jsp" %>
                 </aside>
             </div>
         </div>

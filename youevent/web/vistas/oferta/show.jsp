@@ -22,16 +22,19 @@
                             <s:textfield name="fechafin" label="Fecha fin de la oferta" value="%{oferta.getTFin()}" readonly="true"></s:textfield>
                             </div>
                             <br/>
+                            
+                        <s:if test="%{#session.usuario!=null && #session.usuario.rol!=2}">
                         <s:form action="redirigirAEditarOferta" cssClass="ui form">
                             <s:hidden name="idOferta" value="%{oferta.getId()}" ></s:hidden>
                             <s:submit name="btnEditar" value="Editar" cssClass="ui basic green button"></s:submit>
                         </s:form>
+                        </s:if>
                     </div>
 
                 </div>
 
                 <aside class="ui four wide column">
-                    <%-- OFERTAS/ANUNCIOS --%>
+                    <%@include file="/vistas/aside.jsp" %>
                 </aside>
             </div>
         </div>

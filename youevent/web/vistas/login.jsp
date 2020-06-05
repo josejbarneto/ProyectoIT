@@ -12,7 +12,7 @@
     <body>
         <div id="main-grid" class="ui middle aligned center aligned grid">
             <div id="main-column" class="column">
-                <a class="ui image header" href="/youevent/vistas/inicio.jsp">
+                <a class="ui image header" href="/youevent">
                     <img src="/youevent/img/YOUEVENT.png" class="image">
                 </a>
                 <s:form action="comprobarLogin" cssClass="ui form" theme="simple">

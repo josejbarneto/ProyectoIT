@@ -22,6 +22,7 @@
                             </div>
                             <br/>
 
+                        <s:if test="%{#session.usuario!=null && #session.usuario.rol!=2}">
                         <s:form action="redirigirAEditarCategoria" theme="simple">
                             <s:hidden name="idEvento" value="%{categoria.getId()}" ></s:hidden>
                             <s:submit name="btnEditar" value="Editar" cssClass="ui basic blue right floated button"></s:submit>
@@ -31,10 +32,11 @@
                             <s:hidden name="idCategoria" value="%{categoria.getId()}"></s:hidden>
                             <s:submit name="btnEliminar" value="Eliminar" cssClass="ui basic red button"></s:submit>
                         </s:form>
+                        </s:if>
                     </div>
                 </div>
                 <aside class="ui four wide column">
-                    <%-- OFERTAS/ANUNCIOS --%>
+                    <%@include file="/vistas/aside.jsp" %>
                 </aside>
             </div>
         </div>
