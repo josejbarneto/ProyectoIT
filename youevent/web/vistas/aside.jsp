@@ -5,19 +5,14 @@
             <thead>
                 <tr>
                     <th>Contenido</th>
-                    <th></th>
+                    <th>Anunciante</th>
                 </tr>
             </thead>
             <tbody>
             <s:iterator value="#session.listaAnuncios" var="anuncio">
                 <tr>
                     <td><s:property value="contenido" /></td>
-                <td>
-                <s:form action="redirigirAMostrarAnuncio">
-                    <s:hidden name="idAnuncio" value="%{#anuncio.getId()}"></s:hidden>
-                    <s:submit cssClass="ui yellow button" name="btnMostrar" value="Mostrar"></s:submit>
-                </s:form>
-                </td>
+                    <td><s:property value="anunciante.getNombre()" /></td>
                 </tr>
             </s:iterator>
             </tbody>

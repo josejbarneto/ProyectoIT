@@ -55,7 +55,7 @@ public class accionLogin extends ActionSupport implements SessionAware {
             Usuario usuario2 = ctDAO.compruebaClaveTemporal(this.usuario, this.password);
 
             if (usuario2 != null) {
-                session.put("usuario", usuario);
+                session.put("usuario", usuario2);
                 return SUCCESS;
             }
 
